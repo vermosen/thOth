@@ -1,16 +1,17 @@
-#pragma once
+#ifndef thoth_portfolio_hpp
+#define thoth_portfolio_hpp
 
 #include <vector>
 
-#include "thOth/pattern/observer.h"
-#include "thOth/pattern/observable.h"
-#include "thOth/strategy.h"
-#include "thOth/trade.h"
+#include <thOth/pattern/observer.hpp>
+#include <thOth/pattern/observable.hpp>
+#include <thOth/strategy.h>
+#include <thOth/trade.hpp>
 
 namespace thOth {
 
 	// portfolio of trades, gather different 
-	// trades. Could be turned into Lazyobject ?
+	// trades. Should be turned into Lazyobject ?
 	// should portfolio contains trades or strategies ?
 	// could observe strategies and contain the trades...
 	class portfolio : public observer,
@@ -32,3 +33,5 @@ namespace thOth {
 	};
 
 }
+
+#endif

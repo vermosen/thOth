@@ -87,11 +87,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="thOth\pattern\acyclicVisitor.h" />
-    <ClInclude Include="thOth\pattern\lazyObject.h" />
-    <ClInclude Include="thOth\pattern\observable.h" />
-    <ClInclude Include="thOth\pattern\observer.h" />
-    <ClInclude Include="thOth\pattern\visitor.h" />
+    <ClInclude Include="thOth\math\optimization\problem.hpp" />
+    <ClInclude Include="thOth\pattern\acyclicVisitor.hpp" />
+    <ClInclude Include="thOth\pattern\lazyObject.hpp" />
+    <ClInclude Include="thOth\pattern\observable.hpp" />
+    <ClInclude Include="thOth\pattern\observer.hpp" />
+    <ClInclude Include="thOth\pattern\visitor.hpp" />
     <ClInclude Include="thOth\pnlCalculator.h" />
     <ClInclude Include="thOth\portfolio.h" />
     <ClInclude Include="thOth\quote\quote.h" />
@@ -100,8 +101,8 @@
     <ClInclude Include="thOth\time\DateTime.h" />
     <ClInclude Include="thOth\time\occurence.h" />
     <ClInclude Include="thOth\time\TimeSeries.h" />
-    <ClInclude Include="thOth\trade.h" />
-    <ClInclude Include="thOth\types.h" />
+    <ClInclude Include="thOth\trade.hpp" />
+    <ClInclude Include="thOth\types.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="thOth\pattern\lazyObject.cpp" />

@@ -24,7 +24,7 @@ namespace thOth {
 		~TimeSeries<T>() {};													// destructor
 		TimeSeries<T> & operator =(const TimeSeries<T> &);						// assignement operator
 
-		template <class DateIterator, class ValueIterator>						// ctor with iterators
+		template <class DateIterator, class ValueIterator>						// ctor using iterators
 		TimeSeries<T>(DateIterator dBegin, DateIterator dEnd,
 			ValueIterator vBegin) {
 
@@ -53,4 +53,5 @@ namespace thOth {
 		return *this;
 
 	}
+
 }

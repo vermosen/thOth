@@ -1,4 +1,4 @@
-#include "thOth/trade.h"
+#include <thOth/trade.hpp>
 
 namespace thOth{
 

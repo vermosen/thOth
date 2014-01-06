@@ -1,6 +1,6 @@
 #include "thOth/time/occurence.h"
-#include "thOth/pattern/acyclicVisitor.h"
-#include "thOth/pattern/visitor.h"
+#include <thOth/pattern/acyclicVisitor.hpp>
+#include <thOth/pattern/visitor.hpp>
 
 namespace thOth {
 

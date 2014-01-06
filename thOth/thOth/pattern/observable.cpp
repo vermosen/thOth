@@ -1,6 +1,6 @@
 
-#include "thOth/pattern/observable.h"
-#include "thOth/pattern/observer.h"
+#include "thOth/pattern/observable.hpp"
+#include "thOth/pattern/observer.hpp"
 
 namespace thOth {
 

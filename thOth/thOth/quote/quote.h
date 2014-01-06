@@ -1,7 +1,7 @@
-#ifndef THOTH_QUOTE
-#define THOTH_QUOTE
+#ifndef thoth_quote_hpp
+#define thoth_quote_hpp
 
-#include "thOth\pattern\observable.h"
+#include <thOth\pattern\observable.hpp>
 
 namespace thOth {
 

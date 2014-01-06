@@ -1,8 +1,9 @@
-#pragma once
+#ifndef thoth_occurence_hpp
+#define thoth_occurence_hpp
 
 #include <boost/optional.hpp>
-#include "thOth/pattern/observable.h"
-#include "thOth/time/dateTime.h"
+#include <thOth/pattern/observable.hpp>
+#include <thOth/time/dateTime.h>
 
 namespace thOth {
 
@@ -50,4 +51,6 @@ namespace thOth {
 #endif
 
 }
+
+#endif
 

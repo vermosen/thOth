@@ -1,5 +1,5 @@
 
-#include "thOth/pattern/lazyObject.h"
+#include "thOth/pattern/lazyObject.hpp"
 
 namespace thOth {
 
