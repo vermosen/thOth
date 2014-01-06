@@ -1,7 +1,9 @@
-#pragma once
+#ifndef thoth_pnl_calculator_hpp
+#define thoth_pnl_calculator_hpp
+
 #include <vector>
-#include "thOth/portfolio.h"
-#include "thOth/time/TimeSeries.h"
+#include <thOth/portfolio.h>
+#include <thOth/time/TimeSeries.h>
 
 namespace thOth {
 
@@ -32,3 +34,5 @@ namespace thOth {
 	};
 
 }
+
+#endif

@@ -1,5 +1,5 @@
 
-#include "thOth/pnlCalculator.h"
+#include <thOth/pnlCalculator.hpp>
 
 namespace thOth{
 

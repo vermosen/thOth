@@ -226,19 +226,19 @@ int CBackTestTradeMFCFormView::OnCreate(LPCREATESTRUCT lpCreateStruct) {
 
 void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 
-	// test 1 
+	// test 1 : db request and build a time series object
 	CTABLE_QUOTE *rs = new CTABLE_QUOTE(m_db);											// Create a recordset
 
 	std::vector<thOth::dateTime> dates;
 	std::vector<thOth::quoteDetails> quotes;
-	std::wstring reqStr;															// SQL request
+	std::wstring reqStr;																// SQL request
 	reqStr.append(_T("SELECT * FROM TABLE_QUOTE WHERE(QUOTE_TIME >= '"));
 	reqStr.append(_T("2013-Oct-25 10:00:00.000"));
 	reqStr.append(_T("' AND QUOTE_TIME < '"));
 	reqStr.append(_T("2013-Oct-25 10:30:00.000"));
 	reqStr.append(_T("')"));
 
-	rs->Open(CRecordset::forwardOnly, reqStr.c_str());								// request
+	rs->Open(CRecordset::forwardOnly, reqStr.c_str());									// request
 
 	if (rs->IsBOF()) {
 
@@ -252,12 +252,10 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 	else {
 
 		while (!rs->IsEOF()) {
-
-			dates.push_back(rs->getQuoteDateTime());
-			quotes.push_back(rs->getQuoteDetails());
-			//																		// first fills the vectors
-			//ts.insert(std::pair<thOth::dateTime, thOth::Quote>(							// fill the TS object
-			//	rs->getQuoteDateTime(), rs->getQuoteDetails()));
+					
+			m_timeSeries->insert(														// fill the TS object
+				std::pair<thOth::dateTime, thOth::quoteDetails>(					
+				rs->getQuoteDateTime(), rs->getQuoteDetails()));
 
 			rs->MoveNext();
 
@@ -267,20 +265,15 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 
 	delete rs;
 
-	thOth::TimeSeries<thOth::quoteDetails> ts(
-		dates.cbegin(),
-		dates.cend(),
-		quotes.cbegin());
-
 	for (thOth::TimeSeries<thOth::quoteDetails>::const_iterator It
-		= ts.cbegin(); It != ts.cend(); It++) {
+		= m_timeSeries->cbegin(); It != m_timeSeries->cend(); It++) {
 	
 		thOth::quoteDetails test = It->second;
 		float quoteVal = test.QUOTE_VALUE;
 	
 	}
 
-	// test 2
+	// test 2 : create a portfolio of simple strategies related to the ts
 	thOth::portfolio port;
 
 	// default ctor-> current time

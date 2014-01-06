@@ -1,5 +1,4 @@
-
-#include "thOth/quote/quote.h"
+#include <thOth/quote/quote.hpp>
 
 namespace thOth {
 

@@ -87,15 +87,18 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="thOth\math\optimization\constraint.hpp" />
+    <ClInclude Include="thOth\math\optimization\costFunction.hpp" />
+    <ClInclude Include="thOth\math\optimization\method.hpp" />
     <ClInclude Include="thOth\math\optimization\problem.hpp" />
     <ClInclude Include="thOth\pattern\acyclicVisitor.hpp" />
     <ClInclude Include="thOth\pattern\lazyObject.hpp" />
     <ClInclude Include="thOth\pattern\observable.hpp" />
     <ClInclude Include="thOth\pattern\observer.hpp" />
     <ClInclude Include="thOth\pattern\visitor.hpp" />
-    <ClInclude Include="thOth\pnlCalculator.h" />
+    <ClInclude Include="thOth\pnlCalculator.hpp" />
     <ClInclude Include="thOth\portfolio.h" />
-    <ClInclude Include="thOth\quote\quote.h" />
+    <ClInclude Include="thOth\quote\quote.hpp" />
     <ClInclude Include="thOth\strategy.h" />
     <ClInclude Include="thOth\strategy\marketOrder.h" />
     <ClInclude Include="thOth\time\DateTime.h" />

@@ -19,9 +19,8 @@ namespace thOth {
 
 			virtual dateTime date() const = 0;		// returns the implementation date
 
-			//virtual 
-
 		protected:
+
 			strategy();								// default constructor is private
 			dateTime implDate_;
 
