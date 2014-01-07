@@ -29,13 +29,21 @@ namespace thOth {
 		dateTime(const dateTime &);
 		dateTime(const boost::posix_time::ptime &);
 
-		dateTime(Years, Months, Days,												// additional ctor
+		dateTime(Years, Months, Days,												// additional Constructor
 			boost::posix_time::time_duration
 
 #ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
 			= NanoSeconds(0));
 #else
 			= MicroSeconds(0));
+#endif
+
+		dateTime(Years, Months, Days, Hours, Minutes, Seconds,						// additional Constructor
+
+#ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
+		NanoSeconds);
+#else
+		MicroSeconds);
 #endif
 
 		virtual ~dateTime();														// destructor

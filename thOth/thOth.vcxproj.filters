@@ -27,15 +27,6 @@
     <ClInclude Include="thOth\time\DateTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thOth\time\occurence.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\time\TimeSeries.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\strategy\marketOrder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thOth\math\optimization\problem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -73,6 +64,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thOth\pnlCalculator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\time\occurence.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\strategy\marketOrder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\time\TimeSeries.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

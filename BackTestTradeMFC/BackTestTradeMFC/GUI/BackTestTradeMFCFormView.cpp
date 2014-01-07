@@ -6,8 +6,8 @@
 
 #include "GUI/BackTestTradeMFCFormView.h"
 
-#include "thOth/portfolio.h"
-#include "thOth/strategy/marketOrder.h"
+#include <thOth/portfolio.h>
+#include <thOth/strategy/marketOrder.hpp>
 
 #include <boost/lexical_cast.hpp>
 
@@ -276,9 +276,9 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 	// test 2 : create a portfolio of simple strategies related to the ts
 	thOth::portfolio port;
 
-	// default ctor-> current time
-	port.push_back(boost::shared_ptr<thOth::strategy>(
-		new thOth::marketOrder));
+	port.push_back(boost::shared_ptr<thOth::strategy>(									// first trade buy 100 at 10:02
+		new thOth::marketOrder(thOth::dateTime(2013, 10, 25,
+			boost::posix_time::time_duration(10, 2, 0, 0)))));
 
 	// trade on May the 5th at 15:30:12
 	port.push_back(boost::shared_ptr<thOth::strategy>(

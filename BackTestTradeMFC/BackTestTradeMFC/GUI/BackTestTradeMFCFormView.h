@@ -1,6 +1,6 @@
 #pragma once
 #include "afxwin.h"
-#include <thOth/time/timeseries.h>
+#include <thOth/time/timeseries.hpp>
 #include "DataBase/Recordset/TABLE_QUOTE.h"
 #include "afxdtctl.h"
 #include "conversions/DateTime/DateTime.h"

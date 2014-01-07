@@ -1,4 +1,4 @@
-#include "thOth/time/occurence.h"
+#include <thOth/time/occurence.hpp>
 #include <thOth/pattern/acyclicVisitor.hpp>
 #include <thOth/pattern/visitor.hpp>
 

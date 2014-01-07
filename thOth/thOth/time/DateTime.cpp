@@ -16,6 +16,18 @@ namespace thOth {
 	dateTime::dateTime(
 		const boost::posix_time::ptime & pt) : ptime(pt) {}
 
+	dateTime::dateTime(Years y, Months m, Days d,										// additional Constructor
+		Hours H, Minutes M, Seconds S,
+
+#ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
+		NanoSeconds F)
+#else
+		MicroSeconds F)
+#endif
+
+		: ptime(boost::gregorian::date(y, m, d),
+			boost::posix_time::time_duration(H, M, S, F)) {};
+
 	dateTime::~dateTime(){}
 
 	dateTime & dateTime::operator = (const dateTime &dt){

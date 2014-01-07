@@ -100,10 +100,10 @@
     <ClInclude Include="thOth\portfolio.h" />
     <ClInclude Include="thOth\quote\quote.hpp" />
     <ClInclude Include="thOth\strategy.h" />
-    <ClInclude Include="thOth\strategy\marketOrder.h" />
+    <ClInclude Include="thOth\strategy\marketOrder.hpp" />
     <ClInclude Include="thOth\time\DateTime.h" />
-    <ClInclude Include="thOth\time\occurence.h" />
-    <ClInclude Include="thOth\time\TimeSeries.h" />
+    <ClInclude Include="thOth\time\occurence.hpp" />
+    <ClInclude Include="thOth\time\TimeSeries.hpp" />
     <ClInclude Include="thOth\trade.hpp" />
     <ClInclude Include="thOth\types.hpp" />
   </ItemGroup>

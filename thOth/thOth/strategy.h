@@ -1,6 +1,6 @@
 #pragma once
 
-#include "thOth/time/occurence.h"
+#include <thOth/time/occurence.hpp>
 
 namespace thOth {
 
