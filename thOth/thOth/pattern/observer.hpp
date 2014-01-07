@@ -23,7 +23,7 @@ namespace thOth {
 		// interface
 		std::pair<std::set<boost::shared_ptr<observable> >::iterator, bool>
 			registerWith(const boost::shared_ptr<observable>&);
-		Size unregisterWith(const boost::shared_ptr<observable>&);
+		size unregisterWith(const boost::shared_ptr<observable>&);
 
 		/*! This method must be implemented in derived classes. An
 		instance of %Observer does not call this method directly:

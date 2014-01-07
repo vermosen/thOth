@@ -276,14 +276,15 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 	// test 2 : create a portfolio of simple strategies related to the ts
 	thOth::portfolio port;
 
-	port.push_back(boost::shared_ptr<thOth::strategy>(									// first trade buy 100 at 10:02
-		new thOth::marketOrder(thOth::dateTime(2013, 10, 25,
-			boost::posix_time::time_duration(10, 2, 0, 0)))));
+	port.push_back(boost::shared_ptr<thOth::strategy>(									// buy 100 on May the 5th at 10:02:00
+		new thOth::marketOrder(
+			thOth::dateTime(2013, 10, 25, boost::posix_time::time_duration(10, 2, 0, 0)),
+			100, thOth::marketSide::ask)));
 
-	// trade on May the 5th at 15:30:12
-	port.push_back(boost::shared_ptr<thOth::strategy>(
-		new thOth::marketOrder(thOth::dateTime(2014, 5, 5,
-			boost::posix_time::time_duration(15, 30, 12, 0)))));
+	port.push_back(boost::shared_ptr<thOth::strategy>(									// sell 100 on May the 5th at 10:04:00
+		new thOth::marketOrder(
+			thOth::dateTime(2014, 5, 5, boost::posix_time::time_duration(10, 4, 0, 0)),
+			100, thOth::marketSide::bid)));
 
 }
 

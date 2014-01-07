@@ -99,7 +99,7 @@
     <ClInclude Include="thOth\pnlCalculator.hpp" />
     <ClInclude Include="thOth\portfolio.h" />
     <ClInclude Include="thOth\quote\quote.hpp" />
-    <ClInclude Include="thOth\strategy.h" />
+    <ClInclude Include="thOth\strategy.hpp" />
     <ClInclude Include="thOth\strategy\marketOrder.hpp" />
     <ClInclude Include="thOth\time\DateTime.h" />
     <ClInclude Include="thOth\time\occurence.hpp" />

@@ -1,5 +1,4 @@
-
-#include "thOth/strategy.h"
+#include <thOth/strategy.hpp>
 
 namespace thOth {
 

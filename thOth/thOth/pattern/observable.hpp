@@ -30,7 +30,7 @@ namespace thOth {
 
 		typedef std::set<observer*>::iterator iterator;
 		std::pair<iterator, bool> registerObserver(observer*);
-		Size unregisterObserver(observer*);
+		size unregisterObserver(observer*);
 		std::set<observer*> observers_;									// observers
 	
 	};

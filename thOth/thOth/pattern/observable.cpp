@@ -34,7 +34,7 @@ namespace thOth {
 	
 	}
 
-	Size observable::unregisterObserver(observer* o) {
+	size observable::unregisterObserver(observer* o) {
 	
 		return observers_.erase(o);
 	

@@ -20,13 +20,16 @@ namespace thOth {
 		Hours H, Minutes M, Seconds S,
 
 #ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
+
 		NanoSeconds F)
+
 #else
+
 		MicroSeconds F)
+
 #endif
 
-		: ptime(boost::gregorian::date(y, m, d),
-			boost::posix_time::time_duration(H, M, S, F)) {};
+		: ptime(boost::gregorian::date(y, m, d), H + M + S + F) {};
 
 	dateTime::~dateTime(){}
 

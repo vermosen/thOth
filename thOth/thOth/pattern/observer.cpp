@@ -48,7 +48,7 @@ namespace thOth {
 		
 		}
 
-	Size observer::unregisterWith(const boost::shared_ptr<observable>& h) {
+	size observer::unregisterWith(const boost::shared_ptr<observable>& h) {
 		
 		if (h)
 			h->unregisterObserver(this);

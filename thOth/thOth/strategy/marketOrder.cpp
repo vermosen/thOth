@@ -3,7 +3,9 @@
 namespace thOth {
 
 	marketOrder::marketOrder() : strategy(dateTime::currentTime()) {}
-	marketOrder::marketOrder(const dateTime & implDate) : strategy(implDate) {}
+	marketOrder::marketOrder(const dateTime & implDate,
+							 const volume & vol,
+							 const marketSide & side) : strategy(implDate) {}
 	marketOrder::~marketOrder() {}
 	marketOrder & marketOrder::operator = (const marketOrder & tr) {
 	

@@ -17,7 +17,7 @@ namespace thOth {
 		trade & operator =(const trade &);	// assignement operator
 
 		dateTime tradeDate_;
-		Size     quantity_;
+		volume   quantity_;
 		double   price_;
 
 

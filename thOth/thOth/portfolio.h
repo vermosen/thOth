@@ -5,7 +5,7 @@
 
 #include <thOth/pattern/observer.hpp>
 #include <thOth/pattern/observable.hpp>
-#include <thOth/strategy.h>
+#include <thOth/strategy.hpp>
 #include <thOth/trade.hpp>
 
 namespace thOth {

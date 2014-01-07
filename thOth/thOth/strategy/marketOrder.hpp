@@ -1,6 +1,7 @@
-#pragma once
+#ifndef thoth_market_order_hpp
+#define thoth_market_order_hpp
 
-#include "thOth/strategy.h"
+#include <thOth/strategy.hpp>
 
 namespace thOth {
 
@@ -12,7 +13,11 @@ namespace thOth {
 
 		marketOrder();									// default constructor
 		marketOrder(const marketOrder &);				// copy constructor
-		marketOrder(const dateTime & dt);				// value constructor
+
+		marketOrder(const dateTime &,					// value constructor
+					const volume &,
+					const marketSide &);
+
 		~marketOrder();									// destructor
 		marketOrder & operator=(const marketOrder &);	// assignement operator
 
@@ -23,3 +28,5 @@ namespace thOth {
 	};
 
 }
+
+#endif
