@@ -23,8 +23,9 @@ namespace thOth {
 
 		virtual dateTime date() const;					// returns the implementation date
 
-		virtual std::vector<boost::shared_ptr<trade> > trades() const;
-														// returns the trades associated to the strategy
+
+		// lazyObject Interface
+		void performCalculations();
 
 	protected:
 

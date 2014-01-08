@@ -2,7 +2,7 @@
 #define thoth_pnl_calculator_hpp
 
 #include <vector>
-#include <thOth/portfolio.h>
+#include <thOth/portfolio.hpp>
 #include <thOth/time/TimeSeries.hpp>
 
 namespace thOth {

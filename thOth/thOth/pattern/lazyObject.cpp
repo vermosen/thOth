@@ -79,7 +79,7 @@ namespace thOth {
 		}
 	}
 
-	void lazyObject::calculate() const {
+	void lazyObject::calculate() {
 		if (!calculated_ && !frozen_) {
 			calculated_ = true;   // prevent infinite recursion in
 			// case of bootstrapping

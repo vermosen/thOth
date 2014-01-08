@@ -26,13 +26,13 @@ namespace thOth {
 
 		// This method performs all needed calculations by calling
 		// the <i><b>performCalculations</b></i> method.
-		virtual void calculate() const;
+		virtual void calculate();
 		
 		// This method must implement any calculations which must be
 		// (re)done in order to calculate the desired results.
-		virtual void performCalculations() const = 0;
+		virtual void performCalculations() = 0;
 
-		mutable bool calculated_, frozen_;
+		bool calculated_, frozen_;
 
 	};
 

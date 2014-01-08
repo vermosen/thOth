@@ -25,4 +25,10 @@ namespace thOth {
 	
 	}
 
+	void marketOrder::performCalculations() {
+	
+		
+	
+	}
+
 }

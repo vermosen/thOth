@@ -29,4 +29,19 @@ namespace thOth {
 		return * this;
 	}
 
+	std::vector<boost::shared_ptr<trade> > strategy::trades() const {
+		
+		return trades_; 
+	
+	}
+
+	void strategy::calculate() {
+
+		// could need to do other stuff here...
+		lazyObject::calculate();
+
+	}
+
+
+
 }
