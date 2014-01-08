@@ -1,4 +1,5 @@
-#pragma once
+#ifndef thoth_data_time_hpp
+#define thoth_data_time_hpp
 
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/date_time/posix_time/posix_time_types.hpp>
@@ -71,3 +72,4 @@ namespace thOth {
 
 }
 
+#endif

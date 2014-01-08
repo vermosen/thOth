@@ -1,6 +1,6 @@
 #pragma once
 
-#include "thOth/time/dateTime.h"
+#include <thOth/time/dateTime.hpp>
 
 #include <boost/optional.hpp>
 #include <boost/iterator/transform_iterator.hpp>

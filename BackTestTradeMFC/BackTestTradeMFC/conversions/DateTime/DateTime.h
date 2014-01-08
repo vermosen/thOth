@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-#include <thOth/time/DateTime.h>
+#include <thOth/time/DateTime.hpp>
 
 // conversion functions for MFC
 namespace thOth{

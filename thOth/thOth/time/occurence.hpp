@@ -3,7 +3,7 @@
 
 #include <boost/optional.hpp>
 #include <thOth/pattern/observable.hpp>
-#include <thOth/time/dateTime.h>
+#include <thOth/time/dateTime.hpp>
 
 namespace thOth {
 
