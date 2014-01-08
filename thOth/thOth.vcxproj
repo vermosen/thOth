@@ -97,7 +97,7 @@
     <ClInclude Include="thOth\pattern\observer.hpp" />
     <ClInclude Include="thOth\pattern\visitor.hpp" />
     <ClInclude Include="thOth\pnlCalculator.hpp" />
-    <ClInclude Include="thOth\portfolio.h" />
+    <ClInclude Include="thOth\portfolio.hpp" />
     <ClInclude Include="thOth\quote\quote.hpp" />
     <ClInclude Include="thOth\strategy.hpp" />
     <ClInclude Include="thOth\strategy\marketOrder.hpp" />

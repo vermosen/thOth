@@ -6,7 +6,7 @@
 
 #include "GUI/BackTestTradeMFCFormView.h"
 
-#include <thOth/portfolio.h>
+#include <thOth/portfolio.hpp>
 #include <thOth/strategy/marketOrder.hpp>
 
 #include <boost/lexical_cast.hpp>
