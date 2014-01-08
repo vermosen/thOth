@@ -24,7 +24,8 @@ namespace thOth {
 			void update();											// observable implementation
 
 			void push_back(const boost::shared_ptr<strategy>&);
-			std::vector<trade> trades();							// maybe better to get an iterator on trades ??
+
+			std::vector<boost::shared_ptr<trade> > trades();		// maybe better to get an iterator on trades ??
 
 		protected:
 

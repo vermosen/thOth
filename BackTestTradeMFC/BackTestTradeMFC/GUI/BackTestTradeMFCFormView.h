@@ -1,9 +1,12 @@
 #pragma once
+
 #include "afxwin.h"
-#include <thOth/time/timeseries.hpp>
 #include "DataBase/Recordset/TABLE_QUOTE.h"
 #include "afxdtctl.h"
 #include "conversions/DateTime/DateTime.h"
+
+#include <thOth/time/timeseries.hpp>
+#include <thOth/trade.hpp>
 
 class CBackTestTradeMFCFormView : public CFormView {						// CBackTestTradeMFCFormView form view
 
