@@ -22,21 +22,21 @@ namespace thOth {
 
 	std::vector<boost::shared_ptr<trade> > portfolio::trades() {
 	
-		std::vector<boost::shared_ptr<trade> > trades;
+		std::vector<boost::shared_ptr<trade> > ret;
 
 		for (std::vector<boost::shared_ptr<strategy> >::const_iterator It = strategies_.cbegin();
 			It != strategies_.cend(); It++) {
 		
 			std::vector<boost::shared_ptr<trade> > temp = It->get()->trades();
 
-			for (std::vector<boost::shared_ptr<trade> >::const_iterator Jt = It->get()->trades().cbegin();
-				Jt != It->get()->trades().cend(); Jt++)
+			for (std::vector<boost::shared_ptr<trade> >::const_iterator Jt = temp.cbegin();
+				Jt != temp.cend(); Jt++)
 
-			trades.push_back(*Jt);								// each trade in each strategies
+				ret.push_back(*Jt);								// each trade in each strategies
 		
 		}
 
-		return trades;
+		return ret;
 	
 	}
 
