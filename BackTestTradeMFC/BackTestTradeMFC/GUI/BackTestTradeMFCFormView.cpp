@@ -273,6 +273,11 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 	
 	}
 
+	boost::shared_ptr<thOth::TimeSeries<thOth::quoteDetails> > pt(
+		new thOth::TimeSeries<thOth::quoteDetails>(*m_timeSeries));
+
+	thOth::relinkableHandle<thOth::TimeSeries<thOth::quoteDetails> > h(pt);				// creates the handle
+
 	// test 2 : create a portfolio of simple strategies related to the ts
 	thOth::portfolio port;
 

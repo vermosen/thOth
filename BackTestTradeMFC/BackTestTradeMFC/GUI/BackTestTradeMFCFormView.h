@@ -6,6 +6,7 @@
 #include "conversions/DateTime/DateTime.h"
 
 #include <thOth/time/timeseries.hpp>
+#include <thOth/relinkableHandle.hpp>
 #include <thOth/trade.hpp>
 
 class CBackTestTradeMFCFormView : public CFormView {						// CBackTestTradeMFCFormView form view

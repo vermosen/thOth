@@ -87,6 +87,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="thOth\handle.hpp" />
     <ClInclude Include="thOth\math\optimization\constraint.hpp" />
     <ClInclude Include="thOth\math\optimization\costFunction.hpp" />
     <ClInclude Include="thOth\math\optimization\method.hpp" />
@@ -99,6 +100,7 @@
     <ClInclude Include="thOth\pnlCalculator.hpp" />
     <ClInclude Include="thOth\portfolio.hpp" />
     <ClInclude Include="thOth\quote\quote.hpp" />
+    <ClInclude Include="thOth\relinkableHandle.hpp" />
     <ClInclude Include="thOth\strategy.hpp" />
     <ClInclude Include="thOth\strategy\marketOrder.hpp" />
     <ClInclude Include="thOth\time\DateTime.hpp" />

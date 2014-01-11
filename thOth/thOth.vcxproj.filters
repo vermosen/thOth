@@ -75,6 +75,12 @@
     <ClInclude Include="thOth\time\DateTime.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="thOth\handle.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\relinkableHandle.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="thOth\pnlCalculator.cpp">
