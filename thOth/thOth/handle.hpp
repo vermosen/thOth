@@ -96,20 +96,26 @@ namespace thOth {
 
 	template <class T>
 	inline const boost::shared_ptr<T>& handle<T>::currentLink() const {
-		//QL_REQUIRE(!empty(), "empty Handle cannot be dereferenced");
+		
+		if (!empty())
 		return link_->currentLink();
+	
 	};
 
 	template <class T>
 	inline const boost::shared_ptr<T>& handle<T>::operator->() const {
-		//QL_REQUIRE(!empty(), "empty Handle cannot be dereferenced");
+		
+		if (!empty())
 		return link_->currentLink();
+
 	};
 
 	template <class T>
 	inline const boost::shared_ptr<T>& handle<T>::operator*() const {
-		//QL_REQUIRE(!empty(), "empty Handle cannot be dereferenced");
+
+		if (!empty())
 		return link_->currentLink();
+
 	};
 
 	template <class T>

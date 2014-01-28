@@ -255,7 +255,8 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 					
 			m_timeSeries->insert(														// fill the TS object
 				std::pair<thOth::dateTime, thOth::quoteDetails>(					
-				rs->getQuoteDateTime(), rs->getQuoteDetails()));
+					rs->getQuoteDateTime(), 
+					rs->getQuoteDetails()));
 
 			rs->MoveNext();
 

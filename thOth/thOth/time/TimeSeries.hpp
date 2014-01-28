@@ -1,6 +1,7 @@
 #pragma once
 
 #include <thOth/time/dateTime.hpp>
+#include <thOth/pattern/observable.hpp>
 
 #include <boost/optional.hpp>
 #include <boost/iterator/transform_iterator.hpp>
@@ -13,15 +14,15 @@
 namespace thOth {
 
 	template <typename T>
-	class TimeSeries : public std::map<dateTime, T> {
+	class TimeSeries : public observable {
 
 	public:
 
 		typedef dateTime key_type;												// key type
 
-		TimeSeries<T>();														// default ctor
+		TimeSeries<T>();															// default ctor
 		TimeSeries<T>(const TimeSeries<T> &);									// copy ctor
-		~TimeSeries<T>() {};													// destructor
+		~TimeSeries<T>() {};														// destructor
 		TimeSeries<T> & operator =(const TimeSeries<T> &);						// assignement operator
 
 		template <class DateIterator, class ValueIterator>						// ctor using iterators
@@ -29,9 +30,17 @@ namespace thOth {
 			ValueIterator vBegin) {
 
 			while (dBegin != dEnd)
-				this->insert(std::pair<dateTime, T>(*(dBegin++), *(vBegin++)));
+				data_.insert(std::pair<dateTime, T>(*(dBegin++), *(vBegin++)));
+
+			this->notifyObservers();												// notify
 		
 		}
+
+		void insert(const std::pair<thOth::dateTime, T> &);
+
+	private:
+
+		std::map<dateTime, T> data_;												// data
 
 	};	
 
@@ -40,13 +49,19 @@ namespace thOth {
 
 	template <typename T>
 	TimeSeries<T>::TimeSeries(const TimeSeries<T> & o)							// copy ctor
-		: std::map<key_type, T>(o) {};
+		: observable(o) {
+	
+		data_ = o.data_;
+	
+	};
 
 	template <typename T>
 	TimeSeries<T> & TimeSeries<T>::operator = (const TimeSeries<T> & ts) {		// assignement operator
 
 		if (&ts != this) {
 
+			data_ = o.data_;														// copy data
+			this->notifyObservers();												// notify
 
 		}
 
