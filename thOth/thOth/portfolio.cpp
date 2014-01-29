@@ -22,8 +22,16 @@ namespace thOth {
 
 	std::vector<boost::shared_ptr<trade> > portfolio::trades() {
 	
+		// trades
 		std::vector<boost::shared_ptr<trade> > ret;
 
+		// trigger strategy update
+		for (std::vector<boost::shared_ptr<strategy> >::const_iterator It = strategies_.cbegin();
+			It != strategies_.cend(); It++)
+			
+			It->get()->calculate();
+
+		// fetch portfolio trades
 		for (std::vector<boost::shared_ptr<strategy> >::const_iterator It = strategies_.cbegin();
 			It != strategies_.cend(); It++) {
 		

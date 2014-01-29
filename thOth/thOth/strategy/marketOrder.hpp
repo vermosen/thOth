@@ -2,6 +2,8 @@
 #define thoth_market_order_hpp
 
 #include <thOth/strategy.hpp>
+#include <thOth/time/timeseries.hpp>
+#include <thOth/relinkableHandle.hpp>
 
 namespace thOth {
 
@@ -22,12 +24,13 @@ namespace thOth {
 		marketOrder & operator=(const marketOrder &);	// assignement operator
 
 		virtual dateTime date() const;					// returns the implementation date
-
-
-		// lazyObject Interface
-		void performCalculations();
+		
+		void performCalculations();						// lazyObject Interface
 
 	protected:
+
+		// TS handle
+		thOth::relinkableHandle<thOth::TimeSeries<thOth::quoteDetails> > ts_;
 
 	};
 

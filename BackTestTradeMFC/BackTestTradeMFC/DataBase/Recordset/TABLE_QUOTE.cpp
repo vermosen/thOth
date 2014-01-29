@@ -13,7 +13,7 @@ CTABLE_QUOTE::CTABLE_QUOTE(CDatabase* pdb)
 	m_ID_QUOTE = 0;
 	m_quoteData.ID_INSTRUMENT = 0;
 	m_quoteData.QUOTE_TIME;
-	m_quoteData.TRADE.QUOTE_TYPE = 0;
+	m_quoteData.TRADE.QUOTE_TYPE = thOth::Undefined;
 	m_quoteData.TRADE.QUOTE_VALUE = 0.0;
 	m_quoteData.TRADE.QUOTE_AMOUNT = 0.0;
 	m_nFields = 6;

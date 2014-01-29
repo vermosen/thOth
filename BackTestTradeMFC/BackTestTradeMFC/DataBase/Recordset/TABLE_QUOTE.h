@@ -5,26 +5,7 @@
 #include "conversions/DateTime/DateTime.h"
 // code generated on samedi 2 novembre 2013, 18:03
 
-namespace thOth {
-
-	enum quoteType : BYTE {
-
-		Undefined = 0,
-		Trade = 1,
-		Bid = 2,
-		Ask = 3
-
-	};
-
-	struct quoteDetails {
-
-		BYTE QUOTE_TYPE;
-		float QUOTE_VALUE;
-		float QUOTE_AMOUNT;
-
-	};
-
-}
+#include <thOth/types.hpp>
 
 struct dbQuote{													// dbQuote struct											
 
