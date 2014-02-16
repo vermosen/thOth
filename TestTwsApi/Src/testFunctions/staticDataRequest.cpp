@@ -1,11 +1,6 @@
-//============================================================================
-// TwsApi Test
-//============================================================================
-#include "TwsApi\TwsApiL0.h"
-#include "TwsApi\TwsApiDefs.h"
-#include "TwsApi\wrappers\historicalWrapper.hpp"
+#include "testFunctions/staticDataRequest.hpp"
 
-int historicalRequest()
+int staticDataRequest()
 {
 
 	Contract			C;											// contract over a currency pair
@@ -23,7 +18,7 @@ int historicalRequest()
 	IBString WTS = *TwsApi::WhatToShow::BID;						// request : bid
 
 	// creates  wrapper and client
-	historicalWrapper HW(false);
+	staticDataWrapper HW(false);
 	EClient* EC = EClientL0::New(&HW);
 
 	if (EC->eConnect("", 7496, 100))
@@ -35,29 +30,16 @@ int historicalRequest()
 			, TwsApi::UseRTH::AllTradingData
 			, TwsApi::FormatDate::AsDate);
 
-		while (!HW.endOfHistoricalData() && !HW.errorForRequest())
+		while (!HW.errorForRequest())
 			EC->checkMessages();
 
 	}
 
 	EC->eDisconnect();
 
-	thOth::TimeSeries<TwsApi::quoteDetails> ts = HW.timeSeries();	// get the timeSeries
-
-	// simple data manipulation
-	for (thOth::TimeSeries<TwsApi::quoteDetails>::const_iterator It = ts.cbegin(); It != ts.cend(); It++)
-	{
-
-		std::cout << "quote date is: " 
-				  << It->first 
-				  << ", medium value is: " 
-				  << ((It->second.high_ + It->second.low_) / 2) << std::endl;
-
-	}
-
-	delete EC;						
+	delete EC;
 
 	system("pause");
 
 	return HW.errorForRequest();
-}
+}	
