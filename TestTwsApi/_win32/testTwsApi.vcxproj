@@ -53,7 +53,7 @@
     <OutDir>.\Debug\</OutDir>
     <IntDir>.\Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath);C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\thOth</IncludePath>
+    <IncludePath>$(IncludePath);C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi;C:\Users\vermosen\Documents\GitHub\thOth\thOth</IncludePath>
     <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -147,12 +147,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\_win32\TwsApi.vcxproj">
-      <Project>{c03e5cca-3552-42f2-b865-494fad99974c}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

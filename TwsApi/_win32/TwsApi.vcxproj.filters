@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\TwsApi\afxwin.h" />
+    <ClInclude Include="..\TwsApi\CommissionReport.h" />
+    <ClInclude Include="..\TwsApi\CommonDefs.h" />
+    <ClInclude Include="..\TwsApi\Contract.h" />
+    <ClInclude Include="..\TwsApi\EClient.h" />
+    <ClInclude Include="..\TwsApi\EClientSocketBase.h" />
+    <ClInclude Include="..\TwsApi\EClientSocketBaseImpl.h" />
+    <ClInclude Include="..\TwsApi\Enumerations.h" />
+    <ClInclude Include="..\TwsApi\EWrapper.h" />
+    <ClInclude Include="..\TwsApi\Execution.h" />
+    <ClInclude Include="..\TwsApi\IBString.h" />
+    <ClInclude Include="..\TwsApi\Order.h" />
+    <ClInclude Include="..\TwsApi\OrderState.h" />
+    <ClInclude Include="..\TwsApi\ScannerSubscription.h" />
+    <ClInclude Include="..\TwsApi\shared_ptr.h" />
+    <ClInclude Include="..\TwsApi\StdAfx.h" />
+    <ClInclude Include="..\TwsApi\TagValue.h" />
+    <ClInclude Include="..\TwsApi\TwsApiDefs.h" />
+    <ClInclude Include="..\TwsApi\TwsApiL0.h" />
+    <ClInclude Include="..\TwsApi\TwsSocketClientErrors.h" />
+    <ClInclude Include="..\TwsApi\wrapper\historicalWrapper.hpp" />
+    <ClInclude Include="..\TwsApi\posix\EPosixClientSocket.h" />
+    <ClInclude Include="..\TwsApi\posix\EPosixClientSocketPlatform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\TwsApi\EClientSocketBase.cpp" />
+    <ClCompile Include="..\TwsApi\TwsApiL0.cpp" />
+    <ClCompile Include="..\TwsApi\wrapper\historicalWrapper.cpp" />
+    <ClCompile Include="..\TwsApi\posix\EPosixClientSocket.cpp" />
+  </ItemGroup>
+</Project>

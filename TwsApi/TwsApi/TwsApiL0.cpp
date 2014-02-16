@@ -9,15 +9,15 @@ TwsApiL0.cpp
 #include "TwsApiDefs.h"
 #else
 //New version
-#include "TwsApiDefs.h"
+#include "TwsApi\TwsApiDefs.h"
 #undef   _TwsApiDefs_h
 #define ENUMImplementation
 #include "TwsApiDefs.h"
 #endif
 
 #define private public				// to get access to send and receive
-#include "EPosixClientSocket.cpp"
-#include "EClientSocketBase.cpp"	//	CLIENT_VERSION
+#include "TwsApi\posix\EPosixClientSocket.cpp"
+#include "TwsApi\EClientSocketBase.cpp"	//	CLIENT_VERSION
 #undef private
 
 #ifdef WIN32

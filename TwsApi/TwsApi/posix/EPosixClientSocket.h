@@ -1,7 +1,7 @@
 #ifndef eposixclientsocket_def
 #define eposixclientsocket_def
 
-#include "EClientSocketBase.h"
+#include "TwsApi\EClientSocketBase.h"
 
 class EWrapper;
 

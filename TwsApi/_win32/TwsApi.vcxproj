@@ -10,6 +10,37 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\TwsApi\afxwin.h" />
+    <ClInclude Include="..\TwsApi\CommissionReport.h" />
+    <ClInclude Include="..\TwsApi\CommonDefs.h" />
+    <ClInclude Include="..\TwsApi\Contract.h" />
+    <ClInclude Include="..\TwsApi\EClient.h" />
+    <ClInclude Include="..\TwsApi\EClientSocketBase.h" />
+    <ClInclude Include="..\TwsApi\EClientSocketBaseImpl.h" />
+    <ClInclude Include="..\TwsApi\Enumerations.h" />
+    <ClInclude Include="..\TwsApi\EWrapper.h" />
+    <ClInclude Include="..\TwsApi\Execution.h" />
+    <ClInclude Include="..\TwsApi\IBString.h" />
+    <ClInclude Include="..\TwsApi\Order.h" />
+    <ClInclude Include="..\TwsApi\OrderState.h" />
+    <ClInclude Include="..\TwsApi\posix\EPosixClientSocket.h" />
+    <ClInclude Include="..\TwsApi\posix\EPosixClientSocketPlatform.h" />
+    <ClInclude Include="..\TwsApi\ScannerSubscription.h" />
+    <ClInclude Include="..\TwsApi\shared_ptr.h" />
+    <ClInclude Include="..\TwsApi\StdAfx.h" />
+    <ClInclude Include="..\TwsApi\TagValue.h" />
+    <ClInclude Include="..\TwsApi\TwsApiDefs.h" />
+    <ClInclude Include="..\TwsApi\TwsApiL0.h" />
+    <ClInclude Include="..\TwsApi\TwsSocketClientErrors.h" />
+    <ClInclude Include="..\TwsApi\wrapper\historicalWrapper.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\TwsApi\EClientSocketBase.cpp" />
+    <ClCompile Include="..\TwsApi\posix\EPosixClientSocket.cpp" />
+    <ClCompile Include="..\TwsApi\TwsApiL0.cpp" />
+    <ClCompile Include="..\TwsApi\wrapper\historicalWrapper.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C03E5CCA-3552-42F2-B865-494FAD99974C}</ProjectGuid>
     <RootNamespace>TwsApi</RootNamespace>
@@ -51,8 +82,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>.\Debug\</OutDir>
     <IntDir>.\Debug\</IntDir>
-    <IncludePath>$(IncludePath);C:\\boost_1_55_0;..\..\..\thOth\;</IncludePath>
-    <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;..\..\..\thOth\lib;</LibraryPath>
+    <IncludePath>$(IncludePath);C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\thOth;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi\;.</IncludePath>
+    <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -87,7 +118,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>..\Src;..\Api;..\..\Shared;..\..\PosixSocketClient\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>IB_USE_STD_STRING;WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug/TwsApi.pch</PrecompiledHeaderOutputFile>
@@ -97,6 +128,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <UndefinePreprocessorDefinitions>UNICODE;_UNICODE;</UndefinePreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -111,41 +143,6 @@
       <OutputFile>.\Debug/TwsApi.bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\TestTwsApi\_win32\historicalWrapper.hpp" />
-    <ClInclude Include="..\Src\afxwin.h" />
-    <ClInclude Include="..\Api\Enumerations.h" />
-    <ClInclude Include="..\Api\TwsApiDefs.h" />
-    <ClInclude Include="..\Api\TwsApiL0.h" />
-    <ClInclude Include="..\..\Shared\CommissionReport.h" />
-    <ClInclude Include="..\..\Shared\CommonDefs.h" />
-    <ClInclude Include="..\..\Shared\Contract.h" />
-    <ClInclude Include="..\..\Shared\EClient.h" />
-    <ClInclude Include="..\..\Shared\EClientSocketBase.h" />
-    <ClInclude Include="..\..\Shared\EClientSocketBaseImpl.h" />
-    <ClInclude Include="..\..\Shared\EWrapper.h" />
-    <ClInclude Include="..\..\Shared\Execution.h" />
-    <ClInclude Include="..\..\Shared\IBString.h" />
-    <ClInclude Include="..\..\Shared\Order.h" />
-    <ClInclude Include="..\..\Shared\OrderState.h" />
-    <ClInclude Include="..\..\Shared\ScannerSubscription.h" />
-    <ClInclude Include="..\..\Shared\shared_ptr.h" />
-    <ClInclude Include="..\..\Shared\StdAfx.h" />
-    <ClInclude Include="..\..\Shared\TagValue.h" />
-    <ClInclude Include="..\..\Shared\TwsSocketClientErrors.h" />
-    <ClInclude Include="..\..\PosixSocketClient\src\EPosixClientSocket.h" />
-    <ClInclude Include="..\..\PosixSocketClient\src\EPosixClientSocketPlatform.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\TestTwsApi\_win32\historicalWrapper.cpp" />
-    <ClCompile Include="..\..\PosixSocketClient\src\EClientSocketBase.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\PosixSocketClient\src\EPosixClientSocket.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\Src\TwsApiL0.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

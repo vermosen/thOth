@@ -1,8 +1,8 @@
-#include "EPosixClientSocket.h"
+#include "TwsApi\posix\EPosixClientSocket.h"
 
-#include "EPosixClientSocketPlatform.h"
-#include "TwsSocketClientErrors.h"
-#include "EWrapper.h"
+#include "TwsApi\posix\EPosixClientSocketPlatform.h"
+#include "TwsApi\TwsSocketClientErrors.h"
+#include "TwsApi\EWrapper.h"
 
 #include <string.h>
 
