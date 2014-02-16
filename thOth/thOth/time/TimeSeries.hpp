@@ -67,12 +67,12 @@ namespace thOth {
 	};
 
 	template <typename T>
-	TimeSeries<T> & TimeSeries<T>::operator = (const TimeSeries<T> & ts) {		// assignement operator
+	TimeSeries<T> & TimeSeries<T>::operator = (const TimeSeries<T> & o) {		// assignement operator
 
-		if (&ts != this) {
+		if (&o != this) {
 
-			data_ = o.data_;														// copy data
-			this->notifyObservers();												// notify
+			data_ = o.data_;													// copy data
+			this->notifyObservers();											// notify
 
 		}
 

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Src">
+      <UniqueIdentifier>{3abf8a7a-3680-49a1-b34c-6ee007a750ef}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Api">
+      <UniqueIdentifier>{a8d519c9-57f9-41b1-b99c-5f636840b19f}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="PosixSocketClient%255csrc">
+      <UniqueIdentifier>{76a8ca2b-a193-4eca-a4f1-741f1ce09234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{bc270197-6d71-4c5c-8180-43bf2b18d5ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PosixSocketClient%255csrc\historicalWrapper">
+      <UniqueIdentifier>{56998b56-bbd2-4f4a-aa3d-6b571143be93}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Src\afxwin.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Api\Enumerations.h">
+      <Filter>Api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Api\TwsApiDefs.h">
+      <Filter>Api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Api\TwsApiL0.h">
+      <Filter>Api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\CommissionReport.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\CommonDefs.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\Contract.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\EClient.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\EClientSocketBase.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\EClientSocketBaseImpl.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\EWrapper.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\Execution.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\IBString.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\Order.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\OrderState.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\ScannerSubscription.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\shared_ptr.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\StdAfx.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\TagValue.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\TwsSocketClientErrors.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PosixSocketClient\src\EPosixClientSocket.h">
+      <Filter>PosixSocketClient%255csrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PosixSocketClient\src\EPosixClientSocketPlatform.h">
+      <Filter>PosixSocketClient%255csrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\TestTwsApi\_win32\historicalWrapper.hpp">
+      <Filter>PosixSocketClient%255csrc\historicalWrapper</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Src\TwsApiL0.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PosixSocketClient\src\EClientSocketBase.cpp">
+      <Filter>PosixSocketClient%255csrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\PosixSocketClient\src\EPosixClientSocket.cpp">
+      <Filter>PosixSocketClient%255csrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\TestTwsApi\_win32\historicalWrapper.cpp">
+      <Filter>PosixSocketClient%255csrc\historicalWrapper</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

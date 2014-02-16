@@ -15,10 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="thOth\math\optimization\problem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\math\optimization\constraint.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\math\optimization\costFunction.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\math\optimization\method.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thOth\pattern\acyclicVisitor.hpp">
@@ -36,71 +42,44 @@
     <ClInclude Include="thOth\pattern\visitor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thOth\types.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\trade.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\math\optimization\method.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\math\optimization\costFunction.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\math\optimization\constraint.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thOth\quote\quote.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\pnlCalculator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\time\occurence.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thOth\strategy\marketOrder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thOth\time\TimeSeries.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\strategy.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\portfolio.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thOth\time\DateTime.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\time\occurence.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\time\TimeSeries.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thOth\handle.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="thOth\pnlCalculator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\portfolio.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="thOth\relinkableHandle.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\strategy.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\trade.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\types.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="thOth\pnlCalculator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thOth\portfolio.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thOth\strategy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thOth\trade.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thOth\time\DateTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thOth\time\occurence.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="thOth\pattern\lazyObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -114,6 +93,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="thOth\strategy\marketOrder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thOth\time\DateTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thOth\time\occurence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thOth\pnlCalculator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thOth\portfolio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thOth\strategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thOth\trade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

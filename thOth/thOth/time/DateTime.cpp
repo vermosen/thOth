@@ -16,26 +16,30 @@ namespace thOth {
 	dateTime::dateTime(
 		const boost::posix_time::ptime & pt) : ptime(pt) {}
 
-	dateTime::dateTime(Years y, Months m, Days d,										// additional Constructor
+	dateTime::dateTime(
+		Years y, Months m, Days d,														// detailed Constructor
 		Hours H, Minutes M, Seconds S,
+		MilliSeconds MS,
 
-#ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
+#ifndef BOOST_DATE_TIME_HAS_NANOSECONDS
 
-		NanoSeconds F)
+		MicroSeconds MU)
+
+		: ptime(boost::gregorian::date(y, m, d), H + M + S + MS + MU) {};
 
 #else
 
-		MicroSeconds F)
+		MicroSeconds MU, NanoSeconds N)
+
+		: ptime(boost::gregorian::date(y, m, d), H + M + S + MS + MU + N) {};
 
 #endif
-
-		: ptime(boost::gregorian::date(y, m, d), H + M + S + F) {};
 
 	dateTime::~dateTime(){}
 
 	dateTime & dateTime::operator = (const dateTime &dt){
 
-		if (&dt != this) {// prevent self replication
+		if (&dt != this) {																// prevent self replication
 
 			// copy elements 
 
@@ -45,7 +49,7 @@ namespace thOth {
 
 	}
 
-	dateTime::Years dateTime::year() const {														// interfaces
+	dateTime::Years dateTime::year() const {											// interfaces
 	
 		return ptime::date().year();
 	
@@ -93,7 +97,7 @@ namespace thOth {
 
 	}
 
-	void dateTime::year(const dateTime::Years& yr) {
+	void dateTime::year(const dateTime::Years& yr) {										// TODO set methods
 	
 		// set year
 	

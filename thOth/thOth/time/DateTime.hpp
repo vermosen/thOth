@@ -39,12 +39,15 @@ namespace thOth {
 			= MicroSeconds(0));
 #endif
 
-		dateTime(Years, Months, Days, Hours, Minutes, Seconds,						// additional Constructor
+		dateTime(Years, Months, Days, 
+				 Hours, Minutes, Seconds, 
+				 MilliSeconds = MilliSeconds(0),		// additional Constructor
 
 #ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
-		NanoSeconds);
+				 MicroSeconds = MicroSeconds(0), 
+				 NanoSeconds = Naoseconds(0));
 #else
-		MicroSeconds);
+				 MicroSeconds = MicroSeconds(0));
 #endif
 
 		virtual ~dateTime();														// destructor
@@ -60,13 +63,13 @@ namespace thOth {
 		MilliSeconds millisecond() const;
 		MicroSeconds microsecond() const;
 
-		void year(const Years&);
-
-		static dateTime currentTime();												// get current time
-
 #ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
 		NanoSeconds nanoseconds() const;
 #endif
+
+		void year(const Years&);
+
+		static dateTime currentTime();												// get current time
 
 	};
 
