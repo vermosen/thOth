@@ -29,6 +29,9 @@
     <ClInclude Include="..\TwsApi\wrappers\staticDataWrapper.hpp">
       <Filter>wrappers</Filter>
     </ClInclude>
+    <ClInclude Include="clientWrapper.hpp">
+      <Filter>wrappers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TwsApi\EClientSocketBase.cpp" />
@@ -38,6 +41,9 @@
       <Filter>wrappers</Filter>
     </ClCompile>
     <ClCompile Include="..\TwsApi\wrappers\staticDataWrapper.cpp">
+      <Filter>wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="clientWrapper.cpp">
       <Filter>wrappers</Filter>
     </ClCompile>
   </ItemGroup>

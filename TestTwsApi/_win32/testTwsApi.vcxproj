@@ -152,10 +152,12 @@
     <ClCompile Include="..\Src\testFunctions\historicalRequest.cpp" />
     <ClCompile Include="..\Src\testFunctions\staticDataRequest.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="testFunctions\clientRequest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Src\testFunctions\historicalRequest.hpp" />
     <ClInclude Include="..\Src\testFunctions\staticDataRequest.hpp" />
+    <ClInclude Include="testFunctions\clientRequest.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
