@@ -65,15 +65,15 @@ void historicalWrapper::historicalData(TickerId reqId,
 	
 	}
 
-		TwsApi::quoteDetails tt{ 
+		TwsApi::historicalQuoteDetails tt{
 			reqId, open, high,
 			low, close, volume,
 			barCount, WAP, hasGaps };
 
 		
-		ts_.insert(std::pair<thOth::dateTime, TwsApi::quoteDetails>(				// copy the current date in the container
+		ts_.insert(std::pair<thOth::dateTime, TwsApi::historicalQuoteDetails>(		// copy the current date in the container
 			this->convertDateTime(date),
-			TwsApi::quoteDetails{ reqId, open, high,
+			TwsApi::historicalQuoteDetails{ reqId, open, high,
 			low, close, volume,
 			barCount, WAP, hasGaps }));
 

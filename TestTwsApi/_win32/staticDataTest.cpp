@@ -1,9 +1,9 @@
-/= == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+//= == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
 // TwsApi Test
 //============================================================================
 #include "TwsApi\TwsApiL0.h"
 #include "TwsApi\TwsApiDefs.h"
-#include "TwsApi\wrappers\historicalWrapper.hpp"
+#include "TwsApi\wrappers\staticDataWrapper.hpp"
 
 int staticDataRequest()
 {
@@ -23,7 +23,7 @@ int staticDataRequest()
 	IBString WTS = *TwsApi::WhatToShow::BID;						// request : bid
 
 	// creates  wrapper and client
-	historicalWrapper HW(false);
+	staticDataWrapper HW(false);
 	EClient* EC = EClientL0::New(&HW);
 
 	if (EC->eConnect("", 7496, 100))

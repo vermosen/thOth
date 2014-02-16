@@ -15,7 +15,7 @@
 
 namespace TwsApi {
 
-	struct quoteDetails {
+	struct historicalQuoteDetails {
 
 		TickerId id_;
 		double open_;
@@ -58,7 +58,8 @@ public:
 	// accessors
 	bool endOfHistoricalData() const { return endOfHistoricalData_; };				// end of data (public ?)
 	bool errorForRequest() const { return errorForRequest_; };						// error
-	thOth::TimeSeries<TwsApi::quoteDetails> timeSeries() const{ return ts_; };		// the time series
+	thOth::TimeSeries<TwsApi::historicalQuoteDetails> timeSeries() const{			// the time series
+		return ts_; };		
 
 protected:
 
@@ -70,7 +71,7 @@ protected:
 	bool endOfHistoricalData_;
 	bool errorForRequest_;
 	
-	thOth::TimeSeries<TwsApi::quoteDetails> ts_;						// timeseries object
+	thOth::TimeSeries<TwsApi::historicalQuoteDetails> ts_;							// timeseries object
 
 };
 
