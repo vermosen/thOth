@@ -3,9 +3,9 @@
 //============================================================================
 #include "TwsApi\TwsApiL0.h"
 #include "TwsApi\TwsApiDefs.h"
-#include "TwsApi\wrappers\historicalWrapper.hpp"
 
-#include "historicalRequest.cpp"
+#include "testFunctions/historicalRequest.hpp"
+#include "testFunctions/staticDataRequest.hpp"
 
 //----------------------------------------------------------------------------
 // DUMP_DEFS
@@ -47,6 +47,8 @@ int main()
 		<< "1 - historical request"
 		<< std::endl
 		<< "2 - static data request"
+		<< std::endl
+		<< "-----------------------"
 		<< std::endl;
 
 	std::cin >> i;

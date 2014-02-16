@@ -53,7 +53,7 @@
     <OutDir>.\Debug\</OutDir>
     <IntDir>.\Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath);C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi;C:\Users\vermosen\Documents\GitHub\thOth\thOth</IncludePath>
+    <IncludePath>$(IncludePath);C:\Users\vermosen\Documents\GitHub\thOth\TestTwsApi\Src;C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi;C:\Users\vermosen\Documents\GitHub\thOth\thOth</IncludePath>
     <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
     <TargetName>testTwsApi</TargetName>
   </PropertyGroup>
@@ -149,9 +149,13 @@
     <ClCompile Include="..\Src\Test.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="historicalRequest.cpp" />
+    <ClCompile Include="..\Src\testFunctions\historicalRequest.cpp" />
+    <ClCompile Include="..\Src\testFunctions\staticDataRequest.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="staticDataTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Src\testFunctions\historicalRequest.hpp" />
+    <ClInclude Include="..\Src\testFunctions\staticDataRequest.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

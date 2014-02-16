@@ -5,8 +5,8 @@ providing historical data for the user
 
 */
 
-#ifndef historical_wrapper
-#define historical_wrapper
+#ifndef static_data_wrapper
+#define static_data_wrapper
 
 #include "TwsApi\TwsApiL0.h"
 #include "TwsApi\TwsApiDefs.h"

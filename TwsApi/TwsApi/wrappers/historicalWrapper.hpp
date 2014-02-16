@@ -55,6 +55,8 @@ public:
 								double close, int volume, int barCount,
 								double WAP, int hasGaps);
 
+	virtual void marketDataType(TickerId reqId, int marketDataType);
+
 	// accessors
 	bool endOfHistoricalData() const { return endOfHistoricalData_; };				// end of data (public ?)
 	bool errorForRequest() const { return errorForRequest_; };						// error
@@ -70,6 +72,7 @@ protected:
 
 	bool endOfHistoricalData_;
 	bool errorForRequest_;
+	int marketDataType_;
 	
 	thOth::TimeSeries<TwsApi::historicalQuoteDetails> ts_;							// timeseries object
 

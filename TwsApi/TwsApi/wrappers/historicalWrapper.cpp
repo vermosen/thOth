@@ -49,6 +49,13 @@ void historicalWrapper::error(const int id, const int errorCode, const IBString 
 	// should raise an std::exception -> need an exception class ???
 }
 
+void historicalWrapper::marketDataType(TickerId reqId, int marketDataType)
+{
+
+	marketDataType_ = marketDataType;
+
+}
+
 void historicalWrapper::historicalData(TickerId reqId, 
 									   const IBString& date, 
 									   double open, double high, 
