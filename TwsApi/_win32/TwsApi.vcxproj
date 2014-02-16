@@ -16,7 +16,10 @@
     <ClInclude Include="..\TwsApi\CommonDefs.h" />
     <ClInclude Include="..\TwsApi\Contract.h" />
     <ClInclude Include="..\TwsApi\EClient.h" />
-    <ClInclude Include="..\TwsApi\EClientSocketBase.h" />
+    <ClInclude Include="..\TwsApi\EClientSocketBase.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="..\TwsApi\EClientSocketBaseImpl.h" />
     <ClInclude Include="..\TwsApi\Enumerations.h" />
     <ClInclude Include="..\TwsApi\EWrapper.h" />
@@ -37,7 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TwsApi\EClientSocketBase.cpp" />
-    <ClCompile Include="..\TwsApi\posix\EPosixClientSocket.cpp" />
+    <ClCompile Include="..\TwsApi\posix\EPosixClientSocket.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\TwsApi\TwsApiL0.cpp" />
     <ClCompile Include="..\TwsApi\wrapper\historicalWrapper.cpp" />
   </ItemGroup>
@@ -128,7 +134,8 @@
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
-      <UndefinePreprocessorDefinitions>UNICODE;_UNICODE;</UndefinePreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>

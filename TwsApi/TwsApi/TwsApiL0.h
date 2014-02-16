@@ -39,7 +39,7 @@ currently in use, this in symmetry with serverVersion().
 // IBString is extended for downward compatibility
 // and to make the TwsApiDefs special operators work
 //----------------------------------------------------------------------------
-#define IB_USE_STD_STRING
+
 /**/
 #define IBString _IBString
 #include "IBString.h"

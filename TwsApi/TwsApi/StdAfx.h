@@ -7,7 +7,7 @@
 #define assert ASSERT
 #define snprintf _snprintf
 
-#include <afxwin.h>
+#include "TwsApi/afxwin.h"
 
 #endif
 
