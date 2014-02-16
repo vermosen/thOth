@@ -21,14 +21,23 @@
     <ClInclude Include="..\TwsApi\TwsApiDefs.h" />
     <ClInclude Include="..\TwsApi\TwsApiL0.h" />
     <ClInclude Include="..\TwsApi\TwsSocketClientErrors.h" />
-    <ClInclude Include="..\TwsApi\wrapper\historicalWrapper.hpp" />
     <ClInclude Include="..\TwsApi\posix\EPosixClientSocket.h" />
     <ClInclude Include="..\TwsApi\posix\EPosixClientSocketPlatform.h" />
+    <ClInclude Include="..\TwsApi\wrappers\historicalWrapper.hpp">
+      <Filter>wrappers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TwsApi\EClientSocketBase.cpp" />
     <ClCompile Include="..\TwsApi\TwsApiL0.cpp" />
-    <ClCompile Include="..\TwsApi\wrapper\historicalWrapper.cpp" />
     <ClCompile Include="..\TwsApi\posix\EPosixClientSocket.cpp" />
+    <ClCompile Include="..\TwsApi\wrappers\historicalWrapper.cpp">
+      <Filter>wrappers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="wrappers">
+      <UniqueIdentifier>{2365d630-b51b-4be7-8e19-be5dd8e14e75}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

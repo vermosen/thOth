@@ -54,7 +54,8 @@
     <IntDir>.\Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath);C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi;C:\Users\vermosen\Documents\GitHub\thOth\thOth</IncludePath>
-    <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
+    <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
+    <TargetName>testTwsApi</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -102,8 +103,8 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\Api;..\..\..\Shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>IB_USE_STD_STRING;WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug/Test.pch</PrecompiledHeaderOutputFile>
@@ -113,15 +114,16 @@
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
-      <UndefinePreprocessorDefinitions>UNICODE;_UNICODE</UndefinePreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0813</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>thOth-vc120-mt-sd.lib;odbc32.lib;odbccp32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\Debug/Test.exe</OutputFile>
+      <AdditionalDependencies>thOth-vc120-mt-sgd.lib;twsapi-vc120-mt-sgd.lib;odbc32.lib;odbccp32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
@@ -147,7 +149,9 @@
     <ClCompile Include="..\Src\Test.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="historicalRequest.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="staticDataTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

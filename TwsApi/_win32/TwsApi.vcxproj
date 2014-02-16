@@ -36,7 +36,7 @@
     <ClInclude Include="..\TwsApi\TwsApiDefs.h" />
     <ClInclude Include="..\TwsApi\TwsApiL0.h" />
     <ClInclude Include="..\TwsApi\TwsSocketClientErrors.h" />
-    <ClInclude Include="..\TwsApi\wrapper\historicalWrapper.hpp" />
+    <ClInclude Include="..\TwsApi\wrappers\historicalWrapper.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TwsApi\EClientSocketBase.cpp" />
@@ -45,7 +45,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\TwsApi\TwsApiL0.cpp" />
-    <ClCompile Include="..\TwsApi\wrapper\historicalWrapper.cpp" />
+    <ClCompile Include="..\TwsApi\wrappers\historicalWrapper.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C03E5CCA-3552-42F2-B865-494FAD99974C}</ProjectGuid>
@@ -84,12 +84,14 @@
     <IntDir>.\Release\</IntDir>
     <IncludePath>$(IncludePath);C:\\boost_1_55_0;..\..\..\thOth\;</IncludePath>
     <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;..\..\..\thOth\lib;</LibraryPath>
+    <TargetName>twsapi-vc120-mt-gd</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>.\Debug\</OutDir>
+    <OutDir>..\lib\</OutDir>
     <IntDir>.\Debug\</IntDir>
     <IncludePath>$(IncludePath);C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\thOth;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi\;.</IncludePath>
     <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
+    <TargetName>twsapi-vc120-mt-sgd</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -123,7 +125,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\Src;..\Api;..\..\Shared;..\..\PosixSocketClient\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>IB_USE_STD_STRING;WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -142,7 +144,7 @@
       <Culture>0x0813</Culture>
     </ResourceCompile>
     <Lib>
-      <OutputFile>..\Api\TwsApiD.lib</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <Bscmake>
