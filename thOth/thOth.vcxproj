@@ -32,6 +32,7 @@
     <ClInclude Include="thOth\time\TimeSeries.hpp" />
     <ClInclude Include="thOth\trade.hpp" />
     <ClInclude Include="thOth\types.hpp" />
+    <ClInclude Include="thOth\utilities\csvBuilder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="thOth\pattern\lazyObject.cpp" />
@@ -45,6 +46,7 @@
     <ClCompile Include="thOth\time\DateTime.cpp" />
     <ClCompile Include="thOth\time\occurence.cpp" />
     <ClCompile Include="thOth\trade.cpp" />
+    <ClCompile Include="thOth\utilities\csvBuilder.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7653D38D-8F71-457F-BDE5-B8AF7B8A69BA}</ProjectGuid>
