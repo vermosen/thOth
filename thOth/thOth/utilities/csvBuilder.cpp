@@ -6,11 +6,11 @@
  *
  */
 
-#include <ql/utilities/csvBuilder.hpp>
+#include <thOth/utilities/csvBuilder.hpp>
 
-namespace QuantLib {
+namespace thOth {
 
-	namespace detail {
+	namespace utilities {
 
 		csvBuilder::csvBuilder(const std::string & path_) :
 			csvFile_(path_.c_str(), std::ios::app) {
@@ -38,14 +38,13 @@ namespace QuantLib {
 
 			}
 
-		};																				/* copy ctor */
+		};																				// copy ctor
 
 		csvBuilder::~csvBuilder() {
 
 			createFile();
 
-			/* it has been allocated */
-			if (rMax_ * cMax_ > 0) {
+			if (rMax_ * cMax_ > 0) {													// has been allocated
 
 				for (long i = 0; i < rMax_; i++)
 					delete[] data_[i];
@@ -56,12 +55,11 @@ namespace QuantLib {
 
 		};
 
-		csvBuilder & csvBuilder::operator = (const csvBuilder & builder) {
+		csvBuilder & csvBuilder::operator = (const csvBuilder & builder) {				// assignement operator
 
 			if (&builder != this) return *this;
 
-			/* delete old data */
-			for (long i = 0; i < rMax_; i++)
+			for (long i = 0; i < rMax_; i++)											// delete old data
 				delete[] data_[i];
 
 			delete[] data_;
@@ -69,8 +67,7 @@ namespace QuantLib {
 			rMax_ = builder.rMax_;
 			cMax_ = builder.cMax_;
 
-			/* copy new data */
-			data_ = new std::string *[rMax_];
+			data_ = new std::string *[rMax_];											// copy new data
 
 			for (long i = 0; i < rMax_; i++)
 				data_[i] = new std::string[cMax_];
@@ -88,11 +85,9 @@ namespace QuantLib {
 
 		void csvBuilder::add(const std::string & str, long r1, long c1) {
 
-			/* resize */
-			if (r1 > rMax_ || c1 > cMax_) resize(r1, c1);
+			if (r1 > rMax_ || c1 > cMax_) resize(r1, c1);								// resize
 
-			/* copy data */
-			data_[r1 - 1][c1 - 1] = str;
+			data_[r1 - 1][c1 - 1] = str;												// copy data
 
 		};
 
@@ -105,62 +100,59 @@ namespace QuantLib {
 
 
 
-		void csvBuilder::add(const QuantLib::Array & arr, long r1, long c1) {
+		void csvBuilder::add(const boost::numeric::ublas::vector<double> & arr, long r1, long c1) {
+			
+			if (r1 + arr.size() > rMax_ || c1 > cMax_)									// resize
+				resize(r1 + arr.size(), c1);
 
-			/* resize */
-			if (r1 + arr.size() > rMax_ || c1 > cMax_) resize(r1 + arr.size(), c1);
-
-			/* copy data */
-			for (QuantLib::Size i = 0; i < arr.size(); i++)
+			for (thOth::size i = 0; i < arr.size(); i++)								// copy data
 				data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(arr[i]);
 
 		};
 
-		void csvBuilder::add(const QuantLib::Matrix & mat, long r1, long c1) {
+		void csvBuilder::add(const boost::numeric::ublas::matrix<double> & mat, long r1, long c1) {
 
-			/* resize */
-			if (r1 + mat.rows() > rMax_ || c1 + mat.columns() > cMax_)
-				resize(r1 + mat.rows(), c1 + mat.columns());
+			if (r1 + mat.size1() > rMax_ || c1 + mat.size2() > cMax_)					// resize
+				resize(r1 + mat.size1(), c1 + mat.size2());
 
-			/* copy data */
-			for (QuantLib::Size i = 0; i < mat.rows(); i++) {
+			for (thOth::size i = 0; i < mat.size1(); i++) {							// copy data
 
-				for (QuantLib::Size j = 0; j < mat.columns(); j++)
+				for (thOth::size j = 0; j < mat.size2(); j++)
 					data_[r1 + i - 1][c1 + j - 1] = boost::lexical_cast<std::string>(mat[i][j]);
 
 			}
 
 		};
 
-		void csvBuilder::add(const QuantLib::TimeSeries<double> & ts, long r1, long c1, bool displayDates) {
+		//void csvBuilder::add(const QuantLib::TimeSeries<double> & ts, long r1, long c1, bool displayDates) {
 
-			/* resize */
-			if (r1 + ts.size() > rMax_ || c1 + displayDates > cMax_) resize(r1 + ts.size(), c1 + displayDates);
+		//	if (r1 + ts.size() > rMax_ || c1 + displayDates > cMax_)					// resize
+		//		resize(r1 + ts.size(), c1 + displayDates);
 
-			/* copy data */
-			QuantLib::Size i = 0;
+		//	/* copy data */
+		//	thOth::size i = 0;
 
-			if (displayDates) {
+		//	if (displayDates) {
 
-				for (QuantLib::TimeSeries<double>::const_iterator It = ts.begin(); It != ts.end(); It++, i++) {
+		//		for (thOth::TimeSeries<double>::const_iterator It = ts.begin(); It != ts.end(); It++, i++) {
 
-					data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(It->first.serialNumber());
-					data_[r1 + i - 1][c1] = boost::lexical_cast<std::string>(It->second);
+		//			data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(It->first.serialNumber());
+		//			data_[r1 + i - 1][c1] = boost::lexical_cast<std::string>(It->second);
 
-				}
+		//		}
 
-			}
-			else {
+		//	}
+		//	else {
 
-				for (QuantLib::TimeSeries<double>::const_iterator It = ts.begin(); It != ts.end(); It++, i++) {
+		//		for (thOth::TimeSeries<double>::const_iterator It = ts.begin(); It != ts.end(); It++, i++) {
 
-					data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(It->second);
+		//			data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(It->second);
 
-				}
+		//		}
 
-			}
+		//	}
 
-		};
+		//};
 
 		void csvBuilder::createFile() {
 
@@ -187,10 +179,10 @@ namespace QuantLib {
 		void csvBuilder::resize(long r1, long c1) {
 
 			/* create new container */
-			std::string ** newData_ = new std::string *[std::max(r1, rMax_)];
+			std::string ** newData_ = new std::string *[max(r1, rMax_)];
 
-			for (long i = 0; i < std::max(r1, rMax_); i++)
-				newData_[i] = new std::string[std::max(c1, cMax_)];
+			for (long i = 0; i < max(r1, rMax_); i++)
+				newData_[i] = new std::string[max(c1, cMax_)];
 
 			// copy old data
 			for (long i = 0; i < rMax_; i++) {
@@ -212,8 +204,8 @@ namespace QuantLib {
 
 			data_ = newData_;
 
-			rMax_ = std::max(r1, rMax_);
-			cMax_ = std::max(c1, cMax_);
+			rMax_ = max(r1, rMax_);
+			cMax_ = max(c1, cMax_);
 
 		};
 	}

@@ -1,3 +1,11 @@
+/*
+ * This class allows one to issue a csv file
+ * by passing various object to the builder.
+ * At this stage, there is no safety mecanism
+ * implemented and the user has to take care 
+ * about the current file size
+ */
+
 /* stl headers */
 #include <fstream>
 #include <iostream>
@@ -29,6 +37,8 @@ namespace thOth {
 			csvBuilder & operator = (const csvBuilder &);
 
 			// TODO : templatize using ostream operator, but might be tricky...
+			// idea: for structured types, add columns in the cout
+			// and parse it on the insert phase
 			void add(const boost::numeric::ublas::matrix<double> &, long r1, long c1);
 			void add(const boost::numeric::ublas::vector<double> &, long r1, long c1);
 			void add(const std::string &, long r1, long c1);
