@@ -3,10 +3,14 @@
 
 #include <thoth/math/optimization/method.hpp>
 #include <thoth/math/optimization/costfunction.hpp>
+#include <thOth/types.hpp>
+
+#include <boost/numeric/ublas/vector.hpp>
 
 namespace thOth {
 
 	class Constraint;
+	class CostFunction;
 
 	//! Constrained optimization problem
 	/*! \warning The passed CostFunction and Constraint instances are
@@ -20,7 +24,7 @@ namespace thOth {
 		Problem(
 			CostFunction& costFunction,
 			Constraint& constraint,
-			const Array& initialValue = Array())
+			const boost::numeric::ublas::vector<double>& initialValue = Array())
 			: costFunction_(costFunction), constraint_(constraint),
 			currentValue_(initialValue) {}
 
@@ -29,19 +33,19 @@ namespace thOth {
 		void reset();
 
 		//! call cost function computation and increment evaluation counter
-		Real value(const Array& x);
+		real value(const boost::numeric::ublas::vector<double>& x);
 
 		//! call cost values computation and increment evaluation counter
-		Disposable<Array> values(const Array& x);
+		Disposable<Array> values(const boost::numeric::ublas::vector<double>& x);
 
 		//! call cost function gradient computation and increment
 		//  evaluation counter
-		void gradient(Array& grad_f,
-			const Array& x);
+		void gradient(boost::numeric::ublas::vector<double>& grad_f,
+			const boost::numeric::ublas::vector<double>& x);
 
 		//! call cost function computation and it gradient
-		Real valueAndGradient(Array& grad_f,
-			const Array& x);
+		real valueAndGradient(boost::numeric::ublas::vector<double>& grad_f,
+			const boost::numeric::ublas::vector<double>& x);
 
 		//! Constraint
 		Constraint& constraint() const { return constraint_; }
@@ -49,31 +53,31 @@ namespace thOth {
 		//! Cost function
 		CostFunction& costFunction() const { return costFunction_; }
 
-		void setCurrentValue(const Array& currentValue) {
+		void setCurrentValue(const boost::numeric::ublas::vector<double>& currentValue) {
 			currentValue_ = currentValue;
 		}
 
 		//! current value of the local minimum
-		const Array& currentValue() const { return currentValue_; }
+		const boost::numeric::ublas::vector<double>& currentValue() const { return currentValue_; }
 
-		void setFunctionValue(Real functionValue) {
+		void setFunctionValue(real functionValue) {
 			functionValue_ = functionValue;
 		}
 
 		//! value of cost function
-		Real functionValue() const { return functionValue_; }
+		real functionValue() const { return functionValue_; }
 
-		void setGradientNormValue(Real squaredNorm) {
+		void setGradientNormValue(real squaredNorm) {
 			squaredNorm_ = squaredNorm;
 		}
 		//! value of cost function gradient norm
-		Real gradientNormValue() const { return squaredNorm_; }
+		real gradientNormValue() const { return squaredNorm_; }
 
 		//! number of evaluation of cost function
-		Integer functionEvaluation() const { return functionEvaluation_; }
+		int functionEvaluation() const { return functionEvaluation_; }
 
 		//! number of evaluation of cost function gradient
-		Integer gradientEvaluation() const { return gradientEvaluation_; }
+		int gradientEvaluation() const { return gradientEvaluation_; }
 
 	protected:
 		//! Unconstrained cost function
@@ -81,32 +85,32 @@ namespace thOth {
 		//! Constraint
 		Constraint& constraint_;
 		//! current value of the local minimum
-		Array currentValue_;
+		boost::numeric::ublas::vector<double> currentValue_;
 		//! function and gradient norm values at the curentValue_ (i.e. the last step)
-		Real functionValue_, squaredNorm_;
+		real functionValue_, squaredNorm_;
 		//! number of evaluation of cost function and its gradient
-		Integer functionEvaluation_, gradientEvaluation_;
+		int functionEvaluation_, gradientEvaluation_;
 	};
 
 	// inline definitions
-	inline Real Problem::value(const Array& x) {
+	inline real Problem::value(const boost::numeric::ublas::vector<double>& x) {
 		++functionEvaluation_;
 		return costFunction_.value(x);
 	}
 
-	inline Disposable<Array> Problem::values(const Array& x) {
+	inline Disposable<Array> Problem::values(const boost::numeric::ublas::vector<double>& x) {
 		++functionEvaluation_;
 		return costFunction_.values(x);
 	}
 
-	inline void Problem::gradient(Array& grad_f,
-		const Array& x) {
+	inline void Problem::gradient(boost::numeric::ublas::vector<double>& grad_f,
+		const boost::numeric::ublas::vector<double>& x) {
 		++gradientEvaluation_;
 		costFunction_.gradient(grad_f, x);
 	}
 
-	inline Real Problem::valueAndGradient(Array& grad_f,
-		const Array& x) {
+	inline real Problem::valueAndGradient(boost::numeric::ublas::vector<double>& grad_f,
+		const boost::numeric::ublas::vector<double>& x) {
 		++functionEvaluation_;
 		++gradientEvaluation_;
 		return costFunction_.valueAndGradient(grad_f, x);
@@ -114,7 +118,7 @@ namespace thOth {
 
 	inline void Problem::reset() {
 		functionEvaluation_ = gradientEvaluation_ = 0;
-		functionValue_ = squaredNorm_ = Null<Real>();
+		functionValue_ = squaredNorm_ = Null<real>();
 	}
 
 }
