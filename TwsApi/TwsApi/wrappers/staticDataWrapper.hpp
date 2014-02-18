@@ -1,9 +1,9 @@
 /*
-
-HistoricalWrapper class is in charge of
-providing historical data for the user
-
-*/
+ *
+ * static data class is in charge of
+ * providing static data for a particular contract
+ *
+ */
 
 #ifndef static_data_wrapper
 #define static_data_wrapper
