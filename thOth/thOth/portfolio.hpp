@@ -25,7 +25,7 @@ namespace thOth {
 
 			void push_back(const boost::shared_ptr<strategy>&);
 
-			std::vector<boost::shared_ptr<trade> > trades();		// maybe better to get an iterator on trades ??
+			std::vector<boost::shared_ptr<trade> > trades();		// TODO : provide iterator on trades
 
 		protected:
 
