@@ -118,7 +118,7 @@ namespace thOth {
 			for (thOth::size i = 0; i < mat.size1(); i++) {							// copy data
 
 				for (thOth::size j = 0; j < mat.size2(); j++)
-					data_[r1 + i - 1][c1 + j - 1] = boost::lexical_cast<std::string>(mat[i][j]);
+					data_[r1 + i - 1][c1 + j - 1] = boost::lexical_cast<std::string>(mat(i, j));
 
 			}
 

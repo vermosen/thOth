@@ -6,6 +6,7 @@
 
 #include "testFunctions/historicalRequest.hpp"
 #include "testFunctions/staticDataRequest.hpp"
+#include "testFunctions/clientRequest.hpp"
 
 //----------------------------------------------------------------------------
 // DUMP_DEFS
@@ -48,6 +49,8 @@ int main()
 		<< std::endl
 		<< "2 - static data request"
 		<< std::endl
+		<< "3 - client request"
+		<< std::endl
 		<< "-----------------------"
 		<< std::endl;
 
@@ -61,7 +64,8 @@ int main()
 	case 2:
 		return staticDataRequest();
 		break;
-
+	case 3:
+		return clientRequest();
 	default:
 		std::cout << "unknown test, aborting program...";
 		return 0;

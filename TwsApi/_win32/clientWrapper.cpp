@@ -49,22 +49,3 @@ void clientWrapper::marketDataType(TickerId reqId, int marketDataType)
 	marketDataType_ = marketDataType;
 
 }
-
-
-void clientWrapper::tickPrice(TickerId tickerId, 
-							  TickType field, 
-							  double price, 
-							  int canAutoExecute)
-{
-
-	time_t		_t; time(&_t);
-	struct tm*	_tm = localtime(&_t);
-
-	PrintProcessId, printf
-		("TP: %4ld %02d:%02d:%02d %10s %5.3f\n"
-		, tickerId
-		, _tm->tm_hour, _tm->tm_min, _tm->tm_sec
-		, *(TickTypes::ENUMS)field, price
-		);
-
-}
