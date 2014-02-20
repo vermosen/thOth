@@ -3,7 +3,7 @@
 //============================================================================
 //#include "TwsApi\TwsApiL0.h"
 //#include "TwsApi\TwsApiDefs.h"
-#include "TwsApi\wrappers\historicalWrapper.hpp"
+#include "TwsApi\wrappers\clientWrapper.hpp"
 
 #ifndef client_request
 #define client_request

@@ -1,8 +1,8 @@
 //============================================================================
 // TwsApi Test
 //============================================================================
-#include "TwsApi\TwsApiL0.h"
-#include "TwsApi\TwsApiDefs.h"
+#include "TwsApi/TwsApiL0.h"
+#include "TwsApi/TwsApiDefs.h"
 
 #include "testFunctions/historicalRequest.hpp"
 #include "testFunctions/staticDataRequest.hpp"
@@ -39,36 +39,45 @@
 int main()
 {
 
-	int i, res;
-
+	int i;
+	
 	std::cout << "welcome to the twsApi test environment"
-		<< std::endl
-		<< "please pick a test amongst the following:"
-		<< std::endl
-		<< "1 - historical request"
-		<< std::endl
-		<< "2 - static data request"
-		<< std::endl
-		<< "3 - client request"
-		<< std::endl
-		<< "-----------------------"
-		<< std::endl;
+			  << std::endl;
 
-	std::cin >> i;
-
-	switch (i)
+	for (;;)
 	{
-	case 1:
-		return historicalRequest();
-		break;
-	case 2:
-		return staticDataRequest();
-		break;
-	case 3:
-		return clientRequest();
-	default:
-		std::cout << "unknown test, aborting program...";
-		return 0;
-	};
 
+		std::cout << "please pick a test amongst the following:"
+				  << std::endl
+				  << "1 - historical request"
+				  << std::endl
+				  << "2 - static data request"
+				  << std::endl
+				  << "3 - client request"
+				  << std::endl
+				  << "-----------------------"
+				  << std::endl;
+
+		std::cin >> i;
+		std::cin.clear();
+		std::cin.ignore(10000, '\n');
+
+		switch (i)
+		{
+
+		case 1:
+			return historicalRequest();
+
+		case 2:
+			return staticDataRequest();
+
+		case 3:
+			return clientRequest();
+
+		default:
+			std::cout << "unknown test, ";
+			i = 0;
+
+		};
+	}
 }
