@@ -46,15 +46,15 @@
     <OutDir>.\Release\</OutDir>
     <IntDir>.\Release\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(IncludePath);C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\thOth</IncludePath>
-    <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
+    <IncludePath>$(IncludePath);C:\Users\vermosen\Documents\GitHub\thOth\TestTwsApi\Src;C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi;C:\Users\vermosen\Documents\GitHub\sqlite;C:\Users\vermosen\Documents\GitHub\thOth\thOth</IncludePath>
+    <LibraryPath>C:\Users\vermosen\Documents\GitHub\sqlite\sqlite\lib;$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>.\Debug\</OutDir>
     <IntDir>.\Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath);C:\Users\vermosen\Documents\GitHub\thOth\TestTwsApi\Src;C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi;C:\Users\vermosen\Documents\GitHub\thOth\thOth</IncludePath>
-    <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
+    <IncludePath>$(IncludePath);C:\Users\vermosen\Documents\GitHub\thOth\TestTwsApi\Src;C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi;C:\Users\vermosen\Documents\GitHub\sqlite;C:\Users\vermosen\Documents\GitHub\thOth\thOth</IncludePath>
+    <LibraryPath>C:\Users\vermosen\Documents\GitHub\sqlite\sqlite\lib;$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
     <TargetName>testTwsApi</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -83,7 +83,7 @@
       <Culture>0x0813</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>thOth-vc120-mt-s.lib;odbc32.lib;odbccp32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sqlite-vc120-mt-sg;thOth-vc120-mt-s.lib;odbc32.lib;odbccp32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>.\Release/Test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <SubSystem>Console</SubSystem>
@@ -122,7 +122,7 @@
       <Culture>0x0813</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>thOth-vc120-mt-sgd.lib;twsapi-vc120-mt-sgd.lib;odbc32.lib;odbccp32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sqlite-vc120-mt-sgd.lib;thOth-vc120-mt-sgd.lib;twsapi-vc120-mt-sgd.lib;odbc32.lib;odbccp32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>

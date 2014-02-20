@@ -51,7 +51,7 @@ public:
 	virtual void tickPrice(TickerId tickerId,
 		TickType field,
 		double price,
-		int canAutoExecute);
+		int canAutoExecute){};
 
 	virtual void marketDataType(TickerId reqId, int marketDataType);
 

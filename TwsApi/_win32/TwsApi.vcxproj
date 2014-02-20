@@ -36,9 +36,9 @@
     <ClInclude Include="..\TwsApi\TwsApiDefs.h" />
     <ClInclude Include="..\TwsApi\TwsApiL0.h" />
     <ClInclude Include="..\TwsApi\TwsSocketClientErrors.h" />
+    <ClInclude Include="..\TwsApi\wrappers\clientWrapper.hpp" />
     <ClInclude Include="..\TwsApi\wrappers\historicalWrapper.hpp" />
     <ClInclude Include="..\TwsApi\wrappers\staticDataWrapper.hpp" />
-    <ClInclude Include="clientWrapper.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TwsApi\EClientSocketBase.cpp" />
@@ -47,9 +47,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\TwsApi\TwsApiL0.cpp" />
+    <ClCompile Include="..\TwsApi\wrappers\clientWrapper.cpp" />
     <ClCompile Include="..\TwsApi\wrappers\historicalWrapper.cpp" />
     <ClCompile Include="..\TwsApi\wrappers\staticDataWrapper.cpp" />
-    <ClCompile Include="clientWrapper.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C03E5CCA-3552-42F2-B865-494FAD99974C}</ProjectGuid>

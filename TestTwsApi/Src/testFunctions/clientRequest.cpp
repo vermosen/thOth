@@ -18,41 +18,42 @@ int clientRequest()
 	IBString WTS = *TwsApi::WhatToShow::BID;						// request : bid
 
 	// creates  wrapper and client
-	historicalWrapper HW(false);
+	clientWrapper HW(false);
 	EClient* EC = EClientL0::New(&HW);
 
-	if (EC->eConnect("", 7496, 100))
-	{
+	//if (EC->eConnect("", 7496, 100))
+	//{
 
-		EC->reqHistoricalData										// request
-			(20, C, EDT, DS
-			, BSS, WTS
-			, TwsApi::UseRTH::AllTradingData
-			, TwsApi::FormatDate::AsDate);
+	//	EC->reqHistoricalData										// request
+	//		(20, C, EDT, DS
+	//		, BSS, WTS
+	//		, TwsApi::UseRTH::AllTradingData
+	//		, TwsApi::FormatDate::AsDate);
 
-		while (!HW.endOfHistoricalData() && !HW.errorForRequest())
-			EC->checkMessages();
+	//	while (!HW.endOfHistoricalData() && !HW.errorForRequest())
+	//		EC->checkMessages();
 
-	}
+	//}
 
-	EC->eDisconnect();
+	//EC->eDisconnect();
 
-	thOth::TimeSeries<TwsApi::historicalQuoteDetails> ts = HW.timeSeries();	// get the timeSeries
+	//thOth::TimeSeries<TwsApi::historicalQuoteDetails> ts = HW.timeSeries();	// get the timeSeries
 
-	// simple data manipulation
-	for (thOth::TimeSeries<TwsApi::historicalQuoteDetails>::const_iterator It = ts.cbegin(); It != ts.cend(); It++)
-	{
+	//// simple data manipulation
+	//for (thOth::TimeSeries<TwsApi::historicalQuoteDetails>::const_iterator It = ts.cbegin(); It != ts.cend(); It++)
+	//{
 
-		std::cout << "quote date is: "
-			<< It->first
-			<< ", medium value is: "
-			<< ((It->second.high_ + It->second.low_) / 2) << std::endl;
+	//	std::cout << "quote date is: "
+	//		<< It->first
+	//		<< ", medium value is: "
+	//		<< ((It->second.high_ + It->second.low_) / 2) << std::endl;
 
-	}
+	//}
 
-	delete EC;
+	//delete EC;
 
-	system("pause");
+	//system("pause");
 
-	return HW.errorForRequest();
+	//return HW.errorForRequest();
+	return 0;
 }

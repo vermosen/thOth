@@ -29,7 +29,7 @@
     <ClInclude Include="..\TwsApi\wrappers\staticDataWrapper.hpp">
       <Filter>wrappers</Filter>
     </ClInclude>
-    <ClInclude Include="clientWrapper.hpp">
+    <ClInclude Include="..\TwsApi\wrappers\clientWrapper.hpp">
       <Filter>wrappers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -43,7 +43,7 @@
     <ClCompile Include="..\TwsApi\wrappers\staticDataWrapper.cpp">
       <Filter>wrappers</Filter>
     </ClCompile>
-    <ClCompile Include="clientWrapper.cpp">
+    <ClCompile Include="..\TwsApi\wrappers\clientWrapper.cpp">
       <Filter>wrappers</Filter>
     </ClCompile>
   </ItemGroup>

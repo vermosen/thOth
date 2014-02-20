@@ -8,10 +8,10 @@
 #ifndef historical_wrapper
 #define historical_wrapper
 
-#include "TwsApi\TwsApiL0.h"
-#include "TwsApi\TwsApiDefs.h"
+#include <TwsApi/TwsApiL0.h>
+#include <TwsApi/TwsApiDefs.h>
 
-#include "thOth/time/timeseries.hpp"
+#include <thOth/time/timeseries.hpp>
 
 namespace TwsApi {
 

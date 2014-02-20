@@ -8,6 +8,8 @@
 #ifndef historical_request
 #define historical_request
 
+#include <sqlite\sqlite3.h>
+
 int historicalRequest();
 
 #endif
