@@ -4,6 +4,7 @@
 #include "TwsApi/TwsApiL0.h"
 #include "TwsApi/TwsApiDefs.h"
 
+#include "testFunctions/dataBaseCreation.hpp"
 #include "testFunctions/historicalRequest.hpp"
 #include "testFunctions/staticDataRequest.hpp"
 #include "testFunctions/clientRequest.hpp"
@@ -42,7 +43,15 @@ int main()
 	int i;
 	
 	std::cout << "welcome to the twsApi test environment"
+			  << std::endl
+			  << "trying to open local ressources..."
 			  << std::endl;
+
+	if (!dataBaseCreation()) {
+	
+		// do something
+	
+	};
 
 	for (;;)
 	{

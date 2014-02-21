@@ -152,6 +152,7 @@
     <ClCompile Include="..\Src\testFunctions\clientRequest.cpp" />
     <ClCompile Include="..\Src\testFunctions\dataBaseCreation.cpp" />
     <ClCompile Include="..\Src\testFunctions\historicalRequest.cpp" />
+    <ClCompile Include="..\Src\testFunctions\recordset.cpp" />
     <ClCompile Include="..\Src\testFunctions\staticDataRequest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="..\Src\testFunctions\clientRequest.hpp" />
     <ClInclude Include="..\Src\testFunctions\dataBaseCreation.hpp" />
     <ClInclude Include="..\Src\testFunctions\historicalRequest.hpp" />
+    <ClInclude Include="..\Src\testFunctions\recordset.hpp" />
     <ClInclude Include="..\Src\testFunctions\staticDataRequest.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

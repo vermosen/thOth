@@ -24,13 +24,17 @@ int dataBaseCreation()
 
 	};
 
+	// error code
+	char *err = NULL;
+
 	// get the table list of the database
 	char * tableReq = "SELECT name FROM sqlite_master WHERE type='table';";
 
-	RJM_SQLite_Resultset *pRS = NULL;
-	printf("Checking if table exists\n");
-	pRS = SQL_Execute("SELECT name FROM sqlite_master " +
-		"WHERE type='table' and name='simple_table';", l_sql_db);
+	// the exec statement
+	int res = sqlite3_exec(db, tableReq,
+		callback, NULL, &err);
+
+
 
 	// Create SQL table
 	char * sql = "CREATE TABLE QUOTE_TABLE("  \
