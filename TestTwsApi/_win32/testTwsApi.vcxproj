@@ -150,12 +150,14 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\Src\testFunctions\clientRequest.cpp" />
+    <ClCompile Include="..\Src\testFunctions\dataBaseCreation.cpp" />
     <ClCompile Include="..\Src\testFunctions\historicalRequest.cpp" />
     <ClCompile Include="..\Src\testFunctions\staticDataRequest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Src\testFunctions\clientRequest.hpp" />
+    <ClInclude Include="..\Src\testFunctions\dataBaseCreation.hpp" />
     <ClInclude Include="..\Src\testFunctions\historicalRequest.hpp" />
     <ClInclude Include="..\Src\testFunctions\staticDataRequest.hpp" />
   </ItemGroup>

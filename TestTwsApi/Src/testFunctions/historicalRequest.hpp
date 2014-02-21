@@ -5,10 +5,11 @@
 //#include "TwsApi\TwsApiDefs.h"
 #include "TwsApi\wrappers\historicalWrapper.hpp"
 
+#include <sqlite\sqlite3.h>
+
 #ifndef historical_request
 #define historical_request
 
-#include <sqlite\sqlite3.h>
 
 int historicalRequest();
 
