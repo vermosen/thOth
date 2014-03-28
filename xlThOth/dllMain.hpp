@@ -13,4 +13,4 @@
 #include <ohxl/repositoryxl.hpp>
 #include <ohxl/utilities/xlutilities.hpp>
 
-#include <xlFunction/register_all.hpp>
+#include <xlFunction/registerAll.hpp>

@@ -25,9 +25,6 @@ DLLEXPORT int xlAutoOpen() {
 	// Instantiate the Processor Factory
 	static ObjectHandler::ProcessorFactory processorFactory;
 
-	// Instantiate the Serialization Factory
-	static QuantLibAddin::serializationFactory serializationFactory;
-
 	static XLOPER xDll;
 
 	try {
