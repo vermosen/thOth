@@ -41,8 +41,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath);C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\quantlib\ObjectHandler;.</IncludePath>
-    <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\quantlib\ObjectHandler\lib;.</LibraryPath>
+    <IncludePath>$(IncludePath);C:\Users\vermosen\Documents\GitHub\quantlib\ObjectHandler;.</IncludePath>
+    <LibraryPath>$(LibraryPath);C:\Users\vermosen\Documents\GitHub\quantlib\ObjectHandler\lib;.</LibraryPath>
+    <TargetExt>.xll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
