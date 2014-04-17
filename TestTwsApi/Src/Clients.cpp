@@ -1,8 +1,8 @@
 //============================================================================
 // TwsApi Test
 //============================================================================
-#include "TwsApiL0.h"
-#include "TwsApiDefs.h"
+#include "TwsApi/TwsApiL0.h"
+#include "TwsApi/TwsApiDefs.h"
 using namespace TwsApi;
 
 #ifdef WIN32

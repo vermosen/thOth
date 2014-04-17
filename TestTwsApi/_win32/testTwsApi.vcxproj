@@ -46,8 +46,8 @@
     <OutDir>.\Release\</OutDir>
     <IntDir>.\Release\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(IncludePath);C:\Users\vermosen\Documents\GitHub\thOth\TestTwsApi\Src;C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi;C:\Users\vermosen\Documents\GitHub\sqlite;C:\Users\vermosen\Documents\GitHub\thOth\thOth</IncludePath>
-    <LibraryPath>C:\Users\vermosen\Documents\GitHub\sqlite\sqlite\lib;$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
+    <IncludePath>$(IncludePath);C:\Users\vermosen\Documents\GitHub\thOth\TestTwsApi\Src;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi;C:\Users\vermosen\Documents\GitHub\sqlite;C:\Users\vermosen\Documents\GitHub\thOth\thOth</IncludePath>
+    <LibraryPath>C:\Users\vermosen\Documents\GitHub\sqlite\sqlite\lib;$(LibraryPath);C:\Users\vermosen\Documents\GitHub\thOth\TwsApi\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>.\Debug\</OutDir>
@@ -65,8 +65,8 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>..\..\Api;..\..\..\Shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>IB_USE_STD_STRING;WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>Sync</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>

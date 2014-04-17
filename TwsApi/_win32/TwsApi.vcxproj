@@ -86,23 +86,23 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>.\Release\</OutDir>
     <IntDir>.\Release\</IntDir>
-    <IncludePath>$(IncludePath);C:\\boost_1_55_0;..\..\..\thOth\;</IncludePath>
-    <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;..\..\..\thOth\lib;</LibraryPath>
+    <IncludePath>$(IncludePath);C:\Users\vermosen\Documents\GitHub\thOth\thOth\;..</IncludePath>
+    <LibraryPath>$(LibraryPath);C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib;</LibraryPath>
     <TargetName>twsapi-vc120-mt-gd</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>..\lib\</OutDir>
     <IntDir>.\Debug\</IntDir>
-    <IncludePath>$(IncludePath);C:\\boost_1_55_0;C:\Users\vermosen\Documents\GitHub\thOth\thOth;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi\;.</IncludePath>
-    <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
+    <IncludePath>$(IncludePath);C:\Users\vermosen\Documents\GitHub\thOth\thOth;C:\Users\vermosen\Documents\GitHub\thOth\TwsApi\;.</IncludePath>
+    <LibraryPath>$(LibraryPath);C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib</LibraryPath>
     <TargetName>twsapi-vc120-mt-sgd</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>..\Src;..\Api;..\..\Shared;..\..\PosixSocketClient\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>IB_USE_STD_STRING;WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>

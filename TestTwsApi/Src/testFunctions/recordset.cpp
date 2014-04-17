@@ -1,17 +1,13 @@
 #include "recordset.hpp"
 
-recordset::recordset()
-{
-}
+recordset::recordset() {}
 
 recordset::recordset(const recordset & o)
 {
 	data_ = o.data_;							// copy data
 }
 
-recordset::~recordset()
-{
-}
+recordset::~recordset() {}
 
 int recordset::callback(void *NotUsed, 
 					    int argc, 
