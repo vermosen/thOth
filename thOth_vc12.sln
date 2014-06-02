@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "thOth", "thOth\thOth.vcxproj", "{7653D38D-8F71-457F-BDE5-B8AF7B8A69BA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testTwsApi", "TestTwsApi\_win32\testTwsApi.vcxproj", "{41D54FBD-2C52-4D65-9D0D-04413CA894B0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7653D38D-8F71-457F-BDE5-B8AF7B8A69BA} = {7653D38D-8F71-457F-BDE5-B8AF7B8A69BA}
+		{09D29593-33F0-45D8-B558-EB7CB04A3B01} = {09D29593-33F0-45D8-B558-EB7CB04A3B01}
+		{C03E5CCA-3552-42F2-B865-494FAD99974C} = {C03E5CCA-3552-42F2-B865-494FAD99974C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BackTestTradeMFC", "thOthMFC\BackTestTradeMFC.vcxproj", "{C7BC0E6C-D951-4A47-957C-25AD2BB163E9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TwsApi", "TwsApi\_win32\TwsApi.vcxproj", "{C03E5CCA-3552-42F2-B865-494FAD99974C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sqlite", "..\sqlite\sqlite\sqlite.vcxproj", "{09D29593-33F0-45D8-B558-EB7CB04A3B01}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xlThOth", "xlThOth\xlThOth.vcxproj", "{4ACD7E62-5A28-4AE0-8969-549EE6B808BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7653D38D-8F71-457F-BDE5-B8AF7B8A69BA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7653D38D-8F71-457F-BDE5-B8AF7B8A69BA}.Debug|Win32.Build.0 = Debug|Win32
+		{7653D38D-8F71-457F-BDE5-B8AF7B8A69BA}.Release|Win32.ActiveCfg = Release|Win32
+		{7653D38D-8F71-457F-BDE5-B8AF7B8A69BA}.Release|Win32.Build.0 = Release|Win32
+		{41D54FBD-2C52-4D65-9D0D-04413CA894B0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{41D54FBD-2C52-4D65-9D0D-04413CA894B0}.Debug|Win32.Build.0 = Debug|Win32
+		{41D54FBD-2C52-4D65-9D0D-04413CA894B0}.Release|Win32.ActiveCfg = Release|Win32
+		{41D54FBD-2C52-4D65-9D0D-04413CA894B0}.Release|Win32.Build.0 = Release|Win32
+		{C7BC0E6C-D951-4A47-957C-25AD2BB163E9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C7BC0E6C-D951-4A47-957C-25AD2BB163E9}.Debug|Win32.Build.0 = Debug|Win32
+		{C7BC0E6C-D951-4A47-957C-25AD2BB163E9}.Release|Win32.ActiveCfg = Release|Win32
+		{C7BC0E6C-D951-4A47-957C-25AD2BB163E9}.Release|Win32.Build.0 = Release|Win32
+		{C03E5CCA-3552-42F2-B865-494FAD99974C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C03E5CCA-3552-42F2-B865-494FAD99974C}.Debug|Win32.Build.0 = Debug|Win32
+		{C03E5CCA-3552-42F2-B865-494FAD99974C}.Release|Win32.ActiveCfg = Release|Win32
+		{C03E5CCA-3552-42F2-B865-494FAD99974C}.Release|Win32.Build.0 = Release|Win32
+		{09D29593-33F0-45D8-B558-EB7CB04A3B01}.Debug|Win32.ActiveCfg = Debug|Win32
+		{09D29593-33F0-45D8-B558-EB7CB04A3B01}.Debug|Win32.Build.0 = Debug|Win32
+		{09D29593-33F0-45D8-B558-EB7CB04A3B01}.Release|Win32.ActiveCfg = Release|Win32
+		{09D29593-33F0-45D8-B558-EB7CB04A3B01}.Release|Win32.Build.0 = Release|Win32
+		{4ACD7E62-5A28-4AE0-8969-549EE6B808BE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4ACD7E62-5A28-4AE0-8969-549EE6B808BE}.Debug|Win32.Build.0 = Debug|Win32
+		{4ACD7E62-5A28-4AE0-8969-549EE6B808BE}.Release|Win32.ActiveCfg = Release|Win32
+		{4ACD7E62-5A28-4AE0-8969-549EE6B808BE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

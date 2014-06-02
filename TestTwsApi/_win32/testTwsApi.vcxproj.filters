@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\Src\Bars.cpp" />
+    <ClCompile Include="..\Src\Clients.cpp" />
+    <ClCompile Include="..\Src\History.cpp" />
+    <ClCompile Include="..\Src\Test.cpp" />
+    <ClCompile Include="..\Src\testFunctions\historicalRequest.cpp">
+      <Filter>testFunctions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\testFunctions\staticDataRequest.cpp">
+      <Filter>testFunctions</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\Src\testFunctions\clientRequest.cpp">
+      <Filter>testFunctions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\testFunctions\dataBaseCreation.cpp">
+      <Filter>testFunctions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\testFunctions\recordset.cpp">
+      <Filter>recordset</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="testFunctions">
+      <UniqueIdentifier>{e6172901-b89b-448a-a327-f7e2d4d14166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="recordset">
+      <UniqueIdentifier>{2f370fef-9ad3-4db1-a4c1-1f151abcf6d0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Src\testFunctions\historicalRequest.hpp">
+      <Filter>testFunctions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\testFunctions\staticDataRequest.hpp">
+      <Filter>testFunctions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\testFunctions\clientRequest.hpp">
+      <Filter>testFunctions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\testFunctions\dataBaseCreation.hpp">
+      <Filter>testFunctions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\testFunctions\recordset.hpp">
+      <Filter>recordset</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
