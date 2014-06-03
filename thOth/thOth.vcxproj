@@ -80,7 +80,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(IncludePath);C:\\boost_1_55_0;.</IncludePath>
     <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;.</LibraryPath>
-    <TargetName>thOth-vc120-mt-sgd</TargetName>
+    <TargetName>thOth-vc120-mt-sd</TargetName>
     <OutDir>.\lib\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
