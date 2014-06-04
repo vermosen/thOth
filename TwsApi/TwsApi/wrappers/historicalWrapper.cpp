@@ -16,8 +16,7 @@ historicalWrapper::historicalWrapper(const historicalWrapper & o)
 
 }
 
-historicalWrapper & historicalWrapper::operator = (const historicalWrapper & hw)
-{
+historicalWrapper & historicalWrapper::operator = (const historicalWrapper & hw) {
 
 	if (&hw != this) {
 	

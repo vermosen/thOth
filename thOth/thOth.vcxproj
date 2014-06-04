@@ -84,8 +84,9 @@
     <OutDir>.\lib\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>thOth-vc120-mt-sg</TargetName>
+    <TargetName>thOth-vc120-mt-s</TargetName>
     <IncludePath>$(IncludePath);$(BOOST);.</IncludePath>
+    <OutDir>.\lib\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

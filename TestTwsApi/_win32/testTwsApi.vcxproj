@@ -162,6 +162,7 @@
     <ClInclude Include="..\Src\testFunctions\historicalRequest.hpp" />
     <ClInclude Include="..\Src\testFunctions\recordset.hpp" />
     <ClInclude Include="..\Src\testFunctions\staticDataRequest.hpp" />
+    <ClInclude Include="all.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

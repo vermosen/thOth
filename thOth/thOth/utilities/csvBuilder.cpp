@@ -179,10 +179,10 @@ namespace thOth {
 		void csvBuilder::resize(long r1, long c1) {
 
 			/* create new container */
-			std::string ** newData_ = new std::string *[max(r1, rMax_)];
+			std::string ** newData_ = new std::string *[std::max(r1, rMax_)];
 
-			for (long i = 0; i < max(r1, rMax_); i++)
-				newData_[i] = new std::string[max(c1, cMax_)];
+			for (long i = 0; i < std::max(r1, rMax_); i++)
+				newData_[i] = new std::string[std::max(c1, cMax_)];
 
 			// copy old data
 			for (long i = 0; i < rMax_; i++) {
@@ -204,8 +204,8 @@ namespace thOth {
 
 			data_ = newData_;
 
-			rMax_ = max(r1, rMax_);
-			cMax_ = max(c1, cMax_);
+			rMax_ = std::max(r1, rMax_);
+			cMax_ = std::max(c1, cMax_);
 
 		};
 	}

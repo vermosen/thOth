@@ -46,5 +46,8 @@
     <ClInclude Include="..\Src\testFunctions\recordset.hpp">
       <Filter>recordset</Filter>
     </ClInclude>
+    <ClInclude Include="all.hpp">
+      <Filter>testFunctions</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

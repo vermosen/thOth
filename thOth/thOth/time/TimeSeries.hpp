@@ -1,4 +1,5 @@
-#pragma once
+#ifndef thoth_time_series
+#define thoth_time_series
 
 #include <thOth/time/dateTime.hpp>
 #include <thOth/pattern/observable.hpp>
@@ -9,7 +10,6 @@
 #include <boost/function.hpp>
 #include <boost/utility.hpp>
 #include <map>
-//#include <vector>
 
 namespace thOth {
 
@@ -20,9 +20,9 @@ namespace thOth {
 
 		typedef dateTime key_type;												// key type
 
-		TimeSeries<T>();															// default ctor
+		TimeSeries<T>();														// default ctor
 		TimeSeries<T>(const TimeSeries<T> &);									// copy ctor
-		~TimeSeries<T>() {};														// destructor
+		~TimeSeries<T>() {};													// destructor
 		TimeSeries<T> & operator =(const TimeSeries<T> &);						// assignement operator
 
 		template <class DateIterator, class ValueIterator>						// ctor using iterators
@@ -32,7 +32,7 @@ namespace thOth {
 			while (dBegin != dEnd)
 				data_.insert(std::pair<dateTime, T>(*(dBegin++), *(vBegin++)));
 
-			this->notifyObservers();												// notify
+			this->notifyObservers();											// notify
 		
 		}
 
@@ -51,7 +51,7 @@ namespace thOth {
 
 	private:
 
-		std::map<dateTime, T> data_;												// data
+		std::map<dateTime, T> data_;											// data
 
 	};	
 
@@ -112,3 +112,5 @@ namespace thOth {
 	}
 
 }
+
+#endif

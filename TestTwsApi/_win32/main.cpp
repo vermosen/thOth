@@ -4,10 +4,7 @@
 #include "TwsApi/TwsApiL0.h"
 #include "TwsApi/TwsApiDefs.h"
 
-#include "testFunctions/dataBaseCreation.hpp"
-#include "testFunctions/historicalRequest.hpp"
-#include "testFunctions/staticDataRequest.hpp"
-#include "testFunctions/clientRequest.hpp"
+#include "testFunctions/all.hpp"
 
 //----------------------------------------------------------------------------
 // DUMP_DEFS

@@ -1,11 +1,11 @@
-# pragma once
+#ifndef thoth_types
+#define thoth_types
 
 #include <cstddef>
-#include <Windows.h>
 
 namespace thOth {
 
-	typedef std::size_t size;				// size
+	typedef std::size_t size;					// size
 
 	typedef double real;						// real number
 
@@ -18,7 +18,7 @@ namespace thOth {
 
 	};
 
-	enum quoteType : BYTE {
+	enum quoteType : short {
 
 		Undefined = 0,
 		Trade = 1,
@@ -29,7 +29,7 @@ namespace thOth {
 
 	struct quoteDetails {
 
-		BYTE QUOTE_TYPE;
+		short QUOTE_TYPE;
 		float QUOTE_VALUE;
 		float QUOTE_AMOUNT;
 
@@ -37,3 +37,4 @@ namespace thOth {
 
 }
 
+#endif
