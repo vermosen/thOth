@@ -41,12 +41,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath);$(GITHUB)\quantlib\ObjectHandler;.</IncludePath>
-    <LibraryPath>$(LibraryPath);$(GITHUB)\quantlib\ObjectHandler\lib;.</LibraryPath>
+    <IncludePath>$(IncludePath);$(BOOST);$(PYTHON)\include\;$(GITHUB)\quantlib\ObjectHandler;$(GITHUB)\thOth\thOth\;.</IncludePath>
+    <LibraryPath>$(LibraryPath);$(BOOST)\stage\lib;$(PYTHON)\libs\;$(GITHUB)\quantlib\ObjectHandler\lib\;$(GITHUB)\thOth\thOth\lib\;$(GITHUB)\quantlib\log4cxx\msvc\lib\</LibraryPath>
     <TargetExt>.xll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(IncludePath);$(BOOST);$(PYTHON)\include\;$(GITHUB)\quantlib\ObjectHandler;$(GITHUB)\thOth\thOth\;.</IncludePath>
+    <LibraryPath>$(LibraryPath);$(BOOST)\stage\lib;$(PYTHON)\libs\;$(GITHUB)\quantlib\ObjectHandler\lib\;$(GITHUB)\thOth\thOth\lib\;$(GITHUB)\quantlib\log4cxx\msvc\lib\</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -58,7 +60,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>xlsdk-vc120-mt-sgd.lib;ObjectHandler-xll-vc120-mt-gd-1_2_0.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>thOth-vc120-mt-sg.lib;odbc32.lib;odbccp32.lib;Ws2_32.lib;advapi32.lib;ObjectHandler-vc120-mt-sgd-1_2_0.lib;ObjectHandler-xllib-vc120-mt-sgd-1_2_0.lib;log4cxxs-vc120-mt-sgd-0_10_0.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -69,12 +71,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;XLTHOTH_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>thOth-vc120-mt-sg.lib;odbc32.lib;odbccp32.lib;Ws2_32.lib;advapi32.lib;ObjectHandler-xllib-vc120-mt-s-1_2_0.lib;log4cxxs-vc120-mt-s-0_10_0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

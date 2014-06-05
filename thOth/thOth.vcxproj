@@ -80,11 +80,11 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(IncludePath);C:\\boost_1_55_0;.</IncludePath>
     <LibraryPath>$(LibraryPath);C:\\boost_1_55_0\stage\lib;.</LibraryPath>
-    <TargetName>thOth-vc120-mt-sd</TargetName>
+    <TargetName>thOth-vc120-mt-sgd</TargetName>
     <OutDir>.\lib\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>thOth-vc120-mt-s</TargetName>
+    <TargetName>thOth-vc120-mt-sg</TargetName>
     <IncludePath>$(IncludePath);$(BOOST);.</IncludePath>
     <OutDir>.\lib\</OutDir>
   </PropertyGroup>
@@ -116,6 +116,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <UndefinePreprocessorDefinitions>UNICODE;_UNICODE</UndefinePreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

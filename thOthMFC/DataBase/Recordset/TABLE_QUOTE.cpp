@@ -39,13 +39,15 @@ CString CTABLE_QUOTE::GetDefaultSQL() {
 void CTABLE_QUOTE::DoFieldExchange(CFieldExchange* pFX)
 {
 	pFX->SetFieldType(CFieldExchange::outputColumn);
+
+	BYTE tempQuote = (BYTE)m_quoteData.TRADE.QUOTE_TYPE;
 // Macros such as RFX_Text() and RFX_Int() are dependent on the
 // type of the member variable, not the type of the field in the database.
 // ODBC will try to automatically convert the column value to the requested type
 	RFX_BigInt(pFX, _T("[ID_QUOTE]"), m_ID_QUOTE);
 	RFX_BigInt(pFX, _T("[ID_INSTRUMENT]"), m_quoteData.ID_INSTRUMENT);
 	RFX_Date(pFX, _T("[QUOTE_TIME]"), m_quoteData.QUOTE_TIME);
-	RFX_Byte(pFX, _T("[QUOTE_TYPE]"), m_quoteData.TRADE.QUOTE_TYPE);
+	RFX_Byte(pFX, _T("[QUOTE_TYPE]"), tempQuote);
 	RFX_Single(pFX, _T("[QUOTE_VALUE]"), m_quoteData.TRADE.QUOTE_VALUE);
 	RFX_Single(pFX, _T("[QUOTE_AMT]"), m_quoteData.TRADE.QUOTE_AMOUNT);
 

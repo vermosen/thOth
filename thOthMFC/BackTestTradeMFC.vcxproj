@@ -43,14 +43,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\\boost_1_55_0\;$(IncludePath);C:\Users\vermosen\Documents\GitHub\thOth\thOth\;.</IncludePath>
-    <LibraryPath>$(LibraryPath);C:\Users\vermosen\Documents\GitHub\thOth\thOth\lib;</LibraryPath>
+    <IncludePath>C:\\boost_1_55_0\;$(IncludePath);$(GITHUB)\thOth\thOth\;.</IncludePath>
+    <LibraryPath>$(LibraryPath);$(GITHUB)\thOth\thOth\lib;</LibraryPath>
     <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(IncludePath);.</IncludePath>
-    <LibraryPath>$(LibraryPath);</LibraryPath>
+    <IncludePath>$(IncludePath);$(GITHUB)\thOth\thOth\;.</IncludePath>
+    <LibraryPath>$(LibraryPath);$(GITHUB)\thOth\thOth\lib\;</LibraryPath>
     <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -107,7 +107,7 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>odbc32.lib;thOth-vc120-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>odbc32.lib;thOth-vc120-mt-sg.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../thOth/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>
       </ImportLibrary>
