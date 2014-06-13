@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "thOth", "thOth\thOth.vcxproj", "{7653D38D-8F71-457F-BDE5-B8AF7B8A69BA}"
 EndProject
@@ -20,6 +20,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xlThOth", "xlThOth\xlThOth.
 	ProjectSection(ProjectDependencies) = postProject
 		{7653D38D-8F71-457F-BDE5-B8AF7B8A69BA} = {7653D38D-8F71-457F-BDE5-B8AF7B8A69BA}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testBoostSignal", "testBoostSignal\testBoostSignal.vcxproj", "{2BC8FF5B-2D3F-4664-B150-FAB9B565A8D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,12 @@ Global
 		{4ACD7E62-5A28-4AE0-8969-549EE6B808BE}.Release|Win32.Build.0 = Release|Win32
 		{4ACD7E62-5A28-4AE0-8969-549EE6B808BE}.Release|x64.ActiveCfg = Release|Win32
 		{4ACD7E62-5A28-4AE0-8969-549EE6B808BE}.Release|x64.Build.0 = Release|Win32
+		{2BC8FF5B-2D3F-4664-B150-FAB9B565A8D3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2BC8FF5B-2D3F-4664-B150-FAB9B565A8D3}.Debug|Win32.Build.0 = Debug|Win32
+		{2BC8FF5B-2D3F-4664-B150-FAB9B565A8D3}.Debug|x64.ActiveCfg = Debug|Win32
+		{2BC8FF5B-2D3F-4664-B150-FAB9B565A8D3}.Release|Win32.ActiveCfg = Release|Win32
+		{2BC8FF5B-2D3F-4664-B150-FAB9B565A8D3}.Release|Win32.Build.0 = Release|Win32
+		{2BC8FF5B-2D3F-4664-B150-FAB9B565A8D3}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
