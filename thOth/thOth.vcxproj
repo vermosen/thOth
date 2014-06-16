@@ -21,6 +21,7 @@
     <ClInclude Include="thOth\pattern\observable.hpp" />
     <ClInclude Include="thOth\pattern\observer.hpp" />
     <ClInclude Include="thOth\pattern\signal.hpp" />
+    <ClInclude Include="thOth\pattern\singleton.hpp" />
     <ClInclude Include="thOth\pattern\visitor.hpp" />
     <ClInclude Include="thOth\pnlCalculator.hpp" />
     <ClInclude Include="thOth\portfolio.hpp" />
@@ -39,7 +40,6 @@
     <ClCompile Include="thOth\pattern\lazyObject.cpp" />
     <ClCompile Include="thOth\pattern\observable.cpp" />
     <ClCompile Include="thOth\pattern\observer.cpp" />
-    <ClCompile Include="thOth\pattern\signal.cpp" />
     <ClCompile Include="thOth\pnlCalculator.cpp" />
     <ClCompile Include="thOth\portfolio.cpp" />
     <ClCompile Include="thOth\quote\quote.cpp" />

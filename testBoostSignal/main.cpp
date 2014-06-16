@@ -3,13 +3,25 @@
 #include <stdio.h>
 #include <exception>
 
-#include <boost/signals2.hpp>
+
+#include "sender.hpp"
+#include "receiver.hpp"
+
+#include <boost/signals2/signal.hpp>
+#include <boost/function.hpp>
 
 int main(int argc, char** argv) {
 
 	try {
 	
-		boost::signals2::signal<...> sig();
+		sender sd;
+		receiver rv;
+
+		// register the signal
+		boost::signals2::signal<void(bool)> sign;
+		sign.connect(thOth::signal::change.connect(boost::function<void(bool)>(&receiver::update, rv), true));
+
+		// change
 
 	}
 	catch (std::exception & e) {

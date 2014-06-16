@@ -1,15 +1,23 @@
-#include <boost/signal.hpp>
+#ifndef thoth_signal_hpp
+#define thoth_signal_hpp
 
-class signal {
+#include <boost/signals2.hpp>
 
-	private:
+namespace thOth {
 
-		signal() {};					// private ctor
-		signal(const signal &); 		// private copy ctor
+		class signal {
 
-	public:
+		protected:
 
-		static boost::signal<void(bool value)> changeOccured;
+			signal() {};					// private ctor
 
 
-};
+		private:
+
+			static boost::signals2::signal<void> s_;
+
+	};
+
+}
+
+#endif
