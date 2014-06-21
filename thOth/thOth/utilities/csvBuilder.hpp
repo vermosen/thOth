@@ -6,20 +6,27 @@
  * about the current file size
  */
 
-/* stl headers */
+#ifndef thoth_csv_builder_hpp
+#define thoth_csv_builder_hpp
+
+// stl headers
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <memory>
 
-/* boost headers */
+// boost headers
 #include <boost/lexical_cast.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 
 // thOth headers
-#include "thOth/time/timeseries.hpp"
+#include <thOth/time/TimeSeries.hpp>
 
+// prints a set of strings in a .csv
+// TODO : 1 - internationalization
+//        2 - limit check
 namespace thOth {
 
 	namespace utilities {
@@ -28,34 +35,52 @@ namespace thOth {
 
 		public:
 
-			csvBuilder(const std::string &);
+			typedef boost::numeric::ublas::matrix<double> cMatrix;
+			typedef boost::numeric::ublas::vector<double> cArray ;
+			typedef TimeSeries<double> cTimeSeries;
+			typedef size Size;
 
-			csvBuilder(const csvBuilder &);
+			csvBuilder(const std::string &);
+			csvBuilder(const csvBuilder & );
 
 			~csvBuilder();
 
 			csvBuilder & operator = (const csvBuilder &);
 
-			// TODO : templatize using ostream operator, but might be tricky...
-			// idea: for structured types, add columns in the cout
-			// and parse it on the insert phase
-			void add(const boost::numeric::ublas::matrix<double> &, long r1, long c1);
-			void add(const boost::numeric::ublas::vector<double> &, long r1, long c1);
-			void add(const std::string &, long r1, long c1);
-			void add(double, long r1, long c1);
+			void add(const cMatrix &, Size r1, Size c1);
+			void add(const cArray &, Size r1, Size c1);
+			void add(const std::string &, Size r1, Size c1);
+			void add(double, Size r1, Size c1);
+			void add(const cTimeSeries &, Size r1, Size c1, bool displayDates = false);
 
-			//void add(const thOth::TimeSeries<T> &, long r1, long c1, bool displayDates = false);
+			template<class T>
+			void add(const std::vector<T> & arr, Size r1, Size c1){
+
+				/* resize */
+				if (r1 + arr.size() > rMax_ || c1 > cMax_) resize(r1 + arr.size(), c1);
+
+				/* try to cast data */
+				for (Size i = 0; i < arr.size(); i++)
+					data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(arr[i]);
+
+			};
+
 
 		private:
 
-			void createFile();
-			void resize(long r1, long c1);
+			csvBuilder() {};								// private default ctor
 
-			std::ofstream csvFile_;
+			void createFile();
+			void resize(Size r1, Size c1);
+			void setPath(std::string & path);				// set a new path for the file
+
+			std::shared_ptr<std::ofstream> csvFile_;
 			std::string ** data_;
-			long rMax_;
-			long cMax_;
+			Size rMax_;
+			Size cMax_;
 
 		};
 	}
 }
+
+#endif

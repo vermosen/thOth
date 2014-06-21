@@ -40,9 +40,9 @@ namespace thOth {
 	template <class T>
 	T& singleton<T>::instance() {
 
-		static  std::shared_ptr<T> instances_;
+		static std::shared_ptr<T> instances_;
 
-		std::shared_ptr<T>& instance = instances_[0];
+		std::shared_ptr<T> & instance = instances_;
 
 		if (!instance)
 			instance = std::shared_ptr<T>(new T);
