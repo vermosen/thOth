@@ -91,11 +91,10 @@ namespace thOth {
 
 		void csvBuilder::add(const std::string & str, Size r1, Size c1) {
 
-			/* resize */
-			if (r1 > rMax_ || c1 > cMax_) resize(r1, c1);
+			if (r1 > rMax_ || c1 > cMax_)										// resize
+				resize(r1, c1);							
 
-			/* copy data */
-			data_[r1 - 1][c1 - 1] = str;
+			data_[r1 - 1][c1 - 1] = str;										// update
 
 		};
 
@@ -162,6 +161,13 @@ namespace thOth {
 
 		};
 
+		void csvBuilder::push_back(const std::string & str) {						// simple push_back method for log
+		
+			resize(rMax_ + 1, std::max(cMax_, size(1)));							// resize, at least 1 column
+			data_[rMax_ - 1][0] = str;												// update
+		
+		};
+
 		void csvBuilder::createFile() {
 
 			for (Size i = 0; i < rMax_; i++) {
@@ -182,9 +188,9 @@ namespace thOth {
 
 			csvFile_->close();
 
-		};
+		}
 
-		void csvBuilder::setPath(std::string & path_) {
+		void csvBuilder::path(const std::string & path_) {
 
 			csvFile_.reset();														// reset pointer count
 

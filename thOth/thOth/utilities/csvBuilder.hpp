@@ -53,31 +53,33 @@ namespace thOth {
 			void add(double, Size r1, Size c1);
 			void add(const cTimeSeries &, Size r1, Size c1, bool displayDates = false);
 
+			void push_back(const std::string &);						// simple push_back method for log
+
 			template<class T>
 			void add(const std::vector<T> & arr, Size r1, Size c1){
 
-				/* resize */
-				if (r1 + arr.size() > rMax_ || c1 > cMax_) resize(r1 + arr.size(), c1);
+				if (r1 + arr.size() > rMax_ || c1 > cMax_)				// resize
+					resize(r1 + arr.size(), c1);
 
-				/* try to cast data */
-				for (Size i = 0; i < arr.size(); i++)
+				for (Size i = 0; i < arr.size(); i++)					// try to cast data
 					data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(arr[i]);
 
 			};
 
+			void csvBuilder::path(const std::string & path_);			// set the current path
 
 		private:
 
-			csvBuilder() {};								// private default ctor
+			csvBuilder() {};											// private default ctor
 
-			void createFile();
+			void createFile()			 ;
 			void resize(Size r1, Size c1);
-			void setPath(std::string & path);				// set a new path for the file
+			void path(std::string & path);								// set a new path for the file
 
 			std::shared_ptr<std::ofstream> csvFile_;
-			std::string ** data_;
-			Size rMax_;
-			Size cMax_;
+			std::string **				   data_   ;
+			Size						   rMax_   ;
+			Size						   cMax_   ;
 
 		};
 	}
