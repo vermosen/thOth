@@ -87,6 +87,9 @@
     <ClInclude Include="thOth\pattern\singleton.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="thOth\bar\bar.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="thOth\pattern\lazyObject.cpp">
@@ -123,6 +126,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="thOth\utilities\csvBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thOth\bar\bar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="thOth\bar\bar.hpp" />
     <ClInclude Include="thOth\handle.hpp" />
     <ClInclude Include="thOth\math\optimization\constraint.hpp" />
     <ClInclude Include="thOth\math\optimization\costFunction.hpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="thOth\utilities\csvBuilder.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="thOth\bar\bar.cpp" />
     <ClCompile Include="thOth\pattern\lazyObject.cpp" />
     <ClCompile Include="thOth\pattern\observable.cpp" />
     <ClCompile Include="thOth\pattern\observer.cpp" />
