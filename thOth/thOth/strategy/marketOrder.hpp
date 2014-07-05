@@ -4,6 +4,7 @@
 #include <thOth/strategy.hpp>
 #include <thOth/time/timeseries.hpp>
 #include <thOth/relinkableHandle.hpp>
+#include <thOth/quote/quote.hpp>
 
 namespace thOth {
 
@@ -30,7 +31,7 @@ namespace thOth {
 	protected:
 
 		// TS handle
-		thOth::relinkableHandle<thOth::TimeSeries<thOth::quoteDetails> > ts_;
+		thOth::relinkableHandle<thOth::timeSeries<thOth::quote> > ts_;
 
 	};
 

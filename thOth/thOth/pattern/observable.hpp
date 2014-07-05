@@ -26,7 +26,7 @@ namespace thOth {
 		*/
 		void notifyObservers();
 
-	private:
+	protected:
 
 		typedef std::set<observer*>::iterator iterator;
 		std::pair<iterator, bool> registerObserver(observer*);

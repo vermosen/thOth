@@ -25,7 +25,7 @@ namespace thOth {
 
 			virtual dateTime date() const = 0;		// returns the implementation date
 
-			std::vector<boost::shared_ptr<trade> > trades() const;
+			std::vector<std::shared_ptr<trade> > trades() const;
 													// returns the list of trades
 			
 			void calculate();						// lazyObject implementation
@@ -39,7 +39,7 @@ namespace thOth {
 			strategy();								// default constructor is private
 			
 			dateTime implDate_;
-			std::vector<boost::shared_ptr<trade> > trades_;
+			std::vector<std::shared_ptr<trade> > trades_;
 
 	};
 

@@ -9,7 +9,7 @@ namespace thOth {
 
 	typedef double real;						// real number
 
-	typedef long volume;
+	typedef long volume;						// volume (int 64 ?)
 
 	enum marketSide : bool {
 
@@ -21,19 +21,19 @@ namespace thOth {
 	enum quoteType : short {
 
 		Undefined = 0,
-		Trade = 1,
-		Bid = 2,
-		Ask = 3
+		Trade     = 1,
+		Bid       = 2,
+		Ask       = 3
 
 	};
 
-	struct quoteDetails {
+	//struct quoteDetails {						// deprecated -> quote class
 
-		short QUOTE_TYPE;
-		float QUOTE_VALUE;
-		float QUOTE_AMOUNT;
+	//	quoteType type_  ;
+	//	real      value_ ;
+	//	volume    amount_;
 
-	};
+	//};
 
 }
 

@@ -25,39 +25,39 @@ namespace thOth {
 
 		public:
 
-			explicit link(const boost::shared_ptr<T>& h,
+			explicit link(const std::shared_ptr<T>& h,
 				bool registerAsObserver);
-			void linkTo(const boost::shared_ptr<T>&,
+			void linkTo(const std::shared_ptr<T>&,
 				bool registerAsObserver);
 			bool empty() const { return !h_; }
-			const boost::shared_ptr<T>& currentLink() const { return h_; }
+			const std::shared_ptr<T>& currentLink() const { return h_; }
 			void update() { notifyObservers(); }
 
 		private:
 
-			boost::shared_ptr<T> h_;
+			std::shared_ptr<T> h_;
 			bool isObserver_;
 		
 		};
 		
-		boost::shared_ptr<link> link_;
+		std::shared_ptr<link> link_;
 
 	public:
 
 		// name Constructors
-		explicit handle(const boost::shared_ptr<T>& p = boost::shared_ptr<T>(),
+		explicit handle(const std::shared_ptr<T>& p = std::shared_ptr<T>(),
 			bool registerAsObserver = true)
 			: link_(new link(p, registerAsObserver)) {}
 
-		const boost::shared_ptr<T>& currentLink() const;
-		const boost::shared_ptr<T>& operator->() const;
-		const boost::shared_ptr<T>& operator*() const;
+		const std::shared_ptr<T>& currentLink() const;
+		const std::shared_ptr<T>& operator->() const;
+		const std::shared_ptr<T>& operator*() const;
 
 		// checks if the contained shared pointer points to anything
 		bool empty() const;
 		
 		// allows registration as observable
-		operator boost::shared_ptr<observable>() const;
+		operator std::shared_ptr<observable>() const;
 		
 		// equality test
 		template <class U>
@@ -74,14 +74,14 @@ namespace thOth {
 
 	// inline definitions
 	template <class T>
-	inline handle<T>::link::link(const boost::shared_ptr<T>& h,
+	inline handle<T>::link::link(const std::shared_ptr<T>& h,
 		bool registerAsObserver)
 		: isObserver_(false) {
 		linkTo(h, registerAsObserver);
 	}
 
 	template <class T>
-	inline void handle<T>::link::linkTo(const boost::shared_ptr<T>& h,
+	inline void handle<T>::link::linkTo(const std::shared_ptr<T>& h,
 		bool registerAsObserver) {
 		if ((h != h_) || (isObserver_ != registerAsObserver)) {
 			if (h_ && isObserver_)
@@ -95,7 +95,7 @@ namespace thOth {
 	}
 
 	template <class T>
-	inline const boost::shared_ptr<T>& handle<T>::currentLink() const {
+	inline const std::shared_ptr<T>& handle<T>::currentLink() const {
 		
 		if (!empty())
 		return link_->currentLink();
@@ -103,7 +103,7 @@ namespace thOth {
 	};
 
 	template <class T>
-	inline const boost::shared_ptr<T>& handle<T>::operator->() const {
+	inline const std::shared_ptr<T>& handle<T>::operator->() const {
 		
 		if (!empty())
 		return link_->currentLink();
@@ -111,7 +111,7 @@ namespace thOth {
 	};
 
 	template <class T>
-	inline const boost::shared_ptr<T>& handle<T>::operator*() const {
+	inline const std::shared_ptr<T>& handle<T>::operator*() const {
 
 		if (!empty())
 		return link_->currentLink();
@@ -124,7 +124,7 @@ namespace thOth {
 	};
 
 	template <class T>
-	inline handle<T>::operator boost::shared_ptr<observable>() const {
+	inline handle<T>::operator std::shared_ptr<observable>() const {
 		return link_;
 	};
 

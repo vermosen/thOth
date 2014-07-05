@@ -4,7 +4,7 @@
 namespace thOth{
 
 	pnlCalculator::pnlCalculator() {}
-	pnlCalculator::pnlCalculator(const boost::shared_ptr<portfolio> & port){
+	pnlCalculator::pnlCalculator(const std::shared_ptr<portfolio> & port){
 	
 		this->registerWith(port);
 	

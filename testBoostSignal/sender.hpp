@@ -10,7 +10,7 @@ public:
 	void setValue(const bool v) {
 
 		value_ = v;
-		this->change();
+		//this->change();
 	
 	};
 

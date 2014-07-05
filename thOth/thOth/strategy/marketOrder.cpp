@@ -29,7 +29,7 @@ namespace thOth {
 	
 		// iterates on the TS starting at implementation date
 		// TODO : check for bounds
-		for (thOth::TimeSeries<thOth::quoteDetails>::const_iterator It = ts_->cbegin();
+		for (thOth::timeSeries<thOth::quote>::const_iterator It = ts_->cbegin();
 			It != ts_->cend(); ++It) {
 		
 			// after implementation date

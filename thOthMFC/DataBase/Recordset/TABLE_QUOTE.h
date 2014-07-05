@@ -6,12 +6,13 @@
 // code generated on samedi 2 novembre 2013, 18:03
 
 #include <thOth/types.hpp>
+#include <thOth/quote/quote.hpp>
 
 struct dbQuote{													// dbQuote struct											
 
-	LONGLONG ID_INSTRUMENT;
-	TIMESTAMP_STRUCT QUOTE_TIME;
-	thOth::quoteDetails TRADE;
+	LONGLONG         ID_INSTRUMENT;
+	TIMESTAMP_STRUCT QUOTE_TIME   ;
+	thOth::quote     TRADE        ;
 
 };
 
@@ -41,7 +42,7 @@ private:
 //accessors
 public:
 	thOth::dateTime getQuoteDateTime() const;
-	thOth::quoteDetails getQuoteDetails() const;
+	thOth::quote    getQuotevalue   () const;
 
 // Overrides
 	// Wizard generated virtual function overrides

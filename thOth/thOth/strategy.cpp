@@ -29,7 +29,7 @@ namespace thOth {
 		return * this;
 	}
 
-	std::vector<boost::shared_ptr<trade> > strategy::trades() const {
+	std::vector<std::shared_ptr<trade> > strategy::trades() const {
 		
 		return trades_; 
 	

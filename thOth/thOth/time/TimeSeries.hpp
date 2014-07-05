@@ -14,19 +14,19 @@
 namespace thOth {
 
 	template <typename T>
-	class TimeSeries : public observable {
+	class timeSeries : public observable {
 
 	public:
 
 		typedef dateTime key_type;												// key type
 
-		TimeSeries<T>();														// default ctor
-		TimeSeries<T>(const TimeSeries<T> &);									// copy ctor
-		~TimeSeries<T>() {};													// destructor
-		TimeSeries<T> & operator =(const TimeSeries<T> &);						// assignement operator
+		timeSeries<T>();														// default ctor
+		timeSeries<T>(const timeSeries<T> &);									// copy ctor
+		~timeSeries<T>() {};													// destructor
+		timeSeries<T> & operator =(const timeSeries<T> &);						// assignement operator
 
 		template <class DateIterator, class ValueIterator>						// ctor using iterators
-		TimeSeries<T>(DateIterator dBegin, DateIterator dEnd,
+		timeSeries<T>(DateIterator dBegin, DateIterator dEnd,
 			ValueIterator vBegin) {
 
 			while (dBegin != dEnd)
@@ -45,9 +45,9 @@ namespace thOth {
 
 		// iterators
 		typename const_iterator cbegin() const;
-		typename const_iterator cend() const;
-		typename const_iterator begin() const { return cbegin(); };
-		typename const_iterator end() const { return cend(); };
+		typename const_iterator cend  () const;
+		typename const_iterator begin () const { return cbegin(); };
+		typename const_iterator end   () const { return cend  (); };
 
 	private:
 
@@ -56,10 +56,10 @@ namespace thOth {
 	};	
 
 	template <typename T>
-	TimeSeries<T>::TimeSeries() {};												// default ctor
+	timeSeries<T>::timeSeries() {};												// default ctor
 
 	template <typename T>
-	TimeSeries<T>::TimeSeries(const TimeSeries<T> & o)							// copy ctor
+	timeSeries<T>::timeSeries(const timeSeries<T> & o)							// copy ctor
 		: observable(o) {
 	
 		data_ = o.data_;
@@ -67,7 +67,7 @@ namespace thOth {
 	};
 
 	template <typename T>
-	TimeSeries<T> & TimeSeries<T>::operator = (const TimeSeries<T> & o) {		// assignement operator
+	timeSeries<T> & timeSeries<T>::operator = (const timeSeries<T> & o) {		// assignement operator
 
 		if (&o != this) {
 
@@ -81,7 +81,7 @@ namespace thOth {
 	}
 
 	template <typename T>
-	void TimeSeries<T>::insert(const std::pair<thOth::dateTime, T> & n) {
+	void timeSeries<T>::insert(const std::pair<thOth::dateTime, T> & n) {
 	
 		data_.insert(n);
 		this->notifyObservers();
@@ -90,22 +90,22 @@ namespace thOth {
 
 	template <typename T>
 	inline typename std::map<dateTime, T>::const_iterator
-		TimeSeries<T>::cbegin() const {
+		timeSeries<T>::cbegin() const {
 
 			return data_.begin();
 	
 	}
 
 	template <class T>
-	inline typename TimeSeries<T>::const_iterator
-		TimeSeries<T>::cend() const {
+	inline typename timeSeries<T>::const_iterator
+		timeSeries<T>::cend() const {
 	
 			return data_.end();
 	
 	}
 
 	template <class T>
-	inline size TimeSeries<T>::size() const {
+	inline size timeSeries<T>::size() const {
 
 			return data_.size();
 

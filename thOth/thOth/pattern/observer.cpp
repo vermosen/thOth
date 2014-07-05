@@ -36,8 +36,8 @@ namespace thOth {
 
 	}
 
-	std::pair<std::set<boost::shared_ptr<observable> >::iterator, bool>
-		observer::registerWith(const boost::shared_ptr<observable>& h) {
+	std::pair<std::set<std::shared_ptr<observable> >::iterator, bool>
+		observer::registerWith(const std::shared_ptr<observable>& h) {
 
 			if (h) {
 				h->registerObserver(this);
@@ -48,7 +48,7 @@ namespace thOth {
 		
 		}
 
-	size observer::unregisterWith(const boost::shared_ptr<observable>& h) {
+	size observer::unregisterWith(const std::shared_ptr<observable>& h) {
 		
 		if (h)
 			h->unregisterObserver(this);

@@ -5,13 +5,17 @@
 
 namespace thOth {
 
-	// a quote class
+	// a quote class, heritable, potentially pure virtual (w. simpleQuote spec)
 	class quote : public observable	{
 
 		public:
 
-			quote();
-			~quote();
+			quote ();
+			virtual ~quote();
+
+			quoteType type_;
+			real      value_;
+			volume    amount_;
 	
 	};
 

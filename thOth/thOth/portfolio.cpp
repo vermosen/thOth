@@ -12,7 +12,7 @@ namespace thOth {
 
 	}
 
-	void portfolio::push_back(const boost::shared_ptr<strategy>& t) {
+	void portfolio::push_back(const std::shared_ptr<strategy>& t) {
 	
 		this->registerWith(t);
 
@@ -20,24 +20,24 @@ namespace thOth {
 	
 	}
 
-	std::vector<boost::shared_ptr<trade> > portfolio::trades() {
+	std::vector<std::shared_ptr<trade> > portfolio::trades() {
 	
 		// trades
-		std::vector<boost::shared_ptr<trade> > ret;
+		std::vector<std::shared_ptr<trade> > ret;
 
 		// trigger strategy update
-		for (std::vector<boost::shared_ptr<strategy> >::const_iterator It = strategies_.cbegin();
+		for (std::vector<std::shared_ptr<strategy> >::const_iterator It = strategies_.cbegin();
 			It != strategies_.cend(); It++)
 			
 			It->get()->calculate();
 
 		// fetch portfolio trades
-		for (std::vector<boost::shared_ptr<strategy> >::const_iterator It = strategies_.cbegin();
+		for (std::vector<std::shared_ptr<strategy> >::const_iterator It = strategies_.cbegin();
 			It != strategies_.cend(); It++) {
 		
-			std::vector<boost::shared_ptr<trade> > temp = It->get()->trades();
+			std::vector<std::shared_ptr<trade> > temp = It->get()->trades();
 
-			for (std::vector<boost::shared_ptr<trade> >::const_iterator Jt = temp.cbegin();
+			for (std::vector<std::shared_ptr<trade> >::const_iterator Jt = temp.cbegin();
 				Jt != temp.cend(); Jt++)
 
 				ret.push_back(*Jt);								// each trade in each strategies

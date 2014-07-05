@@ -37,7 +37,7 @@ namespace thOth {
 
 			typedef boost::numeric::ublas::matrix<double> cMatrix;
 			typedef boost::numeric::ublas::vector<double> cArray ;
-			typedef TimeSeries<double> cTimeSeries;
+			typedef timeSeries<double> cTimeSeries;
 			typedef size Size;
 
 			csvBuilder(const std::string &);

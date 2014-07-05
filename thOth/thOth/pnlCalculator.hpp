@@ -16,7 +16,7 @@ namespace thOth {
 	class pnlCalculator : public observer {
 
 	public:
-		pnlCalculator(const boost::shared_ptr<portfolio> &);	// base constructor
+		pnlCalculator(const std::shared_ptr<portfolio> &);	    // base constructor
 		pnlCalculator(const pnlCalculator &);					// copy constructor
 		~pnlCalculator();										// destructor
 
@@ -29,7 +29,7 @@ namespace thOth {
 		// how should we implement ?
 		// current MV is fictious,
 		// net P&L should include transaction costs, etc...
-		// TimeSeries<double>balance_ ??
+		// timeSeries<double>balance_ ??
 
 	};
 
