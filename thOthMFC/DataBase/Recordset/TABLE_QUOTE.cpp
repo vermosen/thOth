@@ -13,9 +13,9 @@ CTABLE_QUOTE::CTABLE_QUOTE(CDatabase* pdb)
 	m_ID_QUOTE = 0;
 	m_quoteData.ID_INSTRUMENT = 0;
 	m_quoteData.QUOTE_TIME;
-	m_quoteData.TRADE.QUOTE_TYPE = thOth::Undefined;
-	m_quoteData.TRADE.QUOTE_VALUE = 0.0;
-	m_quoteData.TRADE.QUOTE_AMOUNT = 0.0;
+	m_quoteData.TRADE.type_ = thOth::Undefined;
+	m_quoteData.TRADE.value_ = 0.0;
+	m_quoteData.TRADE.volume_ = 0.0;
 	m_nFields = 6;
 	m_nDefaultType = dynaset;
 }
@@ -40,7 +40,10 @@ void CTABLE_QUOTE::DoFieldExchange(CFieldExchange* pFX)
 {
 	pFX->SetFieldType(CFieldExchange::outputColumn);
 
-	BYTE tempQuote = (BYTE)m_quoteData.TRADE.QUOTE_TYPE;
+	BYTE tempQuote = (BYTE)m_quoteData.TRADE.type_;				// prior conversion
+	float tempValue = (float)m_quoteData.TRADE.value_;
+	float tempVolume = (float)m_quoteData.TRADE.volume_;
+
 // Macros such as RFX_Text() and RFX_Int() are dependent on the
 // type of the member variable, not the type of the field in the database.
 // ODBC will try to automatically convert the column value to the requested type
@@ -48,8 +51,8 @@ void CTABLE_QUOTE::DoFieldExchange(CFieldExchange* pFX)
 	RFX_BigInt(pFX, _T("[ID_INSTRUMENT]"), m_quoteData.ID_INSTRUMENT);
 	RFX_Date(pFX, _T("[QUOTE_TIME]"), m_quoteData.QUOTE_TIME);
 	RFX_Byte(pFX, _T("[QUOTE_TYPE]"), tempQuote);
-	RFX_Single(pFX, _T("[QUOTE_VALUE]"), m_quoteData.TRADE.QUOTE_VALUE);
-	RFX_Single(pFX, _T("[QUOTE_AMT]"), m_quoteData.TRADE.QUOTE_AMOUNT);
+	RFX_Single(pFX, _T("[QUOTE_VALUE]"), tempValue);
+	RFX_Single(pFX, _T("[QUOTE_AMT]"), tempVolume);
 
 }
 
@@ -60,7 +63,7 @@ thOth::dateTime CTABLE_QUOTE::getQuoteDateTime() const {
 
 }
 
-thOth::quoteDetails CTABLE_QUOTE::getQuoteDetails() const {
+thOth::quote CTABLE_QUOTE::getQuoteValue() const {
 
 	return m_quoteData.TRADE;
 

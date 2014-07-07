@@ -3,23 +3,33 @@
 #include <stdio.h>
 #include <exception>
 
+//#include "sender.hpp"
+//#include "receiver.hpp"
 
-#include "sender.hpp"
-#include "receiver.hpp"
-
-#include <boost/signals2/signal.hpp>
-#include <boost/function.hpp>
+#include <thOth/time/TimeSeries.hpp>
+//#include <boost/signals2/signal.hpp>
+//#include <boost/function.hpp>
 
 int main(int argc, char** argv) {
 
 	try {
 	
-		sender sd;
-		receiver rv;
+		thOth::timeSeries<double> ts;
+		ts.insert(std::pair<thOth::dateTime, double>(thOth::dateTime(2000, 01, 01), 0.0));
+		ts.insert(std::pair<thOth::dateTime, double>(thOth::dateTime(2000, 01, 02), 1.0));
+		ts.insert(std::pair<thOth::dateTime, double>(thOth::dateTime(2000, 01, 03), 2.0));
+		ts.insert(std::pair<thOth::dateTime, double>(thOth::dateTime(2000, 01, 04), 3.0));
 
-		// register the signal
-		boost::signals2::signal<void(bool)> sign;
-		sign.connect(thOth::signal::change.connect(boost::function<void(bool)>(&receiver::update, rv), true));
+		for (thOth::timeSeries<double>::const_iterator It
+			= ts.cbegin(); It != ts.cend(); It++)		
+			std::cout << It->second << std::endl;
+		
+		//sender sd;
+		//receiver rv;
+
+		//// register the signal
+		//boost::signals2::signal<void(bool)> sign;
+		//sign.connect(thOth::signal::change.connect(boost::function<void(bool)>(&receiver::update, rv), true));
 
 		// change
 

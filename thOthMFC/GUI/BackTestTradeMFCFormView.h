@@ -40,7 +40,7 @@ private:
 	
 	CDatabase* m_db;														// db object
 
-	thOth::timeSeries<thOth::quoteDetails>* m_timeSeries;					// current time series
+	thOth::timeSeries<thOth::quote>* m_timeSeries;							// current time series
 	thOth::dateTime* m_startDate;
 	thOth::dateTime* m_endDate;
 

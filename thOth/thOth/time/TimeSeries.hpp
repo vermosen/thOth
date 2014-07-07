@@ -89,7 +89,7 @@ namespace thOth {
 	}
 
 	template <typename T>
-	inline typename std::map<dateTime, T>::const_iterator
+	inline typename timeSeries<T>::const_iterator
 		timeSeries<T>::cbegin() const {
 
 			return data_.begin();

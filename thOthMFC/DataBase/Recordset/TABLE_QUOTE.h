@@ -42,7 +42,7 @@ private:
 //accessors
 public:
 	thOth::dateTime getQuoteDateTime() const;
-	thOth::quote    getQuotevalue   () const;
+	thOth::quote    getQuoteValue   () const;
 
 // Overrides
 	// Wizard generated virtual function overrides

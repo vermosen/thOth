@@ -22,6 +22,16 @@ namespace thOth {
 		
 			bar & operator +(const bar &);						// merging operator
 
+			dateTime barStart() const { return barStart_; };	// accessors
+			dateTime barEnd  () const { return barEnd_  ; };
+			real open  () const { return open_  ; };
+			real close () const { return close_ ; };
+			real high  () const { return high_  ; };
+			real low   () const { return low_   ; };
+			real volume() const { return volume_; };
+
+			void update() {};									// observer interface
+	
 		private:
 			
 			bar() {};											// no empty bar
@@ -29,10 +39,11 @@ namespace thOth {
 			dateTime barStart_;
 			dateTime barEnd_  ;
 
-			real open_ ;
-			real close_;
+			real open_  ;
+			real close_ ;
 			real  high_ ;
-			real low_  ;
+			real low_   ;
+			real volume_;
 
 
 

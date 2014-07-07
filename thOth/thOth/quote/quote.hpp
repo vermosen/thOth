@@ -13,9 +13,9 @@ namespace thOth {
 			quote ();
 			virtual ~quote();
 
-			quoteType type_;
-			real      value_;
-			volume    amount_;
+			quoteType type_  ;
+			real      value_ ;
+			volume    volume_;
 	
 	};
 

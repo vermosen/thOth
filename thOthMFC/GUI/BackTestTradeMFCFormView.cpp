@@ -28,7 +28,7 @@ CBackTestTradeMFCFormView::CBackTestTradeMFCFormView()						// CBackTestTradeMFC
 	m_requestButton = new CButton;
 	m_testButton = new CButton;
 
-	m_timeSeries = new thOth::timeSeries<thOth::quoteDetails>;				// internal data
+	m_timeSeries = new thOth::timeSeries<thOth::quote>;						// internal data
 	m_startDate = new thOth::dateTime;
 	m_endDate = new thOth::dateTime;
 
@@ -230,7 +230,7 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 	CTABLE_QUOTE *rs = new CTABLE_QUOTE(m_db);											// Create a recordset
 
 	std::vector<thOth::dateTime> dates;
-	std::vector<thOth::quoteDetails> quotes;
+	std::vector<thOth::quote> quotes;
 	std::wstring reqStr;																// SQL request
 	reqStr.append(_T("SELECT * FROM TABLE_QUOTE WHERE(QUOTE_TIME >= '"));
 	reqStr.append(_T("2013-Oct-25 10:00:00.000"));
@@ -254,9 +254,9 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 		while (!rs->IsEOF()) {
 					
 			m_timeSeries->insert(														// fill the TS object
-				std::pair<thOth::dateTime, thOth::quoteDetails>(					
+				std::pair<thOth::dateTime, thOth::quote>(					
 					rs->getQuoteDateTime(), 
-					rs->getQuoteDetails()));
+					rs->getQuoteValue()));
 
 			rs->MoveNext();
 
@@ -266,18 +266,18 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 
 	delete rs;
 
-	for (thOth::timeSeries<thOth::quoteDetails>::const_iterator It
+	for (thOth::timeSeries<thOth::quote>::const_iterator It
 		= m_timeSeries->cbegin(); It != m_timeSeries->cend(); It++) {
 	
-		thOth::quoteDetails test = It->second;
-		float quoteVal = test.QUOTE_VALUE;
+		thOth::quote test = It->second;
+		float quoteVal = test.value_;
 	
 	}
 
-	std::shared_ptr<thOth::timeSeries<thOth::quoteDetails> > pt(
-		new thOth::timeSeries<thOth::quoteDetails>(*m_timeSeries));
+	std::shared_ptr<thOth::timeSeries<thOth::quote> > pt(
+		new thOth::timeSeries<thOth::quote>(*m_timeSeries));
 
-	thOth::relinkableHandle<thOth::timeSeries<thOth::quoteDetails> > h(pt);				// creates the handle
+	thOth::relinkableHandle<thOth::timeSeries<thOth::quote> > h(pt);					// creates the handle
 
 	// test 2 : create a portfolio of simple strategies related to the ts
 	thOth::portfolio port;
@@ -309,7 +309,7 @@ void CBackTestTradeMFCFormView::OnRequestButtonClicked() {
 
 	// TODO: Add your control notification handler code here
 	delete m_timeSeries;																// delete the former data set
-	m_timeSeries = new thOth::timeSeries<thOth::quoteDetails>();						// TODO: make a better allocation step
+	m_timeSeries = new thOth::timeSeries<thOth::quote>();						// TODO: make a better allocation step
 
 	thOth::dateTime st = thOth::dateTime::currentTime();								// Start Chrono-> boost chrono ?
 
@@ -337,8 +337,8 @@ void CBackTestTradeMFCFormView::OnRequestButtonClicked() {
 		
 		do  {
 
-			m_timeSeries->insert(std::pair<thOth::dateTime, thOth::quoteDetails>(		// fill the TS object
-				rs->getQuoteDateTime(), rs->getQuoteDetails()));
+			m_timeSeries->insert(std::pair<thOth::dateTime, thOth::quote>(		// fill the TS object
+				rs->getQuoteDateTime(), rs->getQuoteValue()));
 			rs->MoveNext();
 
 		} while (!rs->IsEOF());
@@ -366,15 +366,15 @@ void CBackTestTradeMFCFormView::OnRequestButtonClicked() {
 		.append(_T("\r\nThe 100 first trade recorded:\r\n"));
 
 	int i = 0;
-	for (thOth::timeSeries<thOth::quoteDetails>::const_iterator It = m_timeSeries->begin();
+	for (thOth::timeSeries<thOth::quote>::const_iterator It = m_timeSeries->begin();
 		(It != m_timeSeries->end() && i < 100); It++) {
 
-		if (It->second.QUOTE_TYPE == thOth::Trade) {
+		if (It->second.type_ == thOth::Trade) {
 
 			summaryStr.append(_T("Time: "))
 				.append(boost::lexical_cast<std::wstring>(It->first))
 				.append(_T(", Price: "))
-				.append(boost::lexical_cast<std::wstring>(It->second.QUOTE_VALUE))
+				.append(boost::lexical_cast<std::wstring>(It->second.value_))
 				.append(_T("\r\n"));
 			i++;
 

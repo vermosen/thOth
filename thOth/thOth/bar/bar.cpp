@@ -28,7 +28,14 @@ namespace thOth {
 		if (&o != this) {
 		
 			// todo: insure the = operator is called from observer class
-		
+			barStart_ = o.barStart_;
+			barEnd_   = o.barEnd_  ;
+
+			open_  = o.open_ ;
+			close_ = o.close_;
+			high_  = o.high_ ;
+			low_   = o.low_  ;
+
 		}
 
 		return *this;
