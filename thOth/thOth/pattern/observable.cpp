@@ -43,7 +43,7 @@ namespace thOth {
 	void observable::notifyObservers() {
 		bool successful = true;
 		std::string errMsg;
-		for (iterator i = observers_.begin(); i != observers_.end(); ++i) {
+		for (std::set<observer*>::iterator i = observers_.begin(); i != observers_.end(); ++i) {
 			try {
 				(*i)->update();
 			}

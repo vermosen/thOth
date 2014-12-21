@@ -5,50 +5,56 @@
 #include <thOth/pattern/observer.hpp>
 #include <thOth/time/TimeSeries.hpp>
 #include <thOth/quote/quote.hpp>
+#include <thOth/time/period.hpp>
 
 namespace thOth {
 
 	// a bar class, comes together with a bar factory
-	// comes up with open/close/high/low values
-	class bar : public observable, observer	{					// observes the quotes, observable ?
+	// comes up with open/close/high/low/volume values
+	class bar {
 
 		public:
 
-			bar(const std::shared_ptr<timeSeries<quote> > &);	// constructor
+			bar() = delete;										// no empty bar allowed
+			
 			bar(const bar &);									// copy ctor
-			virtual ~bar();										// destructor
+			
+			bar(real open    , 
+				real close   ,
+				real high    ,
+				real low     ,
+				period length,
+				size volume  );
+
+			~bar();												// destructor
 
 			bar & operator =(const bar &);						// assignement operator
-		
-			bar & operator +(const bar &);						// merging operator
 
-			dateTime barStart() const { return barStart_; };	// accessors
-			dateTime barEnd  () const { return barEnd_  ; };
-			real open  () const { return open_  ; };
-			real close () const { return close_ ; };
-			real high  () const { return high_  ; };
-			real low   () const { return low_   ; };
-			real volume() const { return volume_; };
+			// accessors
+			real open     () const { return open_  ; };
+			real close    () const { return close_ ; };
+			real high     () const { return high_  ; };
+			real low      () const { return low_   ; };
+			size volume   () const { return volume_; };
+			period length () const { return length_; };
 
-			void update() {};									// observer interface
-	
+			void open	(const real & v		) { open_	= v; };
+			void close	(const real & v		) { close_	= v; };
+			void high	(const real & v		) { high_	= v; };
+			void low	(const real & v		) { low_	= v; };
+			void volume	(const size & v		) { volume_	= v; };
+			void length	(const period & v	) { length_	= v; };
+
 		private:
-			
-			bar() {};											// no empty bar
 
-			dateTime barStart_;
-			dateTime barEnd_  ;
-
-			real open_  ;
-			real close_ ;
-			real  high_ ;
-			real low_   ;
-			real volume_;
-
-
+			real	open_   ;
+			real	close_  ;
+			real	high_   ;
+			real	low_    ;
+			period	length_	;
+			size	volume_ ;
 
 	};
-
 }
 
 #endif

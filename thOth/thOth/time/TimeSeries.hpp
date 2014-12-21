@@ -13,66 +13,75 @@
 
 namespace thOth {
 
-	template <typename T>
+	template <
+		typename T, 
+		typename Key = thOth::dateTime, 
+		typename Rel = std::less<Key>,
+		typename All = std::allocator<std::pair<const Key, T>>>
 	class timeSeries : public observable {
 
 	public:
 
-		typedef dateTime key_type;												// key type
+		timeSeries<T, Key, Rel, All>();											// default ctor
+		timeSeries<T, Key, Rel, All>(const timeSeries<T, Key, Rel, All> &);		// copy ctor
+		~timeSeries<T, Key, Rel, All>() {};										// destructor
+		timeSeries<T, Key, Rel, All> & operator =(								// assignement operator
+			const timeSeries<T, Key, Rel, All> &);	
 
-		timeSeries<T>();														// default ctor
-		timeSeries<T>(const timeSeries<T> &);									// copy ctor
-		~timeSeries<T>() {};													// destructor
-		timeSeries<T> & operator =(const timeSeries<T> &);						// assignement operator
+		template <class Iterator>												// ctor using iterators
+		timeSeries<T, Key, Rel, All>(Iterator dBegin, Iterator dEnd){			// don't move outside of
+																				// the class declaration
+			while (dBegin != dEnd) data_.insert(*(dBegin++));
 
-		template <class DateIterator, class ValueIterator>						// ctor using iterators
-		timeSeries<T>(DateIterator dBegin, DateIterator dEnd,
-			ValueIterator vBegin) {
+		};
 
-			while (dBegin != dEnd)
-				data_.insert(std::pair<dateTime, T>(*(dBegin++), *(vBegin++)));
+		void insert(const std::pair<Key, T> &);						// insert new data
 
-			this->notifyObservers();											// notify
+		size size () const;														// size
 		
-		}
+		void clear ();															// clear the ts
 
-		void insert(const std::pair<thOth::dateTime, T> &);						// insert new data
-
-		size size() const;														// sise
-
-		// definition
-		typedef typename std::map<dateTime, T>::const_iterator const_iterator;
+		// iterator definition
+		typedef typename std::map<dateTime, T, Rel, All>::iterator iterator                            ;
+		typedef typename std::map<dateTime, T, Rel, All>::reverse_iterator reverse_iterator            ;
+		typedef typename std::map<dateTime, T, Rel, All>::const_iterator const_iterator                ;
+		typedef typename std::map<dateTime, T, Rel, All>::const_reverse_iterator const_reverse_iterator;
 
 		// iterators
-		typename const_iterator cbegin() const;
-		typename const_iterator cend  () const;
-		typename const_iterator begin () const { return cbegin(); };
-		typename const_iterator end   () const { return cend  (); };
-
+		typename iterator               begin   ()      ;
+		typename iterator               end     ()      ;
+		typename reverse_iterator       rbegin  ()      ;
+		typename reverse_iterator       rend    ()      ;
+		typename const_iterator         cbegin  () const;
+		typename const_iterator         cend    () const;	
+		typename const_reverse_iterator crbegin () const;
+		typename const_reverse_iterator crend   () const;
+		
 	private:
 
 		std::map<dateTime, T> data_;											// data
 
 	};	
 
-	template <typename T>
-	timeSeries<T>::timeSeries() {};												// default ctor
+	template <typename T, typename Key, typename Rel, typename All>
+	timeSeries<T, Key, Rel, All>::timeSeries() {};								// default ctor
 
-	template <typename T>
-	timeSeries<T>::timeSeries(const timeSeries<T> & o)							// copy ctor
+	template <typename T, typename Key, typename Rel, typename All>				// copy ctor
+	timeSeries<T, Key, Rel, All>::timeSeries(const timeSeries<T, Key, Rel, All> & o)	
 		: observable(o) {
 	
 		data_ = o.data_;
 	
-	};
+	}
 
-	template <typename T>
-	timeSeries<T> & timeSeries<T>::operator = (const timeSeries<T> & o) {		// assignement operator
+	template <typename T, typename Key, typename Rel, typename All>				// assignement operator
+	timeSeries<T, Key, Rel, All> & timeSeries<T, Key, Rel, All>::operator = (
+		const timeSeries<T, Key, Rel, All> & o) {
 
 		if (&o != this) {
 
+			observable::operator =(o);											// will notify observers
 			data_ = o.data_;													// copy data
-			this->notifyObservers();											// notify
 
 		}
 
@@ -80,34 +89,89 @@ namespace thOth {
 
 	}
 
-	template <typename T>
-	void timeSeries<T>::insert(const std::pair<thOth::dateTime, T> & n) {
+	template <typename T, typename Key, typename Rel, typename All>
+	void timeSeries<T, Key, Rel, All>::insert(const std::pair<Key, T> & n) {
 	
 		data_.insert(n);
-		this->notifyObservers();
+		notifyObservers();
 	
 	}
 
-	template <typename T>
-	inline typename timeSeries<T>::const_iterator
-		timeSeries<T>::cbegin() const {
+	template <typename T, typename Key, typename Rel, typename All>
+	inline typename timeSeries<T, Key, Rel, All>::iterator
+		timeSeries<T, Key, Rel, All>::begin() {
 
-			return data_.begin();
+		return data_.begin();
+
+	}
+
+	template <typename T, typename Key, typename Rel, typename All>
+	inline typename timeSeries<T, Key, Rel, All>::iterator
+		timeSeries<T, Key, Rel, All>::end() {
+
+		return data_.end();
+
+	}
+
+	template <typename T, typename Key, typename Rel, typename All>
+	inline typename timeSeries<T, Key, Rel, All>::reverse_iterator
+		timeSeries<T, Key, Rel, All>::rbegin() {
+
+		return data_.rbegin();
+
+	}
+
+	template <typename T, typename Key, typename Rel, typename All>
+	inline typename timeSeries<T, Key, Rel, All>::reverse_iterator
+		timeSeries<T, Key, Rel, All>::rend() {
+
+		return data_.rend();
+
+	}
+
+	template <typename T, typename Key, typename Rel, typename All>
+	inline typename timeSeries<T, Key, Rel, All>::const_iterator
+		timeSeries<T, Key, Rel, All>::cbegin() const {
+
+		return data_.cbegin();
+
+	}
+
+	template <typename T, typename Key, typename Rel, typename All>
+	inline typename timeSeries<T, Key, Rel, All>::const_iterator
+		timeSeries<T, Key, Rel, All>::cend() const {
+	
+			return data_.cend();
 	
 	}
 
-	template <class T>
-	inline typename timeSeries<T>::const_iterator
-		timeSeries<T>::cend() const {
-	
-			return data_.end();
-	
+	template <typename T, typename Key, typename Rel, typename All>
+	inline typename timeSeries<T, Key, Rel, All>::const_reverse_iterator
+		timeSeries<T, Key, Rel, All>::crbegin() const {
+
+		return data_.crbegin();
+
 	}
 
-	template <class T>
-	inline size timeSeries<T>::size() const {
+	template <typename T, typename Key, typename Rel, typename All>
+	inline typename timeSeries<T, Key, Rel, All>::const_reverse_iterator
+		timeSeries<T, Key, Rel, All>::crend() const {
+
+		return data_.crend();
+
+	}
+
+	template <typename T, typename Key, typename Rel, typename All>
+	inline size timeSeries<T, Key, Rel, All>::size() const {
 
 			return data_.size();
+
+	}
+
+	template <typename T, typename Key, typename Rel, typename All>
+	inline void timeSeries<T, Key, Rel, All>::clear() {
+
+		data_.clear();
 
 	}
 

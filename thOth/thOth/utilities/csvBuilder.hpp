@@ -11,26 +11,25 @@
 
 // stl headers
 #include <fstream>
-#include <iostream>
-#include <string>
-#include <memory>
+#include <mutex>
 
 // boost headers
 #include <boost/lexical_cast.hpp>
-#include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 
 // thOth headers
 #include <thOth/time/TimeSeries.hpp>
 
-// prints a set of strings in a .csv
-// TODO : 1 - internationalization
-//        2 - limit check
 namespace thOth {
 
 	namespace utilities {
 
+		// prints a set of strings in a .csv
+		// TODO : 1 - internationalization for .csv format
+		//        2 - limit check for data size
+		//		  3 - command to purge existing file
+		//        4 - date conversion into excel format
 		class csvBuilder {
 
 		public:
@@ -40,12 +39,14 @@ namespace thOth {
 			typedef timeSeries<double> cTimeSeries;
 			typedef size Size;
 
-			csvBuilder(const std::string &);
-			csvBuilder(const csvBuilder & );
+			csvBuilder() = delete;										// no default ctor
+			csvBuilder(const csvBuilder &) = delete;					// no copy ctor 
+			csvBuilder(const std::string &,								// specifies the file path
+					   bool overwrite = false);							// default to append mode
 
-			~csvBuilder();
+			virtual ~csvBuilder();										// virtual destructor
 
-			csvBuilder & operator = (const csvBuilder &);
+			csvBuilder & operator = (const csvBuilder &);				// assignement operator
 
 			void add(const cMatrix &, Size r1, Size c1);
 			void add(const cArray &, Size r1, Size c1);
@@ -53,33 +54,30 @@ namespace thOth {
 			void add(double, Size r1, Size c1);
 			void add(const cTimeSeries &, Size r1, Size c1, bool displayDates = false);
 
-			void push_back(const std::string &);						// simple push_back method for log
-
 			template<class T>
-			void add(const std::vector<T> & arr, Size r1, Size c1){
+			void add(const std::vector<T> & arr, Size r1, Size c1) {	// generic vector<T>
 
-				if (r1 + arr.size() > rMax_ || c1 > cMax_)				// resize
-					resize(r1 + arr.size(), c1);
-
-				for (Size i = 0; i < arr.size(); i++)					// try to cast data
-					data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(arr[i]);
+				for (Size i = 0; i < arr.size(); i++)					// calls the right add() function
+					add(arr[i], r1 + i, c1);
 
 			};
 
-			void csvBuilder::path(const std::string & path_);			// set the current path
+			void path(const std::string & path_,						// set another path
+					  bool overwrite = false);						
 
-		private:
+			void allocate(Size r1, Size r2);							// pre-allocate a given range
 
-			csvBuilder() {};											// private default ctor
+		protected:
 
 			void createFile()			 ;
-			void resize(Size r1, Size c1);
 			void path(std::string & path);								// set a new path for the file
 
-			std::shared_ptr<std::ofstream> csvFile_;
-			std::string **				   data_   ;
-			Size						   rMax_   ;
-			Size						   cMax_   ;
+			std::ofstream * csvFile_;
+			std::string **  data_   ;
+			Size	        rMax_   ;
+			Size		    cMax_   ;
+
+			std::mutex dataMutex_;									// mutex to lock/unlock for data modification
 
 		};
 	}

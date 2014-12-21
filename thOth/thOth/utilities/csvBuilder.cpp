@@ -1,6 +1,6 @@
 /*
  *
- * kalman filter estimation
+ * Simple csvBuilder class
  * Jean-Mathieu Vermosen
  * copyright, 2013
  *
@@ -12,43 +12,36 @@ namespace thOth {
 
 	namespace utilities {
 
-		csvBuilder::csvBuilder(const std::string & path_) :
-			csvFile_(
-			new std::ofstream(
-			path_.c_str(),
-			std::ios::app)) {
+		csvBuilder::csvBuilder(													// main ctor
+			const std::string & path_, 
+			bool overwrite) {
+
+			if (overwrite)
+
+				csvFile_ =
+					new std::ofstream(											// truncation mode
+						path_.c_str(),
+						std::ios::trunc);
+
+			else
+
+				csvFile_ =
+					new std::ofstream(											// append mode
+						path_.c_str(),
+						std::ios::app);
 
 			rMax_ = 0;
 			cMax_ = 0;
 
 			csvFile_->precision(6);
 
-		};
-
-		csvBuilder::csvBuilder(const csvBuilder & builder) {
-
-			rMax_ = builder.rMax_;
-			cMax_ = builder.cMax_;
-			data_ = new std::string *[rMax_];
-
-			for (Size i = 0; i < rMax_; i++)
-				data_[i] = new std::string[cMax_];
-
-			for (Size i = 0; i < rMax_; i++) {
-
-				for (Size j = 0; j < cMax_; j++)
-					data_[i][j] = builder.data_[i][j];
-
-			}
-
-		};																				/* copy ctor */
+		};																
 
 		csvBuilder::~csvBuilder() {
 
 			createFile();
 
-			/* it has been allocated */
-			if (rMax_ * cMax_ > 0) {
+			if (rMax_ * cMax_ > 0) {											// has been previously allocated
 
 				for (Size i = 0; i < rMax_; i++)
 					delete[] data_[i];
@@ -61,27 +54,29 @@ namespace thOth {
 
 		csvBuilder & csvBuilder::operator = (const csvBuilder & builder) {
 
-			if (&builder != this) return *this;
+			if (&builder != this) {
 
-			/* delete old data */
-			for (Size i = 0; i < rMax_; i++)
-				delete[] data_[i];
+				std::lock_guard<std::mutex> dataGuard(dataMutex_);				// lock mutex
 
-			delete[] data_;
+				for (Size i = 0; i < rMax_; i++)								// delete old data	
+					delete[] data_[i];
 
-			rMax_ = builder.rMax_;
-			cMax_ = builder.cMax_;
+				delete[] data_;
 
-			/* copy new data */
-			data_ = new std::string *[rMax_];
+				rMax_ = builder.rMax_;
+				cMax_ = builder.cMax_;
 
-			for (Size i = 0; i < rMax_; i++)
-				data_[i] = new std::string[cMax_];
+				data_ = new std::string *[rMax_];								// allocate new data
 
-			for (Size i = 0; i < rMax_; i++) {
+				for (Size i = 0; i < rMax_; i++)
+					data_[i] = new std::string[cMax_];
 
-				for (Size j = 0; j < cMax_; j++)
-					data_[i][j] = builder.data_[i][j];
+				for (Size i = 0; i < rMax_; i++) {								// data copy
+
+					for (Size j = 0; j < cMax_; j++)
+						data_[i][j] = builder.data_[i][j];
+
+				}
 
 			}
 
@@ -91,10 +86,12 @@ namespace thOth {
 
 		void csvBuilder::add(const std::string & str, Size r1, Size c1) {
 
-			if (r1 > rMax_ || c1 > cMax_)										// resize
-				resize(r1, c1);							
+			std::lock_guard<std::mutex> dataGuard(dataMutex_);					// lock mutex
 
-			data_[r1 - 1][c1 - 1] = str;										// update
+			if (r1 > rMax_ || c1 > cMax_)										// allocate
+				allocate(r1, c1);							
+
+			data_[r1 - 1][c1 - 1] = str;											// update
 
 		};
 
@@ -105,24 +102,25 @@ namespace thOth {
 		};
 
 		void csvBuilder::add(const cArray & arr, Size r1, Size c1) {
+			
+			std::lock_guard<std::mutex> dataGuard(dataMutex_);					// lock data mutex
+			
+			if (r1 + arr.size() > rMax_ || c1 > cMax_)							// allocate
+				allocate(r1 + arr.size(), c1);
 
-			/* resize */
-			if (r1 + arr.size() > rMax_ || c1 > cMax_) resize(r1 + arr.size(), c1);
-
-			/* copy data */
-			for (Size i = 0; i < arr.size(); i++)
+			for (Size i = 0; i < arr.size(); i++)								// copy data
 				data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(arr[i]);
 
 		};
 
 		void csvBuilder::add(const cMatrix & mat, Size r1, Size c1) {
+			
+			std::lock_guard<std::mutex> dataGuard(dataMutex_);					// lock data mutex
+			
+			if (r1 + mat.size1() > rMax_ || c1 + mat.size2() > cMax_)			// allocate
+				allocate(r1 + mat.size1(), c1 + mat.size2());
 
-			/* resize */
-			if (r1 + mat.size1() > rMax_ || c1 + mat.size2() > cMax_)
-				resize(r1 + mat.size1(), c1 + mat.size2());
-
-			/* copy data */
-			for (Size i = 0; i < mat.size1(); i++) {
+			for (Size i = 0; i < mat.size1(); i++) {							// copy data
 
 				for (Size j = 0; j < mat.size2(); j++)
 					data_[r1 + i - 1][c1 + j - 1] = boost::lexical_cast<std::string>(mat(i, j));
@@ -133,15 +131,16 @@ namespace thOth {
 
 		void csvBuilder::add(const cTimeSeries & ts, Size r1, Size c1, bool displayDates) {
 
-			/* resize */
-			if (r1 + ts.size() > rMax_ || c1 + displayDates > cMax_) resize(r1 + ts.size(), c1 + displayDates);
-
-			/* copy data */
 			Size i = 0;
 
-			if (displayDates) {
+			std::lock_guard<std::mutex> dataGuard(dataMutex_);					// lock data mutex
 
-				for (cTimeSeries::const_iterator It = ts.begin(); It != ts.end(); It++, i++) {
+			if (r1 + ts.size() > rMax_ || c1 + displayDates > cMax_)
+				allocate(r1 + ts.size(), c1 + displayDates);
+
+			if (displayDates) {													// display dates ?
+
+				for (cTimeSeries::const_iterator It = ts.cbegin(); It != ts.cend(); It++, i++) {
 
 					data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(It->first);
 					data_[r1 + i - 1][c1] = boost::lexical_cast<std::string>(It->second);
@@ -151,24 +150,16 @@ namespace thOth {
 			}
 			else {
 
-				for (cTimeSeries::const_iterator It = ts.begin(); It != ts.end(); It++, i++) {
-
+				for (cTimeSeries::const_iterator It = ts.cbegin(); It != ts.cend(); It++, i++)
 					data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(It->second);
-
-				}
 
 			}
 
 		};
 
-		void csvBuilder::push_back(const std::string & str) {						// simple push_back method for log
-		
-			resize(rMax_ + 1, std::max(cMax_, size(1)));							// resize, at least 1 column
-			data_[rMax_ - 1][0] = str;												// update
-		
-		};
-
 		void csvBuilder::createFile() {
+
+			std::lock_guard<std::mutex> dataGuard(dataMutex_);					// lock data mutex
 
 			for (Size i = 0; i < rMax_; i++) {
 
@@ -181,7 +172,7 @@ namespace thOth {
 
 				}
 
-				std::replace(newLine.begin(), newLine.end(), '.', ',');				// TODO: use internationalization for format
+				std::replace(newLine.begin(), newLine.end(), '.', ',');			// TODO: use internationalization for format
 				*csvFile_ << newLine << std::endl;
 
 			}
@@ -190,35 +181,41 @@ namespace thOth {
 
 		}
 
-		void csvBuilder::path(const std::string & path_) {
+		void csvBuilder::path(const std::string & path_, bool overwrite) {
 
-			csvFile_.reset();														// reset pointer count
+			delete csvFile_;													// reset pointer count
 
-			csvFile_ = std::shared_ptr<std::ofstream>(								// new ofstream
-				new std::ofstream(
-				path_.c_str(),
-				std::ios::app));
+			if (overwrite)
+
+				csvFile_ =														// truncation mode
+					new std::ofstream(											
+						path_.c_str(),
+						std::ios::trunc);
+
+			else
+
+				csvFile_ =														// append mode
+					new std::ofstream(											
+						path_.c_str(),
+						std::ios::app);
 
 		}
 
-		void csvBuilder::resize(Size r1, Size c1) {
+		void csvBuilder::allocate(Size r1, Size c1) {
 
-			/* create new container */
-			std::string ** newData_ = new std::string *[std::max(r1, rMax_)];
+			std::string ** newData_ = new std::string *[std::max(r1, rMax_)];	// creates a bigger container
 
 			for (Size i = 0; i < std::max(r1, rMax_); i++)
 				newData_[i] = new std::string[std::max(c1, cMax_)];
 
-			// copy old data
-			for (Size i = 0; i < rMax_; i++) {
+			for (Size i = 0; i < rMax_; i++) {									// copy old data
 
 				for (Size j = 0; j < cMax_; j++)
 					newData_[i][j] = data_[i][j];
 
 			}
 
-			/* if data_ has been allocated */
-			if (rMax_ * cMax_ > 0) {
+			if (rMax_ * cMax_ > 0) {											// if prior data has been allocated
 
 				for (Size i = 0; i < rMax_; i++)
 					delete[] data_[i];
@@ -228,7 +225,6 @@ namespace thOth {
 			}
 
 			data_ = newData_;
-
 			rMax_ = std::max(r1, rMax_);
 			cMax_ = std::max(c1, cMax_);
 

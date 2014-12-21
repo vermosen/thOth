@@ -2,7 +2,9 @@
 #define thoth_observer_hpp
 
 #include <set>
-#include <memory>
+
+#include <boost/shared_ptr.hpp>
+
 #include <thOth/types.hpp>
 
 namespace thOth {
@@ -21,9 +23,9 @@ namespace thOth {
 		virtual ~observer();											// destructor
 
 		// interface
-		std::pair<std::set<std::shared_ptr<observable> >::iterator, bool>
-			registerWith(const std::shared_ptr<observable>&);
-		size unregisterWith(const std::shared_ptr<observable>&);
+		std::pair<std::set<boost::shared_ptr<observable> >::iterator, bool>
+			registerWith(const boost::shared_ptr<observable>&);
+		size unregisterWith(const boost::shared_ptr<observable>&);
 
 		/*! This method must be implemented in derived classes. An
 		instance of %Observer does not call this method directly:
@@ -34,8 +36,8 @@ namespace thOth {
 		virtual void update() = 0;
 	protected:
 
-		std::set<std::shared_ptr<observable> > observables_;
-		typedef std::set<std::shared_ptr<observable> >::iterator iterator;
+		std::set<boost::shared_ptr<observable> > observables_;
+		typedef std::set<boost::shared_ptr<observable> >::iterator iterator;
 	};
 
 }

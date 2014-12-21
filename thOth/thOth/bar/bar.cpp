@@ -2,44 +2,36 @@
 
 namespace thOth {
 
-	bar::bar(const std::shared_ptr<timeSeries<quote> > & ts) {
-
-		registerWith(ts);
-
-	}
-
-	bar::bar(const bar & o){
+	bar::bar(const bar & o)							// copy ctor
+		: open_(o.open_), close_(o.close_), high_(o.high_),
+		low_(o.low_), length_(o.length_), volume_(o.volume_) {}
 	
-		for (std::set<std::shared_ptr<observable> >::const_iterator It =		// register with the observables
-			o.observables_.cbegin(); It != o.observables_.cend(); It++)
+	bar::bar(										// detailed ctor
+		real open    ,
+		real close   ,
+		real high    ,
+		real low     ,
+		period length,
+		size volume)
+		: open_(open), close_(close), high_(high), 
+			low_(low), length_(length), volume_(volume) {};
 
-			this->registerWith(*It);
+	bar::~bar() {}									// destructor
 
-	}
-	
-	bar::~bar() {
-	
-		unregisterWithAll();
-	
-	}
-
-	bar & bar::operator =(const bar & o) {
+	bar & bar::operator =(const bar & o) {			// assignement
 	
 		if (&o != this) {
 		
-			// todo: insure the = operator is called from observer class
-			barStart_ = o.barStart_;
-			barEnd_   = o.barEnd_  ;
-
-			open_  = o.open_ ;
-			close_ = o.close_;
-			high_  = o.high_ ;
-			low_   = o.low_  ;
+			open_   = o.open_   ;
+			close_  = o.close_  ;
+			high_   = o.high_   ;
+			low_    = o.low_    ;
+			volume_ = o.volume_ ;
+			length_ = o.length_ ;
 
 		}
 
 		return *this;
 	
-	};
-
+	}
 }

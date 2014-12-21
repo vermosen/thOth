@@ -21,7 +21,7 @@ namespace thOth {
 		visitor<occurence>* v1 = dynamic_cast<visitor<occurence>*>(&v);
 		
 		if (v1 != 0)
-			v1->visit(*this);
+			v1->accept(this);
 		else
 			return;
 		

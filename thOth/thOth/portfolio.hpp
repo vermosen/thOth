@@ -23,13 +23,13 @@ namespace thOth {
 
 			void update();											// observable implementation
 
-			void push_back(const std::shared_ptr<strategy> &);
+			void push_back(const boost::shared_ptr<strategy> &);
 
-			std::vector<std::shared_ptr<trade> > trades();		// TODO : provide iterator on trades
+			std::vector<boost::shared_ptr<trade> > trades();		// TODO : provide iterator on trades
 
 		protected:
 
-			std::vector<std::shared_ptr<strategy> > strategies_;
+			std::vector<boost::shared_ptr<strategy> > strategies_;
 	
 	};
 

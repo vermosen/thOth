@@ -28,8 +28,7 @@ namespace thOth {
 
 	protected:
 
-		typedef std::set<observer*>::iterator iterator;
-		std::pair<iterator, bool> registerObserver(observer*);
+		std::pair<std::set<observer*>::iterator, bool> registerObserver(observer*);
 		size unregisterObserver(observer*);
 		std::set<observer*> observers_;									// observers
 	

@@ -16,21 +16,21 @@ IMPLEMENT_DYNCREATE(CBackTestTradeMFCFormView, CFormView)
 CBackTestTradeMFCFormView::CBackTestTradeMFCFormView()						// CBackTestTradeMFCFormView
 : CFormView(CBackTestTradeMFCFormView::IDD) {
 
-	m_db = new CDatabase;													// database initialization
-	m_edit = new CEdit;														// edit initialization
+	m_db   = new CDatabase;													// database initialization
+	m_edit = new CEdit    ;													// edit initialization
 
 	m_startDatePicker = new CDateTimeCtrl;									// date pickers
 	m_startTimePicker = new CDateTimeCtrl;
-	m_endDatePicker = new CDateTimeCtrl;
-	m_endTimePicker = new CDateTimeCtrl;
+	m_endDatePicker   = new CDateTimeCtrl;
+	m_endTimePicker   = new CDateTimeCtrl;
 
 	m_InsertFileButton = new CButton;										// interface buttons
-	m_requestButton = new CButton;
-	m_testButton = new CButton;
+	m_requestButton    = new CButton;
+	m_testButton       = new CButton;
 
 	m_timeSeries = new thOth::timeSeries<thOth::quote>;						// internal data
-	m_startDate = new thOth::dateTime;
-	m_endDate = new thOth::dateTime;
+	m_startDate  = new thOth::dateTime                ;
+	m_endDate    = new thOth::dateTime                ;
 
 	std::wstring connStr;													// connection string
 
@@ -98,24 +98,16 @@ END_MESSAGE_MAP()
 // CBackTestTradeMFCFormView diagnostics
 
 #ifdef _DEBUG
-void CBackTestTradeMFCFormView::AssertValid() const {
-
-	CFormView::AssertValid();
-
-}
+void CBackTestTradeMFCFormView::AssertValid() const { CFormView::AssertValid(); }
 
 #ifndef _WIN32_WCE
-void CBackTestTradeMFCFormView::Dump(CDumpContext& dc) const {
-
-	CFormView::Dump(dc);
-
-}
+void CBackTestTradeMFCFormView::Dump(CDumpContext& dc) const { CFormView::Dump(dc); }
 #endif
 #endif //_DEBUG
 
 void CBackTestTradeMFCFormView::OnInitialUpdate() {
 
-	CFormView::OnInitialUpdate();
+	CFormView::OnInitialUpdate();														// call base method
 	GetParentFrame()->RecalcLayout();
 	ResizeParentToFit();
 
@@ -123,12 +115,10 @@ void CBackTestTradeMFCFormView::OnInitialUpdate() {
 
 void CBackTestTradeMFCFormView::AppendTextToEditCtrl(CEdit& edit, LPCTSTR pszText) {
 
-	// get the initial text length
-	int nLength = edit.GetWindowTextLength();
-	// put the selection at the end of text
-	edit.SetSel(nLength, nLength);
-	// replace the selection
-	edit.ReplaceSel(pszText);
+	
+	int nLength = edit.GetWindowTextLength();											// get the initial text length
+	edit.SetSel(nLength, nLength)           ;											// put the selection at the end of text
+	edit.ReplaceSel(pszText)                ;											// replace the selection
 
 }
 
@@ -165,8 +155,9 @@ void CBackTestTradeMFCFormView::OnPaint() {
 		memoryDC.CreateCompatibleDC(&dc)) {
 
 		m_edit->SetWindowPos(															// Draw edit
-			this, rect.left + 5, 
-			rect.top + 200, 
+			this, 
+			rect.left + 5, 
+			rect.top + 250, 
 			rect.Width() - 10, 
 			rect.Height() - 205, 
 			SWP_NOZORDER);
@@ -220,17 +211,17 @@ int CBackTestTradeMFCFormView::OnCreate(LPCREATESTRUCT lpCreateStruct) {
 
 	if (CFormView::OnCreate(lpCreateStruct) == -1)
 		return -1;
+	else
+		return 0;
 
-	return 0;
 }
 
-void CBackTestTradeMFCFormView::OnTestButtonClicked() {
+void CBackTestTradeMFCFormView::OnTestButtonClicked() {									// request db and build a ts object
 
-	// test 1 : db request and build a time series object
 	CTABLE_QUOTE *rs = new CTABLE_QUOTE(m_db);											// Create a recordset
 
-	std::vector<thOth::dateTime> dates;
-	std::vector<thOth::quote> quotes;
+	std::vector<thOth::dateTime> dates ;
+	std::vector<thOth::quote>    quotes;
 	std::wstring reqStr;																// SQL request
 	reqStr.append(_T("SELECT * FROM TABLE_QUOTE WHERE(QUOTE_TIME >= '"));
 	reqStr.append(_T("2013-Oct-25 10:00:00.000"));
@@ -247,9 +238,7 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 		delete rs;
 		return;
 
-	}
-
-	else {
+	} else {
 
 		while (!rs->IsEOF()) {
 					
@@ -279,8 +268,7 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 
 	thOth::relinkableHandle<thOth::timeSeries<thOth::quote> > h(pt);					// creates the handle
 
-	// test 2 : create a portfolio of simple strategies related to the ts
-	thOth::portfolio port;
+	thOth::portfolio port;																// creates a portfolio of simple strategies related to the ts
 
 	port.push_back(std::shared_ptr<thOth::strategy>(									// buy 100 on May the 5th at 10:02:00
 		new thOth::marketOrder(
@@ -294,7 +282,7 @@ void CBackTestTradeMFCFormView::OnTestButtonClicked() {
 				boost::posix_time::time_duration(10, 4, 0, 0)),
 			100, thOth::marketSide::bid)));
 
-	std::vector<std::shared_ptr<thOth::trade> > trades = port.trades();				// trades generated
+	std::vector<std::shared_ptr<thOth::trade> > trades = port.trades();					// trades generated
 
 }
 
@@ -309,7 +297,7 @@ void CBackTestTradeMFCFormView::OnRequestButtonClicked() {
 
 	// TODO: Add your control notification handler code here
 	delete m_timeSeries;																// delete the former data set
-	m_timeSeries = new thOth::timeSeries<thOth::quote>();						// TODO: make a better allocation step
+	m_timeSeries = new thOth::timeSeries<thOth::quote>();								// TODO: make a better allocation step
 
 	thOth::dateTime st = thOth::dateTime::currentTime();								// Start Chrono-> boost chrono ?
 
@@ -330,14 +318,16 @@ void CBackTestTradeMFCFormView::OnRequestButtonClicked() {
 		
 			AppendTextToEditCtrl(*m_edit, 
 				_T("No Data found for the passed parameters."));
+			
 			delete rs;
+			
 			return;
 		
 		}
 		
 		do  {
 
-			m_timeSeries->insert(std::pair<thOth::dateTime, thOth::quote>(		// fill the TS object
+			m_timeSeries->insert(std::pair<thOth::dateTime, thOth::quote>(				// fill the TS object
 				rs->getQuoteDateTime(), rs->getQuoteValue()));
 			rs->MoveNext();
 
@@ -365,21 +355,17 @@ void CBackTestTradeMFCFormView::OnRequestButtonClicked() {
 		.append(_T(" quotes successfully read,\r\n"))
 		.append(_T("\r\nThe 100 first trade recorded:\r\n"));
 
-	int i = 0;
 	for (thOth::timeSeries<thOth::quote>::const_iterator It = m_timeSeries->begin();
-		(It != m_timeSeries->end() && i < 100); It++) {
+		It != m_timeSeries->end(); It++) {
 
-		if (It->second.type_ == thOth::Trade) {
+		if (It->second.type_ == thOth::Trade)
 
 			summaryStr.append(_T("Time: "))
 				.append(boost::lexical_cast<std::wstring>(It->first))
 				.append(_T(", Price: "))
 				.append(boost::lexical_cast<std::wstring>(It->second.value_))
 				.append(_T("\r\n"));
-			i++;
 
-		}
-			
 	}
 
 	AppendTextToEditCtrl(*m_edit, summaryStr.c_str());
@@ -387,7 +373,8 @@ void CBackTestTradeMFCFormView::OnRequestButtonClicked() {
 }
 
 void CBackTestTradeMFCFormView::OnDtnDateTimeChangeStartDatePicker(
-	NMHDR *pNMHDR, LRESULT *pResult) {
+	NMHDR *pNMHDR, 
+	LRESULT *pResult) {
 
 	LPNMDATETIMECHANGE pDTChange = reinterpret_cast<LPNMDATETIMECHANGE>(pNMHDR);
 
@@ -397,14 +384,14 @@ void CBackTestTradeMFCFormView::OnDtnDateTimeChangeStartDatePicker(
 	SYSTEMTIME rawTime;																		// retrieve Date from controls
 	m_startTimePicker->GetTime(&rawTime);
 
-	rawDate.wHour = rawTime.wHour;															// merge the two data
-	rawDate.wMinute = rawTime.wMinute;
-	rawDate.wSecond = rawTime.wSecond;
-	rawDate.wMilliseconds = 0;
+	rawDate.wHour         = rawTime.wHour  ;												// merge the two data
+	rawDate.wMinute       = rawTime.wMinute;
+	rawDate.wSecond       = rawTime.wSecond;
+	rawDate.wMilliseconds = 0              ;
 
 	m_startDate->~dateTime();	
 
-	m_startDate = new (m_startDate)thOth::dateTime(											// TODO : change data members
+	m_startDate = new (m_startDate) thOth::dateTime(										// TODO : change data members
 		thOth::dateTimeConversion(&rawDate));	
 
 	*pResult = 0;
@@ -422,14 +409,12 @@ void CBackTestTradeMFCFormView::OnDtnDateTimeChangeEndDatepicker(
 	SYSTEMTIME rawTime;																		// retrieve Date from controls
 	m_endTimePicker->GetTime(&rawTime);
 
-	rawDate.wHour = rawTime.wHour;															// merge the two data
-	rawDate.wMinute = rawTime.wMinute;
-	rawDate.wSecond = rawTime.wSecond;
-	rawDate.wMilliseconds = 0;
+	rawDate.wHour         = rawTime.wHour  ;												// merge the two data
+	rawDate.wMinute       = rawTime.wMinute;
+	rawDate.wSecond       = rawTime.wSecond;
+	rawDate.wMilliseconds = 0              ;
 
 	m_endDate->~dateTime();																	// reallocate m_startDate
-	
-
 	
 	m_endDate = new (m_endDate)thOth::dateTime(												// TODO : change data members
 		thOth::dateTimeConversion(&rawDate));												

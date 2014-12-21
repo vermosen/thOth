@@ -16,7 +16,7 @@ namespace thOth {
 	class pnlCalculator : public observer {
 
 	public:
-		pnlCalculator(const std::shared_ptr<portfolio> &);	    // base constructor
+		pnlCalculator(const boost::shared_ptr<portfolio> &);	// base constructor
 		pnlCalculator(const pnlCalculator &);					// copy constructor
 		~pnlCalculator();										// destructor
 

@@ -1,112 +1,100 @@
 #include <thOth/time/dateTime.hpp>
 
-//#define BOOST_DATE_TIME_HAS_NANOSECONDS
-
 namespace thOth {
 
-	dateTime::dateTime() : ptime() {}													// default ctors
+	dateTime::dateTime() : ptime() {}												// default ctors	
 
-	dateTime::dateTime(const dateTime & dt) : ptime(dt) {}								// copy ctor
-
-	dateTime::dateTime(																	// ctor
-		Years y, Months m, Days d, 
+	dateTime::dateTime(																// ctor
+		years y, months m, days d, 
 		boost::posix_time::time_duration td)		
 		: ptime(boost::gregorian::date(y, m, d), td) {}
 
 	dateTime::dateTime(
-		const boost::posix_time::ptime & pt) : ptime(pt) {}
-
-	dateTime::dateTime(
-		Years y, Months m, Days d,														// detailed Constructor
-		Hours H, Minutes M, Seconds S,
-		MilliSeconds MS,
+		years y, months m, days d,													// detailed Constructor
+		hours H, minutes M, seconds S,
+		milliSeconds MS,
 
 #ifndef BOOST_DATE_TIME_HAS_NANOSECONDS
 
-		MicroSeconds MU)
+		microSeconds MU)
 
 		: ptime(boost::gregorian::date(y, m, d), H + M + S + MS + MU) {};
 
 #else
 
-		MicroSeconds MU, NanoSeconds N)
+		microSeconds MU, nanoSeconds N)
 
 		: ptime(boost::gregorian::date(y, m, d), H + M + S + MS + MU + N) {};
 
 #endif
 
-	dateTime::~dateTime(){}
-
-	dateTime & dateTime::operator = (const dateTime &dt){
-
-		if (&dt != this) {																// prevent self replication
-
-			// copy elements 
-
+	dateTime & dateTime::operator = (const dateTime & o) {
+	
+		if (&o != this) {
+		
+			// base class assignement operator
+			ptime::operator=(o);
+		
 		}
 
 		return *this;
-
+	
 	}
 
-	dateTime::Years dateTime::year() const {											// interfaces
+	dateTime::~dateTime(){}
+
+	inline dateTime::years dateTime::year() const {									// interfaces
 	
 		return ptime::date().year();
 	
 	}
 
-	dateTime::Months dateTime::month() const {
+	dateTime::months dateTime::month() const {
 	
 		return ptime::date().month();
 
 	}
 
-	dateTime::Days dateTime::day() const {
+	dateTime::days dateTime::day() const {
 	
 		return ptime::date().day();
 
 	}
 
-	dateTime::Hours dateTime::hour() const {
+	dateTime::hours dateTime::hour() const {
 	
-		return dateTime::Hours(ptime::time_of_day().hours());
-	
-	}
-
-	dateTime::Minutes dateTime::minute() const {
-	
-		return dateTime::Minutes(ptime::time_of_day().minutes());
+		return dateTime::hours(ptime::time_of_day().hours());
 	
 	}
 
-	dateTime::Seconds dateTime::second() const {
+	dateTime::minutes dateTime::minute() const {
 	
-		return dateTime::Seconds(ptime::time_of_day().seconds());
-	
-	}
-
-	dateTime::MilliSeconds dateTime::millisecond() const {
-	
-		return dateTime::MilliSeconds(ptime::time_of_day().ticks());
+		return dateTime::minutes(ptime::time_of_day().minutes());
 	
 	}
 
-	dateTime::MicroSeconds dateTime::microsecond() const {
-
-		return dateTime::MicroSeconds(ptime::time_of_day().ticks());
-
+	dateTime::seconds dateTime::second() const {
+	
+		return dateTime::seconds(ptime::time_of_day().seconds());
+	
 	}
 
-	void dateTime::year(const dateTime::Years& yr) {										// TODO set methods
+	dateTime::milliSeconds dateTime::millisecond() const {
 	
-		// set year
+		return dateTime::milliSeconds((int)(ptime::time_of_day().ticks() / 1000));
 	
+	}
+
+	dateTime::microSeconds dateTime::microsecond() const {
+
+		return dateTime::microSeconds(ptime::time_of_day().ticks());
+
 	}
 
 #ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
-	dateTime::MicroSeconds dateTime::nanoseconds() const {
+	dateTime::nanoseconds dateTime::nanoseconds() const {
 
-		return dateTime::NanoSeconds(ptime::time_of_day().ticks());
+		return dateTime::nanoSeconds(ptime::time_of_day().ticks());
 
 	}
 #endif
@@ -116,5 +104,117 @@ namespace thOth {
 		return dateTime(boost::posix_time::microsec_clock::local_time());
 	
 	}
+
+	// TODO: move into calendar class to manage calendar rules
+	dateTime dateTime::advance(const thOth::dateTime & d, const thOth::period & p) {
+	
+		timeUnit u = p.unit();
+		dateTime ret;
+
+		switch (u){
+
+		case timeUnit::year:
+			ret = d + boost::gregorian::years(p.amount());
+			break;
+
+		case timeUnit::month:
+			ret = d + boost::gregorian::months(p.amount());
+			break;
+
+		case timeUnit::week:
+			ret = d + boost::gregorian::weeks(p.amount());
+			break;
+
+		case timeUnit::day:
+			ret = d + boost::gregorian::days(p.amount());
+			break;
+
+		case timeUnit::hour:
+			ret = d + time_duration(boost::posix_time::hours(p.amount()));
+			break;
+
+		case timeUnit::minute:
+			ret = d + time_duration(boost::posix_time::minutes(p.amount()));
+			break;
+
+		case timeUnit::second:
+			ret = d + time_duration(boost::posix_time::seconds(p.amount()));
+			break;
+
+		case timeUnit::milliSecond:
+			ret = d + time_duration(boost::posix_time::milliseconds(p.amount()));
+			break;
+
+		case timeUnit::microSecond:
+			ret = d + time_duration(boost::posix_time::milliseconds(p.amount()));
+			break;
+
+#ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
+		case timeUnit::nanoSecond:
+			ret = d + time_duration(boost::posix_time::nanoseconds(p.amount()));
+			break;
+#endif
+
+		case timeUnit::nanoSecond:
+			ret = d + time_duration(boost::posix_time::milliseconds(p.amount()));
+			break;
+		
+		}
+
+		return ret;
+
+	}
+
+	dateTime dateTime::strToDate(													// convert string into date
+		const std::string & fixStr,
+		std::stringstream & ss) {
+
+		dateTime ret;
+		
+		ss.clear();
+		ss.str(fixStr); ss >> ret;
+		ss.clear();
+
+		return ret;
+
+	}
+
+	thOth::dateTime dateTime::convertSqlDateTime(const std::string & dtStr) {
+
+		return thOth::dateTime(
+			thOth::dateTime::years(boost::lexical_cast<int>(dtStr.substr(0, 4))),
+			thOth::dateTime::months(boost::lexical_cast<int>(dtStr.substr(5, 2))),
+			thOth::dateTime::days(boost::lexical_cast<int>(dtStr.substr(8, 2))),
+			thOth::dateTime::hours(boost::lexical_cast<int>(dtStr.substr(11, 2))),
+			thOth::dateTime::minutes(boost::lexical_cast<int>(dtStr.substr(14, 2))),
+			thOth::dateTime::seconds(boost::lexical_cast<int>(dtStr.substr(17, 2))),
+			thOth::dateTime::milliSeconds(boost::lexical_cast<int>(dtStr.substr(20, 3))),
+			thOth::dateTime::microSeconds(boost::lexical_cast<int>(dtStr.substr(23, 3))));
+		// TODO: add microsec management
+
+	}
+
+	// sql string conversion
+	std::string dateTime::convertSqlDateTime(bool microsec) const {
+
+		std::string temp = boost::posix_time::to_iso_string(*this);
+
+		std::string sql(""); sql
+			.append(temp.substr(0, 8))
+			.append(temp.substr(9, 
+				(microsec ? 13 : 6)));
+
+		return sql;
+
+	}
+
+	// adjust to the closest mulitple increment
+	dateTime dateTime::adjust100ms(const thOth::dateTime & d) {
+	
+		__int64 tt = d.time_of_day().ticks();
+
+		return thOth::dateTime(d.year(), d.month(), d.day(), boost::posix_time::milliseconds((tt - tt % 100000) / 1000));
+
+	};
 
 }

@@ -12,20 +12,20 @@ namespace thOth {
 	public:
 	
 		explicit relinkableHandle(
-			const std::shared_ptr<T>& p = std::shared_ptr<T>(),
+			const boost::shared_ptr<T>& p = boost::shared_ptr<T>(),
 			bool registerAsObserver = true);
 		
 		explicit relinkableHandle(
 			T* p,
 			bool registerAsObserver = true);
 		
-		void linkTo(const std::shared_ptr<T>&,
+		void linkTo(const boost::shared_ptr<T>&,
 			bool registerAsObserver = true);
 	
 	};
 
 	template <class T>
-	inline relinkableHandle<T>::relinkableHandle(const std::shared_ptr<T>& p,
+	inline relinkableHandle<T>::relinkableHandle(const boost::shared_ptr<T>& p,
 		bool registerAsObserver)
 		: handle<T>(p, registerAsObserver) {}
 
@@ -35,7 +35,7 @@ namespace thOth {
 		: handle<T>(p, registerAsObserver) {}
 
 	template <class T>
-	inline void relinkableHandle<T>::linkTo(const std::shared_ptr<T>& h,
+	inline void relinkableHandle<T>::linkTo(const boost::shared_ptr<T>& h,
 		bool registerAsObserver) {
 		this->link_->linkTo(h, registerAsObserver);
 	}

@@ -13,8 +13,8 @@ namespace thOth {
 
 	enum marketSide : bool {
 
-		bid = true,
-		ask = false
+		bid = 1,
+		ask = 0
 
 	};
 
@@ -27,13 +27,44 @@ namespace thOth {
 
 	};
 
-	//struct quoteDetails {						// deprecated -> quote class
+	enum weekday {
 
-	//	quoteType type_  ;
-	//	real      value_ ;
-	//	volume    amount_;
+		Sunday = 1,
+		Monday = 2,
+		Tuesday = 3,
+		Wednesday = 4,
+		Thursday = 5,
+		Friday = 6,
+		Saturday = 7
 
-	//};
+	};
+
+	enum businessDayConvention : short {
+
+		following         = 0,          
+		modifiedFollowing = 1, 
+		preceding         = 2,
+		modifiedPreceding = 3,  
+		unadjusted        = 4
+
+
+	};
+
+	enum timeUnit {
+
+		year,
+		month,
+		week,
+		day,
+		hour,
+		minute,
+		second,
+		milliSecond,
+		microSecond,
+		nanoSecond
+
+	};
+
 
 }
 

@@ -36,7 +36,7 @@ namespace thOth {
 		real value(const boost::numeric::ublas::vector<double>& x);
 
 		//! call cost values computation and increment evaluation counter
-		Disposable<Array> values(const boost::numeric::ublas::vector<double>& x);
+		boost::numeric::ublas::vector<double> values(const boost::numeric::ublas::vector<double>& x);
 
 		//! call cost function gradient computation and increment
 		//  evaluation counter
@@ -98,7 +98,7 @@ namespace thOth {
 		return costFunction_.value(x);
 	}
 
-	inline Disposable<Array> Problem::values(const boost::numeric::ublas::vector<double>& x) {
+	inline boost::numeric::ublas::vector<double> Problem::values(const boost::numeric::ublas::vector<double>& x) {
 		++functionEvaluation_;
 		return costFunction_.values(x);
 	}

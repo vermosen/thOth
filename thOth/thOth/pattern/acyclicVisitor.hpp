@@ -1,5 +1,5 @@
-#ifndef THOTH_ACYCLIC_VISITOR
-#define THOTH_ACYCLIC_VISITOR
+#ifndef thoth_acyclic_visitor_hpp
+#define thoth_acyclic_visitor_hpp
 
 namespace thOth {
 

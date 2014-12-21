@@ -16,7 +16,7 @@ namespace thOth {
 		if (&o != this) {
 		
 			calculated_ = o.calculated_;
-			frozen_ = o.frozen_;
+			frozen_     = o.frozen_    ;
 		
 		}
 

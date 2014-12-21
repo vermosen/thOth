@@ -58,7 +58,7 @@ public:
 	afx_msg void OnPaint();
 	afx_msg void OnInitialUpdate();
 	afx_msg int  OnCreate(LPCREATESTRUCT lpCreateStruct);
-	afx_msg void OnTestButtonClicked();
+	afx_msg void OnTestButtonClicked();										// request db and build a ts object
 	afx_msg void OnDtnDateTimeChangeStartDatePicker(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnDtnDateTimeChangeEndDatepicker(NMHDR *pNMHDR, LRESULT *pResult);
 };

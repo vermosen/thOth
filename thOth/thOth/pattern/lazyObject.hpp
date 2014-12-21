@@ -1,5 +1,5 @@
-#ifndef THOTH_LAZY_OBJECT
-#define THOTH_LAZY_OBJECT
+#ifndef thoth_lazy_object
+#define thoth_lazy_object
 
 #include "thOth/pattern/observable.hpp"
 #include "thOth/pattern/observer.hpp"
@@ -26,7 +26,7 @@ namespace thOth {
 
 		// This method performs all needed calculations by calling
 		// the <i><b>performCalculations</b></i> method.
-		virtual void calculate();
+		virtual void calculate() = 0;
 		
 		// This method must implement any calculations which must be
 		// (re)done in order to calculate the desired results.

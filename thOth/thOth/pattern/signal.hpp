@@ -1,6 +1,7 @@
 #ifndef thoth_signal_hpp
 #define thoth_signal_hpp
 
+
 #include <boost/signals2.hpp>
 
 namespace thOth {

@@ -15,18 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="thOth\math\optimization\problem.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\math\optimization\constraint.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\math\optimization\costFunction.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thOth\math\optimization\method.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thOth\pattern\acyclicVisitor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -90,6 +78,15 @@
     <ClInclude Include="thOth\bar\bar.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="thOth\time\calendar.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\time\calendars\unitedStates.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\time\period.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="thOth\pattern\lazyObject.cpp">
@@ -129,6 +126,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="thOth\bar\bar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thOth\time\calendar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thOth\time\calendars\unitedStates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thOth\time\period.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
