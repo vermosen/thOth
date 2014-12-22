@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="thOth\bar\bar.hpp" />
+    <ClInclude Include="thOth\message.hpp" />
+    <ClInclude Include="thOth\message\bookMessage.hpp" />
     <ClInclude Include="thOth\handle.hpp" />
     <ClInclude Include="thOth\pattern\acyclicVisitor.hpp" />
     <ClInclude Include="thOth\pattern\lazyObject.hpp" />
@@ -46,6 +48,7 @@
     <ClInclude Include="thOth\time\period.hpp" />
     <ClInclude Include="thOth\time\TimeSeries.hpp" />
     <ClInclude Include="thOth\trade.hpp" />
+    <ClInclude Include="thOth\message\tradeMessage.hpp" />
     <ClInclude Include="thOth\types.hpp" />
     <ClInclude Include="thOth\utilities\csvBuilder.hpp" />
   </ItemGroup>

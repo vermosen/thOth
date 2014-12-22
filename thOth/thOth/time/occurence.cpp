@@ -24,9 +24,6 @@ namespace thOth {
 			v1->accept(this);
 		else
 			return;
-		
-		// throw exception
-			//QL_FAIL("not an occurence visitor");
-	}
 
+	}
 }

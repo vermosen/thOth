@@ -6,10 +6,9 @@
 namespace thOth {
 
 	typedef std::size_t size;					// size
-
 	typedef double real;						// real number
-
 	typedef long volume;						// volume (int 64 ?)
+	typedef unsigned long long recordId;		// record identifier
 
 	enum marketSide : bool {
 
