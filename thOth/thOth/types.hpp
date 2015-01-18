@@ -2,14 +2,15 @@
 #define thoth_types
 
 #include <cstddef>
+#include <stdint.h>
 
 namespace thOth {
 
-	typedef std::size_t size;					// size
-	typedef double real;						// real number
-	typedef long volume;						// volume (int 64 ?)
-	typedef unsigned long long recordId;		// record identifier
-
+	typedef std::size_t size	;				// size
+	typedef double		real	;				// real number
+	typedef long		volume	;				// volume (int 64 ?)
+	typedef uint64_t	bigInt	;				// record identifier
+	
 	enum marketSide : bool {
 
 		bid = 1,
@@ -28,13 +29,13 @@ namespace thOth {
 
 	enum weekday {
 
-		Sunday = 1,
-		Monday = 2,
-		Tuesday = 3,
-		Wednesday = 4,
-		Thursday = 5,
-		Friday = 6,
-		Saturday = 7
+		Sunday		= 1,
+		Monday		= 2,
+		Tuesday		= 3,
+		Wednesday	= 4,
+		Thursday	= 5,
+		Friday		= 6,
+		Saturday	= 7
 
 	};
 

@@ -5,7 +5,7 @@
 
 namespace thOth {
 
-	class bookMessage : public message::impl<tradeMessage> {
+	class bookOrderMessage : public message::impl<bookOrderMessage> {
 
 	public:
 
@@ -13,9 +13,9 @@ namespace thOth {
 		enum entry_type    { bid_ = 1, ask_ = 2   , trade_  = 3 };
 
 		// compare sequence numbers
-		bool operator < (const bookMessage & msg) const;
+		bool operator < (const bookOrderMessage & msg) const;
 
-		friend std::ostream & operator << (std::ostream &, const bookMessage &);
+		friend std::ostream & operator << (std::ostream &, const bookOrderMessage &);
 
 		// accessors
 		update_action   action     ()	const { return action_		; }

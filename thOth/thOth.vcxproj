@@ -20,8 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="thOth\bar\bar.hpp" />
+    <ClInclude Include="thOth\bookOrder.hpp" />
     <ClInclude Include="thOth\message.hpp" />
-    <ClInclude Include="thOth\message\bookMessage.hpp" />
+    <ClInclude Include="thOth\message\bookOrderMessage.hpp" />
     <ClInclude Include="thOth\handle.hpp" />
     <ClInclude Include="thOth\pattern\acyclicVisitor.hpp" />
     <ClInclude Include="thOth\pattern\lazyObject.hpp" />
@@ -54,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="thOth\bar\bar.cpp" />
+    <ClCompile Include="thOth\bookOrder.cpp" />
     <ClCompile Include="thOth\pattern\lazyObject.cpp" />
     <ClCompile Include="thOth\pattern\observable.cpp" />
     <ClCompile Include="thOth\pattern\observer.cpp" />

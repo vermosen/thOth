@@ -31,7 +31,7 @@ namespace thOth {
 	protected:
 
 		// TS handle
-		thOth::relinkableHandle<thOth::timeSeries<thOth::quote> > ts_;
+		thOth::relinkableHandle<thOth::timeSeries<thOth::dateTime, thOth::quote> > ts_;
 
 	};
 

@@ -36,7 +36,7 @@ namespace thOth {
 
 			typedef boost::numeric::ublas::matrix<double> cMatrix;
 			typedef boost::numeric::ublas::vector<double> cArray ;
-			typedef timeSeries<double> cTimeSeries;
+			typedef timeSeries<thOth::dateTime, double> cTimeSeries;
 			typedef size Size;
 
 			csvBuilder() = delete;										// no default ctor

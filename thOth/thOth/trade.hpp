@@ -6,23 +6,28 @@
 
 namespace thOth {
 
-	class dateTime;
-
 	class trade {							// base class for trade
 
 	public:
 
-		trade();							// constructor
-		trade(const trade &);				// copy constructor
-		~trade();							// destructor
+		trade ()					;		// constructor
+		trade (const trade &)		;		// copy constructor
+		trade (volume qt, real px)	;		// additional constructor
+		~trade() {}					;		// destructor
+
 		trade & operator =(const trade &);	// assignement operator
 
-		trade(const dateTime&, const volume&, const double&);
-											// additional constructor
+		// accessors
+		volume quantity	() { return quantity_	; };
+		real price		() { return price_		; };
 
-		dateTime tradeDate_;
-		volume   quantity_;
-		double   price_;
+		void quantity (volume s) { quantity_ = s; };
+		void price    (real	  s) { price_    = s; };
+
+	protected:
+
+		volume	quantity_ = 0	;
+		real	price_	  = -1.0	;
 
 	};
 

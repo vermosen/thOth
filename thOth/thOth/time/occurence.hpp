@@ -8,7 +8,6 @@ namespace thOth {
 
 	class acyclicVisitor;
 
-
 	// not sure about the observable inheritance...
 	class occurence : public observable	{
 

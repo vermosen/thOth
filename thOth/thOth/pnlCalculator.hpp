@@ -11,7 +11,6 @@ namespace thOth {
 	// restitute it's current P&L.
 	// Check bottlenecks to see if it should be 
 	// turned into lazyobject
-
 	// should also include a daily cash balance 
 	class pnlCalculator : public observer {
 

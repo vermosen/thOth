@@ -10,10 +10,9 @@ namespace thOth {
 
 	// it takes the initial implementation date/time
 	// as an argument
-
 	// strategies generates trade list
-
 	// strategies are lazyObjects
+
 	class strategy : public lazyObject {
 
 		public:

@@ -87,13 +87,16 @@
     <ClInclude Include="thOth\time\period.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thOth\message\bookMessage.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thOth\message\tradeMessage.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thOth\message.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\message\bookOrderMessage.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thOth\bookOrder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -144,6 +147,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="thOth\time\period.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thOth\bookOrder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -24,7 +24,7 @@ namespace thOth {
 				real high    ,
 				real low     ,
 				period length,
-				size volume  );
+				size volume   );
 
 			~bar();												// destructor
 
@@ -38,12 +38,12 @@ namespace thOth {
 			size volume   () const { return volume_; };
 			period length () const { return length_; };
 
-			void open	(const real & v		) { open_	= v; };
-			void close	(const real & v		) { close_	= v; };
-			void high	(const real & v		) { high_	= v; };
-			void low	(const real & v		) { low_	= v; };
-			void volume	(const size & v		) { volume_	= v; };
-			void length	(const period & v	) { length_	= v; };
+			void open	(const real		& v) { open_	= v; };
+			void close	(const real		& v) { close_	= v; };
+			void high	(const real		& v) { high_	= v; };
+			void low	(const real		& v) { low_		= v; };
+			void volume	(const size		& v) { volume_	= v; };
+			void length	(const period	& v) { length_	= v; };
 
 		private:
 
@@ -52,7 +52,7 @@ namespace thOth {
 			real	high_   ;
 			real	low_    ;
 			period	length_	;
-			size	volume_ ;
+			size	volume_	;
 
 	};
 }

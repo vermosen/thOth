@@ -2,7 +2,7 @@
 #define thOth_message_hpp
 
 #include <string>
-#include <istream>
+//#include <istream>
 
 #include <thOth/time/DateTime.hpp>
 #include <thOth/pattern/visitor.hpp>
@@ -11,7 +11,7 @@
 namespace thOth {
 
 	// TODO: bring more structure on that one
-	typedef std::pair<recordId, std::string> instrument;
+	typedef std::pair<bigInt, std::string> instrument;
 
 	class message {
 
