@@ -2,7 +2,7 @@
 #define thoth_market_order_hpp
 
 #include <thOth/strategy.hpp>
-#include <thOth/time/timeseries.hpp>
+#include <thOth/time/timeSeries.hpp>
 #include <thOth/relinkableHandle.hpp>
 #include <thOth/quote/quote.hpp>
 

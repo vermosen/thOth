@@ -56,9 +56,9 @@ namespace thOth {
 
 			if (&builder != this) {
 
-				std::lock_guard<std::mutex> dataGuard(dataMutex_);				// lock mutex
+				boost::lock_guard<boost::mutex> dataGuard(dataMutex_);			// lock mutex
 
-				for (Size i = 0; i < rMax_; i++)								// delete old data	
+				for (Size i = 0; i < rMax_; i++)								// delete old data
 					delete[] data_[i];
 
 				delete[] data_;
@@ -86,12 +86,12 @@ namespace thOth {
 
 		void csvBuilder::add(const std::string & str, Size r1, Size c1) {
 
-			std::lock_guard<std::mutex> dataGuard(dataMutex_);					// lock mutex
+			boost::lock_guard<boost::mutex> dataGuard(dataMutex_);				// lock mutex
 
 			if (r1 > rMax_ || c1 > cMax_)										// allocate
 				allocate(r1, c1);							
 
-			data_[r1 - 1][c1 - 1] = str;											// update
+			data_[r1 - 1][c1 - 1] = str;										// update
 
 		};
 
@@ -103,7 +103,7 @@ namespace thOth {
 
 		void csvBuilder::add(const cArray & arr, Size r1, Size c1) {
 			
-			std::lock_guard<std::mutex> dataGuard(dataMutex_);					// lock data mutex
+			boost::lock_guard<boost::mutex> dataGuard(dataMutex_);				// lock data mutex
 			
 			if (r1 + arr.size() > rMax_ || c1 > cMax_)							// allocate
 				allocate(r1 + arr.size(), c1);
@@ -115,7 +115,7 @@ namespace thOth {
 
 		void csvBuilder::add(const cMatrix & mat, Size r1, Size c1) {
 			
-			std::lock_guard<std::mutex> dataGuard(dataMutex_);					// lock data mutex
+			boost::lock_guard<boost::mutex> dataGuard(dataMutex_);				// lock data mutex
 			
 			if (r1 + mat.size1() > rMax_ || c1 + mat.size2() > cMax_)			// allocate
 				allocate(r1 + mat.size1(), c1 + mat.size2());
@@ -133,10 +133,10 @@ namespace thOth {
 
 			Size i = 0;
 
-			std::lock_guard<std::mutex> dataGuard(dataMutex_);					// lock data mutex
+			boost::lock_guard<boost::mutex> dataGuard(dataMutex_);				// lock data mutex
 
-			if (r1 + ts.size() > rMax_ || c1 + displayDates > cMax_)
-				allocate(r1 + ts.size(), c1 + displayDates);
+			if (r1 + ts.nObs() > rMax_ || c1 + displayDates > cMax_)
+				allocate(r1 + ts.nObs(), c1 + displayDates);
 
 			if (displayDates) {													// display dates ?
 
@@ -159,7 +159,7 @@ namespace thOth {
 
 		void csvBuilder::createFile() {
 
-			std::lock_guard<std::mutex> dataGuard(dataMutex_);					// lock data mutex
+			boost::lock_guard<boost::mutex> dataGuard(dataMutex_);				// lock data mutex
 
 			for (Size i = 0; i < rMax_; i++) {
 

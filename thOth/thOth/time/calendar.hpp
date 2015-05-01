@@ -24,7 +24,7 @@ namespace thOth {
 
 		};
 
-		std::shared_ptr<impl> impl_;
+		boost::shared_ptr<impl> impl_;
 
 	public:
 

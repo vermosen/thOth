@@ -1,6 +1,7 @@
 #ifndef thoth_time_series
 #define thoth_time_series
 
+#include <thOth/types.hpp>
 #include <thOth/time/dateTime.hpp>
 #include <thOth/pattern/observable.hpp>
 
@@ -24,7 +25,7 @@ namespace thOth {
 
 		timeSeries<Key, T,  Rel, All>();										// default ctor
 		timeSeries<Key, T,  Rel, All>(const timeSeries<Key, T,  Rel, All> &);	// copy ctor
-		~timeSeries<Key, T,  Rel, All>() {};									// destructor
+	   ~timeSeries<Key, T,  Rel, All>() {};										// destructor
 		timeSeries<Key, T,  Rel, All> & operator =(								// assignement operator
 			const timeSeries<Key, T,  Rel, All> &);	
 
@@ -35,11 +36,11 @@ namespace thOth {
 
 		};
 
-		void insert(const std::pair<Key, T> &);						// insert new data
+		void insert(const std::pair<Key, T> &);									// insert new data
 
-		size size () const;														// size
+		size nObs() const;														// size
 		
-		void clear ();															// clear the ts
+		void clear();															// clear the ts
 
 		// iterator definition
 		typedef typename std::map<Key, T, Rel, All>::iterator iterator								;
@@ -48,14 +49,14 @@ namespace thOth {
 		typedef typename std::map<Key, T, Rel, All>::const_reverse_iterator const_reverse_iterator	;
 
 		// iterators
-		typename iterator               begin   ()      ;
-		typename iterator               end     ()      ;
-		typename reverse_iterator       rbegin  ()      ;
-		typename reverse_iterator       rend    ()      ;
-		typename const_iterator         cbegin  () const;
-		typename const_iterator         cend    () const;	
-		typename const_reverse_iterator crbegin () const;
-		typename const_reverse_iterator crend   () const;
+		typename std::map<Key, T, Rel, All>::iterator 				begin	()		;
+		typename std::map<Key, T, Rel, All>::iterator 				end  	()		;
+		typename std::map<Key, T, Rel, All>::reverse_iterator 		rbegin  ()      ;
+		typename std::map<Key, T, Rel, All>::reverse_iterator       rend    ()      ;
+		typename std::map<Key, T, Rel, All>::const_iterator         cbegin  () const;
+		typename std::map<Key, T, Rel, All>::const_iterator         cend    () const;
+		typename std::map<Key, T, Rel, All>::const_reverse_iterator crbegin () const;
+		typename std::map<Key, T, Rel, All>::const_reverse_iterator crend   () const;
 		
 	private:
 
@@ -162,7 +163,7 @@ namespace thOth {
 	}
 
 	template <typename Key, typename T, typename Rel, typename All>
-	inline size timeSeries<Key, T,  Rel, All>::size() const {
+	inline size timeSeries<Key, T,  Rel, All>::nObs() const {
 
 			return data_.size();
 

@@ -3,7 +3,7 @@
 
 #include <thOth/pattern/observable.hpp>
 #include <thOth/pattern/observer.hpp>
-#include <thOth/time/TimeSeries.hpp>
+#include <thOth/time/timeSeries.hpp>
 #include <thOth/quote/quote.hpp>
 #include <thOth/time/period.hpp>
 

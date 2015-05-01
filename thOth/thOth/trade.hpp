@@ -2,7 +2,7 @@
 #define thoth_trade_hpp
 
 #include <thOth/types.hpp>
-#include <thOth/time/DateTime.hpp>
+#include <thOth/time/dateTime.hpp>
 
 namespace thOth {
 

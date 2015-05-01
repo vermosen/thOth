@@ -4,6 +4,7 @@
 #include <string>
 #include <memory>
 
+#include "thOth/time/dateTime.hpp"
 #include "thOth/time/calendar.hpp"
 
 namespace thOth {
@@ -40,7 +41,7 @@ namespace thOth {
 			std::string name() const { return "US government bond market"; }
 			bool isBusinessDay(const dateTime &) const;
 		};
-	}
+	};
 }
 
 #endif

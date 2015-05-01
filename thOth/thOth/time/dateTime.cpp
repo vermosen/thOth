@@ -211,8 +211,11 @@ namespace thOth {
 	// adjust to the closest mulitple increment
 	dateTime dateTime::adjust100ms(const thOth::dateTime & d) {
 	
+#ifdef _WIN32
 		__int64 tt = d.time_of_day().ticks();
-
+#else
+		int64_t tt = d.time_of_day().ticks();
+#endif
 		return thOth::dateTime(d.year(), d.month(), d.day(), boost::posix_time::milliseconds((tt - tt % 100000) / 1000));
 
 	};
