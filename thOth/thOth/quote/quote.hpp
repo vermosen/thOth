@@ -18,7 +18,6 @@ namespace thOth {
 			volume    volume_;
 	
 	};
-
 }
 
 #endif

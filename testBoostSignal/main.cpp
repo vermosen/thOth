@@ -6,7 +6,7 @@
 //#include "sender.hpp"
 //#include "receiver.hpp"
 
-#include <thOth/time/TimeSeries.hpp>
+#include <thOth/time/timeSeries.hpp>
 //#include <boost/signals2/signal.hpp>
 //#include <boost/function.hpp>
 

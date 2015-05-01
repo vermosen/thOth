@@ -8,7 +8,7 @@ namespace thOth {
 
 	typedef unsigned int 	size   	;				// size
 	typedef double			real	;				// real number
-	typedef long			volume	;				// volume (int 64 ?)
+	typedef long			volume	;				// volume
 	typedef uint64_t		bigInt	;				// record identifier
 	
 	enum marketSide : bool {
@@ -46,7 +46,6 @@ namespace thOth {
 		preceding         = 2,
 		modifiedPreceding = 3,  
 		unadjusted        = 4
-
 
 	};
 

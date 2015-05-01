@@ -50,6 +50,16 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.gnu.lib.debug.554031199.812990814" name="/" resourcePath="testBoostSignal">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.lib.debug.304278078" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.lib.debug" unusedChildren="">
+							<tool id="cdt.managedbuild.tool.gnu.archiver.lib.debug.1289604136" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.lib.debug.1595218748"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.lib.debug.2075305804" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.lib.debug.796188042"/>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.lib.debug.930953715" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.lib.debug.2097171768"/>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.1179694547" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base.1624347367"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.817089555" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base.302662609"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.lib.debug.82103816" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.lib.debug.2145196310"/>
+						</toolChain>
+					</folderInfo>
 					<folderInfo id="cdt.managedbuild.config.gnu.lib.debug.554031199.1909115767" name="/" resourcePath="thOth">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.lib.debug.1622026484" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.lib.debug" unusedChildren="">
 							<targetPlatform id="cdt.managedbuild.target.gnu.platform.lib.debug" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.lib.debug"/>
@@ -132,6 +142,16 @@
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.2088185823" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.gnu.lib.release.1922875380.659967969" name="/" resourcePath="testBoostSignal">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.lib.release.1521183881" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.lib.release" unusedChildren="">
+							<tool id="cdt.managedbuild.tool.gnu.archiver.lib.release.987129230" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.lib.release.1980816274"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.lib.release.167358451" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.lib.release.1029430014"/>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.lib.release.59159401" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.lib.release.452368888"/>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.927349429" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base.1765949751"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.1261060328" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base.1395103348"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.lib.release.199681285" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.lib.release.1163551301"/>
 						</toolChain>
 					</folderInfo>
 					<folderInfo id="cdt.managedbuild.config.gnu.lib.release.1922875380.1382827914" name="/" resourcePath="thOth">

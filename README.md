@@ -9,4 +9,4 @@ Ultimately, thOth is meant to support C++11 multi-threading as well as GPGPU pro
 
 The core library strongly relies on Boost, but additional dependencies might also be considered.
 
-The current version only supports MSVC 2013.
+The current version only supports MSVC 2013 and Eclipse/gcc.
