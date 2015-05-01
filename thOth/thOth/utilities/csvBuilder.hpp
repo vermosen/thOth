@@ -11,13 +11,13 @@
 
 // stl headers
 #include <fstream>
-#include <mutex>
 
 // boost headers
 #include <boost/lexical_cast.hpp>
 #include <boost/thread.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/vector.hpp>
+#include <boost/thread/mutex.hpp>
 
 // thOth headers
 #include <thOth/time/timeSeries.hpp>
@@ -41,8 +41,14 @@ namespace thOth {
 			typedef timeSeries<thOth::dateTime, double> cTimeSeries;
 			typedef size Size;
 
+			// C++11 enabled ?
+			#if __cplusplus > 199711L
+
 			csvBuilder() = delete;										// no default ctor
 			csvBuilder(const csvBuilder &) = delete;					// no copy ctor 
+
+			#endif
+
 			csvBuilder(const std::string &,								// specifies the file path
 					   bool overwrite = false);							// default to append mode
 
@@ -54,7 +60,7 @@ namespace thOth {
 			void add(const cArray &, Size r1, Size c1);
 			void add(const std::string &, Size r1, Size c1);
 			void add(double, Size r1, Size c1);
-			void add(const cTimeSeries &, Size r1, Size c1, bool displayDates = false);
+			void add(cTimeSeries &, Size r1, Size c1, bool displayDates = false);
 
 			template<class T>
 			void add(const std::vector<T> & arr, Size r1, Size c1) {	// generic vector<T>

@@ -129,7 +129,7 @@ namespace thOth {
 
 		};
 
-		void csvBuilder::add(const cTimeSeries & ts, Size r1, Size c1, bool displayDates) {
+		void csvBuilder::add(cTimeSeries & ts, Size r1, Size c1, bool displayDates) {
 
 			Size i = 0;
 
@@ -140,7 +140,7 @@ namespace thOth {
 
 			if (displayDates) {													// display dates ?
 
-				for (cTimeSeries::const_iterator It = ts.cbegin(); It != ts.cend(); It++, i++) {
+				for (cTimeSeries::iterator It = ts.begin(); It != ts.end(); It++, i++) {
 
 					data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(It->first);
 					data_[r1 + i - 1][c1] = boost::lexical_cast<std::string>(It->second);
@@ -150,7 +150,7 @@ namespace thOth {
 			}
 			else {
 
-				for (cTimeSeries::const_iterator It = ts.cbegin(); It != ts.cend(); It++, i++)
+				for (cTimeSeries::iterator It = ts.begin(); It != ts.end(); It++, i++)
 					data_[r1 + i - 1][c1 - 1] = boost::lexical_cast<std::string>(It->second);
 
 			}

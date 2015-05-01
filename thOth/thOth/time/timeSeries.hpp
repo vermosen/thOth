@@ -18,7 +18,7 @@ namespace thOth {
 		typename Key,
 		typename T,
 		typename Rel = std::less<Key>,
-		typename All = std::allocator<std::pair<const Key, T>>>
+		typename All = std::allocator<std::pair<const Key, const T> > >
 	class timeSeries : public observable {
 
 	public:
@@ -53,11 +53,17 @@ namespace thOth {
 		typename std::map<Key, T, Rel, All>::iterator 				end  	()		;
 		typename std::map<Key, T, Rel, All>::reverse_iterator 		rbegin  ()      ;
 		typename std::map<Key, T, Rel, All>::reverse_iterator       rend    ()      ;
+
+		// C++11 enabled ?
+		#if __cplusplus > 199711L
+
 		typename std::map<Key, T, Rel, All>::const_iterator         cbegin  () const;
 		typename std::map<Key, T, Rel, All>::const_iterator         cend    () const;
 		typename std::map<Key, T, Rel, All>::const_reverse_iterator crbegin () const;
 		typename std::map<Key, T, Rel, All>::const_reverse_iterator crend   () const;
 		
+		#endif
+
 	private:
 
 		std::map<dateTime, T> data_;											// data
@@ -130,6 +136,9 @@ namespace thOth {
 
 	}
 
+	// C++11 enabled ?
+	#if __cplusplus > 199711L
+
 	template <typename Key, typename T, typename Rel, typename All>
 	inline typename timeSeries<Key, T,  Rel, All>::const_iterator
 		timeSeries<Key, T,  Rel, All>::cbegin() const {
@@ -161,6 +170,8 @@ namespace thOth {
 		return data_.crend();
 
 	}
+
+	#endif
 
 	template <typename Key, typename T, typename Rel, typename All>
 	inline size timeSeries<Key, T,  Rel, All>::nObs() const {

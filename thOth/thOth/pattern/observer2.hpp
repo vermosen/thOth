@@ -14,11 +14,12 @@ namespace thOth {
 	template<typename T>
 	class observer2 {
 
-		virtual ~observer2() {};
+
 
 	public:
 
-		virtual void slot(T i) {};
+		virtual void slot	(T i) {};
+		virtual ~observer2	(	) {};							// virtual destructor
 
 	};
 }

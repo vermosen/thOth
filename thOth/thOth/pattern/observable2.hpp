@@ -16,7 +16,7 @@ namespace thOth {
 
 	// template without any return type
 	template <typename T>
-	class observable2 : public boost::signals2::signal < void(T) > {
+	class observable2 : public boost::signals2::signal < void (T) > {
 
 	public:
 
@@ -26,19 +26,17 @@ namespace thOth {
 			std::cout << "sending signal from thread " << boost::this_thread::get_id() << std::endl;
 			#endif
 
-			this->boost::signals2::signal< void(T) >::operator()(i);
+			this->signal::operator()(i);
 
 		}
 
-		void registerWith(observer2<T> & rc) {
+	void registerWith(observer2 < T > & rc) {
 
-			this->connect(boost::signals2::signal<void(T)>::slot_type(		// handshake
-				&observer2<T>::slot, &rc, _1));
+		this->connect(boost::signals2::signal<void(T)>::slot_type(				// handshake
+			&observer2 < T >::slot, &rc, _1));
 
 		}
 	};
-
-
 }
 
 #endif
