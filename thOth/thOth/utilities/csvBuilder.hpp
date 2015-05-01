@@ -15,11 +15,12 @@
 
 // boost headers
 #include <boost/lexical_cast.hpp>
+#include <boost/thread.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 
 // thOth headers
-#include <thOth/time/TimeSeries.hpp>
+#include <thOth/time/timeSeries.hpp>
 
 namespace thOth {
 
@@ -30,6 +31,7 @@ namespace thOth {
 		//        2 - limit check for data size
 		//		  3 - command to purge existing file
 		//        4 - date conversion into excel format
+		//        5 - replace with a list
 		class csvBuilder {
 
 		public:
@@ -77,7 +79,7 @@ namespace thOth {
 			Size	        rMax_   ;
 			Size		    cMax_   ;
 
-			std::mutex dataMutex_;									// mutex to lock/unlock for data modification
+			boost::mutex dataMutex_;									// mutex to lock/unlock for data modification
 
 		};
 	}

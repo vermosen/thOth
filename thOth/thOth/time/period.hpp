@@ -3,7 +3,7 @@
 
 #include <boost/date_time/posix_time/posix_time_duration.hpp>
 
-#include "thoth/types.hpp"
+#include <thOth/types.hpp>
 
 namespace thOth {
 
@@ -14,13 +14,13 @@ namespace thOth {
 
 		period() = delete;							// no default ctor
 		period(const period &);						// copy ctor
-		period(timeUnit, size);						// ctor
+		period(timeUnit, size );					// ctor
 		~period();									// destructor
 
 		period & operator=(const period &);			// assignement operator
 	
-		timeUnit unit () const { return unit_; };
-		size   amount () const { return n_   ; };
+		timeUnit unit 	() const { return unit_; };
+		size     amount () const { return n_   ; };
 
 	private:
 

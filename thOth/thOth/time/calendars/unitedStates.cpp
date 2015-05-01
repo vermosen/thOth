@@ -5,11 +5,11 @@ namespace thOth {
 	unitedStates::unitedStates(unitedStates::market market) {
 		// all calendar instances on the same market share the same
 		// implementation instance
-		static std::shared_ptr<calendar::impl> settlementImpl(
+		static boost::shared_ptr<calendar::impl> settlementImpl(
 			new unitedStates::settlementImpl);
-		static std::shared_ptr<calendar::impl> nyseImpl(
+		static boost::shared_ptr<calendar::impl> nyseImpl(
 			new unitedStates::nyseImpl);
-		static std::shared_ptr<calendar::impl> governmentImpl(
+		static boost::shared_ptr<calendar::impl> governmentImpl(
 			new unitedStates::governmentBondImpl);
 		switch (market) {
 		case settlement:
@@ -23,13 +23,13 @@ namespace thOth {
 			break;
 		default:
 			//QL_FAIL("unknown market");
-		}
+			break;
+		};
 	}
-
 
 	bool unitedStates::settlementImpl::isBusinessDay(const dateTime& date) const {
 		
-		//Weekday w = date.weekday();
+		daeTime::Week Weekday w = date.weekday();
 		dateTime::Days   d = date.day  ();
 		dateTime::Months m = date.month();
 		

@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <thOth/portfolio.hpp>
-#include <thOth/time/TimeSeries.hpp>
+#include <thOth/time/timeSeries.hpp>
 
 namespace thOth {
 

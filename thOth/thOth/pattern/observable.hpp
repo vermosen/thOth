@@ -1,4 +1,5 @@
-#pragma once
+#ifndef thoth_observable_hpp
+#define thoth_observable_hpp
 
 #include <set>
 
@@ -35,3 +36,5 @@ namespace thOth {
 	};
 
 }
+
+#endif
