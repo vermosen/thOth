@@ -50,6 +50,7 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+<<<<<<< HEAD
 					<folderInfo id="cdt.managedbuild.config.gnu.lib.debug.554031199.812990814" name="/" resourcePath="testBoostSignal">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.lib.debug.304278078" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.lib.debug" unusedChildren="">
 							<tool id="cdt.managedbuild.tool.gnu.archiver.lib.debug.1289604136" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.lib.debug.1595218748"/>
@@ -152,6 +153,90 @@
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.927349429" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base.1765949751"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.1261060328" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base.1395103348"/>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.lib.release.199681285" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.lib.release.1163551301"/>
+=======
+					<folderInfo id="cdt.managedbuild.config.gnu.lib.debug.554031199.1909115767" name="/" resourcePath="thOth">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.lib.debug.1622026484" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.lib.debug" unusedChildren="">
+							<targetPlatform id="cdt.managedbuild.target.gnu.platform.lib.debug" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.lib.debug"/>
+							<tool id="cdt.managedbuild.tool.gnu.archiver.lib.debug.16797690" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.lib.debug.1595218748"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.lib.debug.879611964" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.lib.debug.796188042">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1538555372" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.lib.debug.705457288" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.lib.debug.2097171768">
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1531434395" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.311662484" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base.1624347367"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.1729998845" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base.302662609"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.lib.debug.1617361033" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.lib.debug.2145196310">
+								<option id="gnu.both.asm.option.include.paths.1949211162" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1535823634" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.lib.debug.554031199.1250645269" name="thOth_vc12.sln" rcbsApplicability="disable" resourcePath="thOth_vc12.sln" toolsToInvoke=""/>
+					<fileInfo id="cdt.managedbuild.config.gnu.lib.debug.554031199.562573436" name="README.md" rcbsApplicability="disable" resourcePath="README.md" toolsToInvoke=""/>
+					<sourceEntries>
+						<entry excluding="thOth/time/calendars" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="thOth"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
+				<externalSettings containerId="thOth;cdt.managedbuild.config.gnu.lib.release.1922875380" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/thOth"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/thOth/Release"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="thOth"/>
+					</externalSetting>
+				</externalSettings>
+			</storageModule>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.lib.release.1922875380">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.lib.release.1922875380" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<externalSettings>
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/thOth"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/thOth/Release"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="thOth"/>
+					</externalSetting>
+				</externalSettings>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="a" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.staticLib" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.staticLib" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.lib.release.1922875380" name="Release" parent="cdt.managedbuild.config.gnu.lib.release">
+					<folderInfo id="cdt.managedbuild.config.gnu.lib.release.1922875380." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.lib.release.783630414" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.lib.release">
+							<targetPlatform id="cdt.managedbuild.target.gnu.platform.lib.release.940936001" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.lib.release"/>
+							<builder buildPath="${workspace_loc:/thOth/Release}" id="cdt.managedbuild.target.gnu.builder.lib.release.928831610" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.lib.release"/>
+							<tool id="cdt.managedbuild.tool.gnu.archiver.lib.release.1980816274" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.lib.release"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.lib.release.1029430014" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.lib.release">
+								<option id="gnu.cpp.compiler.lib.release.option.optimization.level.1363788249" name="Optimization Level" superClass="gnu.cpp.compiler.lib.release.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.lib.release.option.debugging.level.1017717163" name="Debug Level" superClass="gnu.cpp.compiler.lib.release.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.other.other.719074389" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -std=c++0x" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.include.paths.1057766464" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/thOth}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1598211952" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.lib.release.452368888" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.lib.release">
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.lib.release.option.optimization.level.1529833514" name="Optimization Level" superClass="gnu.c.compiler.lib.release.option.optimization.level" valueType="enumerated"/>
+								<option id="gnu.c.compiler.lib.release.option.debugging.level.215478545" name="Debug Level" superClass="gnu.c.compiler.lib.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.include.paths.175384585" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1281403294" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.1765949751" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.1395103348" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.lib.release.1163551301" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.lib.release">
+								<option id="gnu.both.asm.option.include.paths.469400410" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/thOth/thOth}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.2088185823" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+>>>>>>> branch 'master' of https://github.com/vermosen/thOth
 						</toolChain>
 					</folderInfo>
 					<folderInfo id="cdt.managedbuild.config.gnu.lib.release.1922875380.1382827914" name="/" resourcePath="thOth">

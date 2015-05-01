@@ -8,7 +8,11 @@ namespace thOth {
 
 	typedef unsigned int 	size   	;				// size
 	typedef double			real	;				// real number
+<<<<<<< HEAD
 	typedef long			volume	;				// volume
+=======
+	typedef long			volume	;				// volume (int 64 ?)
+>>>>>>> branch 'master' of https://github.com/vermosen/thOth
 	typedef uint64_t		bigInt	;				// record identifier
 	
 	enum marketSide : bool {
