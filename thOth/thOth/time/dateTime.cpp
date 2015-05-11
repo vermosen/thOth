@@ -111,53 +111,53 @@ namespace thOth {
 		timeUnit u = p.unit();
 		dateTime ret;
 
-		switch (u){
+		switch (u) {
 
-		case timeUnit::year:
-			ret = d + boost::gregorian::years(p.amount());
-			break;
+			case timeUnit::year:
+				ret = d + boost::gregorian::years(p.amount());
+				break;
 
-		case timeUnit::month:
-			ret = d + boost::gregorian::months(p.amount());
-			break;
+			case timeUnit::month:
+				ret = d + boost::gregorian::months(p.amount());
+				break;
 
-		case timeUnit::week:
-			ret = d + boost::gregorian::weeks(p.amount());
-			break;
+			case timeUnit::week:
+				ret = d + boost::gregorian::weeks(p.amount());
+				break;
 
-		case timeUnit::day:
-			ret = d + boost::gregorian::days(p.amount());
-			break;
+			case timeUnit::day:
+				ret = d + boost::gregorian::days(p.amount());
+				break;
 
-		case timeUnit::hour:
-			ret = d + time_duration(boost::posix_time::hours(p.amount()));
-			break;
+			case timeUnit::hour:
+				ret = d + time_duration(boost::posix_time::hours(p.amount()));
+				break;
 
-		case timeUnit::minute:
-			ret = d + time_duration(boost::posix_time::minutes(p.amount()));
-			break;
+			case timeUnit::minute:
+				ret = d + time_duration(boost::posix_time::minutes(p.amount()));
+				break;
 
-		case timeUnit::second:
-			ret = d + time_duration(boost::posix_time::seconds(p.amount()));
-			break;
+			case timeUnit::second:
+				ret = d + time_duration(boost::posix_time::seconds(p.amount()));
+				break;
 
-		case timeUnit::milliSecond:
-			ret = d + time_duration(boost::posix_time::milliseconds(p.amount()));
-			break;
+			case timeUnit::milliSecond:
+				ret = d + time_duration(boost::posix_time::milliseconds(p.amount()));
+				break;
 
-		case timeUnit::microSecond:
-			ret = d + time_duration(boost::posix_time::milliseconds(p.amount()));
-			break;
+			case timeUnit::microSecond:
+				ret = d + time_duration(boost::posix_time::milliseconds(p.amount()));
+				break;
 
-#ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
-		case timeUnit::nanoSecond:
-			ret = d + time_duration(boost::posix_time::nanoseconds(p.amount()));
-			break;
-#endif
+			#ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
+			case timeUnit::nanoSecond:
+				ret = d + time_duration(boost::posix_time::nanoseconds(p.amount()));
+				break;
+			#endif
 
-		case timeUnit::nanoSecond:
-			ret = d + time_duration(boost::posix_time::milliseconds(p.amount()));
-			break;
+			case timeUnit::nanoSecond:
+				ret = d + time_duration(boost::posix_time::milliseconds(p.amount()));
+				break;
 		
 		}
 

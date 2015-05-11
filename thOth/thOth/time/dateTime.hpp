@@ -5,7 +5,8 @@
 #include <boost/date_time/posix_time/posix_time_io.hpp>
 #include <boost/date_time/posix_time/posix_time_types.hpp>
 
-#include "thOth/time/period.hpp"
+#include <thOth/time/period.hpp>
+#include <thOth/types.hpp>
 
 namespace thOth {
 

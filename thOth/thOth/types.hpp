@@ -12,60 +12,58 @@ namespace thOth {
 	typedef long			volume	;				// volume (int 64 ?)
 	typedef uint64_t		bigInt	;				// record identifier
 	
-	enum marketSide : bool {
+	enum marketSide {
 
-		bid = 1,
-		ask = 0
+		bid	,
+		ask
 
 	};
 
-	enum quoteType : short {
+	enum quoteType {
 
-		Undefined = 0,
-		Trade     = 1,
-		Bid       = 2,
-		Ask       = 3
+		Undefined ,
+		Trade     ,
+		Bid       ,
+		Ask
 
 	};
 
 	enum weekday {
 
-		Sunday		= 1,
-		Monday		= 2,
-		Tuesday		= 3,
-		Wednesday	= 4,
-		Thursday	= 5,
-		Friday		= 6,
-		Saturday	= 7
+		Sunday		,
+		Monday		,
+		Tuesday		,
+		Wednesday	,
+		Thursday	,
+		Friday		,
+		Saturday
 
 	};
 
-	enum businessDayConvention : short {
+	enum businessDayConvention {
 
-		following         = 0,          
-		modifiedFollowing = 1, 
-		preceding         = 2,
-		modifiedPreceding = 3,  
-		unadjusted        = 4
+		following         ,
+		modifiedFollowing ,
+		preceding         ,
+		modifiedPreceding ,
+		unadjusted
 
 	};
 
 	enum timeUnit {
 
-		year,
-		month,
-		week,
-		day,
-		hour,
-		minute,
-		second,
-		milliSecond,
-		microSecond,
+		year		,
+		month		,
+		week		,
+		day			,
+		hour		,
+		minute		,
+		second		,
+		milliSecond	,
+		microSecond	,
 		nanoSecond
 
 	};
-
-
 }
 
 #endif
